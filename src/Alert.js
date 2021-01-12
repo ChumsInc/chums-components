@@ -25,9 +25,9 @@ export default class Alert extends Component {
         return (
             <div className={classNames('alert my-3', `alert-${type}`, className, elClassName)}>
                 {!!context && (<strong className="me-1">[{context}]</strong>)}
-                <strong className="me-1">{title || 'Alert'}</strong>
+                {title && (<strong className="me-1">{title}:</strong>)}
                 {message || children || null}
-                {!!count && (<Badge type={type}>{numeral(count).format('0,0')}</Badge>)}
+                {!!count && (<Badge type={type} className="mx-3">{numeral(count).format('0,0')}</Badge>)}
                 {canDismiss && <span onClick={() => onDismiss(id)} className="btn-close" />}
             </div>
         );
