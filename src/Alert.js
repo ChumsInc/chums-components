@@ -2,11 +2,20 @@ import React, {Component} from "react";
 import classNames from "classnames";
 import Badge from "./Badge";
 import numeral from 'numeral';
-import {propTypeAlert} from "./commonPropTypes";
+import {colorPropType, propTypeAlert} from "./commonPropTypes";
+import PropTypes from "prop-types";
 
 export default class Alert extends Component {
     static propTypes = {
-        ...propTypeAlert,
+        id: PropTypes.number,
+        type: PropTypes.oneOf(colorPropType),
+        className: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+        title: PropTypes.string,
+        message: PropTypes.string,
+        context: PropTypes.string,
+        count: PropTypes.number,
+        canDismiss: PropTypes.bool,
+        onDismiss: PropTypes.func,
     }
     static defaultProps = {
         id: 0,
