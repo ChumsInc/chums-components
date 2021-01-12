@@ -1,22 +1,13 @@
-import React from "react";
+import React, {Component} from "react";
 import classNames from "classnames";
 import Badge from "./Badge";
-import {ColorType} from "./commonProps";
 import numeral from 'numeral';
+import {propTypeAlert} from "./commonPropTypes";
 
-export interface AlertProps {
-    id: number,
-    type: ColorType,
-    title?: string,
-    message?: string,
-    context?: string,
-    count: number,
-    canDismiss: boolean,
-    children?: React.ReactChild | React.ReactChildren,
-    onDismiss: (id:number) => void,
-}
-
-export default class Alert extends React.Component<AlertProps> {
+export default class Alert extends Component {
+    static propTypes = {
+        ...propTypeAlert,
+    }
     static defaultProps = {
         id: 0,
         type: "info",
@@ -27,12 +18,12 @@ export default class Alert extends React.Component<AlertProps> {
     }
 
     render() {
-        const {id, type, title, message, children, context, count, canDismiss, onDismiss} = this.props;
-        const className = {
+        const {id, type, className, title, message, children, context, count, canDismiss, onDismiss} = this.props;
+        const elClassName = {
             'alert-dismissible': canDismiss,
         }
         return (
-            <div className={classNames('alert my-3', `alert-${type}`, className)}>
+            <div className={classNames('alert my-3', `alert-${type}`, className, elClassName)}>
                 {!!context && (<strong className="me-1">[{context}]</strong>)}
                 <strong className="me-1">{title || 'Alert'}</strong>
                 {message || children || null}

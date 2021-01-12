@@ -1,21 +1,21 @@
-import React from 'react';
+import React, {Component} from 'react';
 import classNames from 'classnames';
-import {ColorType} from "./commonProps";
+import PropTypes from 'prop-types';
+import {colorPropType} from "./commonPropTypes";
 
-export interface BadgeProps {
-    type?: ColorType
-    text: string,
-    backgroundColor?: string,
-    className?: string | object,
-    description?: string,
-    children: React.ReactChild | React.ReactChildren,
-}
+export default class Badge extends Component {
+    static propTypes = {
+        type: PropTypes.oneOf(colorPropType),
+        text: PropTypes.string,
+        className: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+        description: PropTypes.string,
 
-export default class Badge extends React.Component<BadgeProps> {
+    }
     static defaultProps = {
         type: 'primary',
         text: null,
         className: '',
+        description: '',
     }
 
     render() {
