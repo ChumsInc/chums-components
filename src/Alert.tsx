@@ -37,7 +37,7 @@ export default class Alert extends React.Component<AlertProps> {
                 <strong className="me-1">{title || 'Alert'}</strong>
                 {message || children || null}
                 {!!count && (<Badge type={type}>{numeral(count).format('0,0')}</Badge>)}
-                {canDismiss && <span onClick={() => onDismiss(id)}className="btn-close" />}
+                {canDismiss && <span onClick={() => onDismiss(id)} className="btn-close" />}
             </div>
         );
     }
