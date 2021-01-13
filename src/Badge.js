@@ -5,7 +5,8 @@ import {colorPropType} from "./commonPropTypes";
 
 export default class Badge extends Component {
     static propTypes = {
-        type: PropTypes.oneOf(colorPropType),
+        color: PropTypes.oneOf([...colorPropType]),
+        pill: PropTypes.bool,
         text: PropTypes.string,
         className: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
         description: PropTypes.string,
@@ -19,10 +20,10 @@ export default class Badge extends Component {
     }
 
     render() {
-        const {type, text, className, children, description} = this.props;
-        const styleClassName = `bg-${type}`;
+        const {color, pill, text, className, children, description} = this.props;
+        const styleClassName = `bg-${color}`;
 
-        const badgeClassNames = classNames('badge badge-pill', styleClassName, className);
+        const badgeClassNames = classNames('badge', {'badge-pill': pill}, styleClassName, className);
         return (
             <span className={badgeClassNames}>
                 {text || children || ''}
