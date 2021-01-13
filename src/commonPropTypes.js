@@ -31,7 +31,7 @@ export const textColorPropType = [
 
 export const propTypeAlert = {
     id: PropTypes.number,
-    type: PropTypes.oneOf(colorPropType),
+    color: PropTypes.oneOf(colorPropType),
     className: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     title: PropTypes.string,
     message: PropTypes.string,

@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import {colorPropType} from "./commonPropTypes";
 
-class ProgressBar extends Component {
+export default class ProgressBar extends Component {
     static propTypes = {
         color: PropTypes.oneOf([...colorPropType]),
         value: PropTypes.number,
@@ -11,7 +11,7 @@ class ProgressBar extends Component {
         valueMax: PropTypes.number,
         striped: PropTypes.bool,
         animated: PropTypes.bool,
-        className: PropTypes.number,
+        className: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
         bgClassName: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     }
 
@@ -50,4 +50,3 @@ class ProgressBar extends Component {
     }
 }
 
-export default ProgressBar;
