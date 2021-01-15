@@ -9,15 +9,18 @@ export default class AlertList extends Component {
         onDismiss: PropTypes.func,
     }
     static defaultProps = {
-        alert: [],
-        onDismiss: () => {},
+        alerts: [],
     }
 
     render() {
         const {alerts, onDismiss} = this.props;
         return (
             <div>
-                {alerts.map(alert => (<Alert key={alert.id} {...alert} onDismiss={onDismiss} canDismiss />))}
+                {alerts.map(alert => (
+                    <Alert key={alert.id} {...alert}
+                           canDismiss={typeof onDismiss === 'function'}
+                           onDismiss={onDismiss}/>
+                ))}
             </div>
         )
     }

@@ -1,6 +1,6 @@
 {
   "name": "chums-components",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Chums Common Components",
   "main": "src/index.js",
   "scripts": {

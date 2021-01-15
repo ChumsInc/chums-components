@@ -15,7 +15,6 @@ export default class Alert extends Component {
         message: PropTypes.string,
         context: PropTypes.string,
         count: PropTypes.number,
-        canDismiss: PropTypes.bool,
         onDismiss: PropTypes.func,
     }
     static defaultProps = {
@@ -24,11 +23,11 @@ export default class Alert extends Component {
         title: 'Alert',
         context: null,
         count: 0,
-        canDismiss: false,
     }
 
     render() {
-        const {id, color, className, title, message, children, context, count, canDismiss, onDismiss} = this.props;
+        const {id, color, className, title, message, children, context, count, onDismiss} = this.props;
+        const canDismiss = typeof onDismiss === 'function';
         const elClassName = {
             'alert-dismissible': canDismiss,
         }
@@ -37,7 +36,7 @@ export default class Alert extends Component {
                 {!!context && (<strong className="me-1">[{context}]</strong>)}
                 {title && (<strong className="me-1">{title}:</strong>)}
                 {message || children || null}
-                {!!count && (<Badge type={color} className="mx-3">{numeral(count).format('0,0')}</Badge>)}
+                {!!count && count > 1 && (<Badge color={color} className="mx-3">{numeral(count).format('0,0')}</Badge>)}
                 {canDismiss && <span onClick={() => onDismiss(id)} className="btn-close"/>}
             </div>
         );
