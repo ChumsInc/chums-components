@@ -17,7 +17,7 @@ export default class AlertList extends Component {
         const {alerts, onDismiss} = this.props;
         return (
             <div>
-                {alerts.map(alert => (<Alert key={alert.id} {...alert} onDismiss={onDismiss} />))}
+                {alerts.map(alert => (<Alert key={alert.id} {...alert} onDismiss={onDismiss} canDismiss />))}
             </div>
         )
     }
