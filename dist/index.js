@@ -10,6 +10,7 @@ export { default as FormColumn } from './FormColumn';
 export { default as Input } from './Input';
 export { default as InputGroup } from './InputGroup';
 export { default as ItemDataList } from './ItemDataList';
+export { default as Modal } from './Modal';
 export { default as LoadingProgressBar } from './LoadingProgressBar';
 export { default as PageButton } from './PageButton';
 export { default as Pager, filterPage, pageFilter, calcPages } from './Pager';

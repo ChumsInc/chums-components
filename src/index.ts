@@ -30,6 +30,9 @@ export type {InputGroupProps} from './InputGroup'
 export {default as ItemDataList} from './ItemDataList'
 export type {ItemDataListProps, ItemSearchFilter, ItemSearchRecord} from './ItemDataList'
 
+export {default as Modal} from './Modal'
+export type {ModalProps} from './Modal'
+
 export {default as LoadingProgressBar} from './LoadingProgressBar';
 export type {LoadingProgressProps} from './LoadingProgressBar';
 
