@@ -4,6 +4,9 @@ export type {AlertProps} from './Alert'
 export {default as Badge} from './Badge';
 export type {BadgeProps} from './Badge'
 
+export {isLightColor} from './color-utils';
+export {colors, bgColors, buttonColors, textColors} from './colors';
+
 export {default as DateInput, dateFromInputValue, formatInputDate, inputDate} from './DateInput'
 export type {DateInputProps} from './DateInput'
 
@@ -78,7 +81,19 @@ export type {TabListProps} from './TabList'
 export {default as ToggleButton} from './ToggleButton'
 export type {ToggleButtonProps} from './ToggleButton'
 
+export type {
+    SortProps,
+    SortableTableField,
+    BootstrapColor,
+    BootstrapSize,
+    BootstrapBGColor,
+    BootstrapButtonColor,
+    BootstrapButtonSize,
+    BootstrapTextColor,
+    BootstrapFlexAlign,
+    InputField,
+    BasicAlert
+} from './types'
+
 export {noop, getRegex} from './utils'
 
-
-export {colors, bgColors, buttonColors, textColors} from './colors';

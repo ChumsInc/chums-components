@@ -83,6 +83,7 @@
     "commitLimit": false
   },
   "dependencies": {
+    "hex-rgb": "^5.0.0",
     "isomorphic-fetch": "^3.0.0",
     "styled-components": "^5.3.5"
   }
