@@ -7,7 +7,7 @@ import Badge from "./Badge";
 export interface AlertProps extends BasicAlert {
     count?: number,
     onDismiss?: (args?: any) => void,
-    children: React.ReactNode
+    children?: React.ReactNode
 }
 
 const Alert: React.FC<AlertProps> = ({
