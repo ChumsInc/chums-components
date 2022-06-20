@@ -3,6 +3,9 @@ import classNames from 'classnames';
 import numeral from "numeral";
 import Badge from "./Badge";
 const Alert = ({ message, color = 'primary', title, className = '', context, count = 0, canDismiss = true, onDismiss, children }) => {
+    if (process.env.NODE_ENV !== 'production' && canDismiss && !onDismiss) {
+        console.warn('Alert component is missing onDismiss handler with canDismiss=true.', alert);
+    }
     const elClassName = {
         [`alert-${color}`]: !!color,
         'alert-dismissible': canDismiss,

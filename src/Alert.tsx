@@ -21,6 +21,10 @@ const Alert: React.FC<AlertProps> = ({
                                     onDismiss,
                                     children
                                 }) => {
+    if (process.env.NODE_ENV !== 'production' && canDismiss && !onDismiss) {
+        console.warn('Alert component is missing onDismiss handler with canDismiss=true.', alert);
+    }
+
     const elClassName = {
         [`alert-${color}`]: !!color,
         'alert-dismissible': canDismiss,
