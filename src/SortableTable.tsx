@@ -32,6 +32,7 @@ const SortableTable: React.FC<SortableTableProps> = ({
                                                          className = '',
                                                          tfoot,
                                                          children,
+                                                         ...rest
                                                      }) => {
 
     const tableClassName = classNames('table', className, {
@@ -39,7 +40,7 @@ const SortableTable: React.FC<SortableTableProps> = ({
     })
 
     return (
-        <table className={tableClassName}>
+        <table className={tableClassName} {...rest}>
             <SortableTableHead currentSort={currentSort} fields={fields} onChangeSort={onChangeSort}/>
             {!!data.length && (
                 <tbody>
