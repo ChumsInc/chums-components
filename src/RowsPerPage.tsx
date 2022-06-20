@@ -16,11 +16,11 @@ const RowsPerPage: React.FC<RowsPerPageProps> = ({
     const changeHandler = (ev: ChangeEvent<HTMLSelectElement>) => onChange(Number(ev.target.value));
 
     return (
-        <select value={String(value)} onChange={changeHandler} className="form-select form-select-sm">
+        <select value={value} onChange={changeHandler} className="form-select form-select-sm">
             {pageValues.map(value => (
-                <option key={String(value)} value={String(value)}>{value}</option>
+                <option key={value} value={value}>{value}</option>
             ))}
         </select>
     )
 }
-export default memo(RowsPerPage)
+export default memo(RowsPerPage);

@@ -1,8 +1,19 @@
 import React from 'react';
 import classNames from 'classnames';
 import PageButton from "./PageButton";
+import styled from "styled-components";
 
-
+const PaginationUL = styled.ul`
+    &.filtered {
+        .page-item.active {
+            .page-link {
+                background-color: var(--bs-warning);
+                border-color: var(--bs-warning);
+                color: var(--bs-dark);
+            }
+        }
+    }
+`;
 
 const PAGE_LABELS = {
     prev: '‹',
@@ -58,7 +69,7 @@ const Pagination: React.FC<PaginationProps> = ({
     return (
         <nav aria-label="Page Navigation">
 
-            <ul className={classNames("pagination pagination-sm", className, {filtered})}>
+            <PaginationUL className={classNames("pagination pagination-sm", className, {filtered})}>
                 {hasMore && (
                     <PageButton page={page - 1} label={PAGE_LABELS.prev} disabled={page <= 1} onClick={onSelect}/>
                 )}
@@ -85,7 +96,7 @@ const Pagination: React.FC<PaginationProps> = ({
                     <PageButton page={page + 1} label={PAGE_LABELS.next} onClick={onSelect}
                                 disabled={page === pages}/>
                 )}
-            </ul>
+            </PaginationUL>
         </nav>
     )
 }

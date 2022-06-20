@@ -31,5 +31,5 @@ module.exports = merge(common, {
         watchFiles: ['src/**/*', 'test/**/*'],
     },
     devtool: 'inline-source-map',
-    plugins: []
+    plugins: [new WebpackBundleAnalyzer()]
 });

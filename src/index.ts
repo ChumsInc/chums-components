@@ -69,6 +69,12 @@ export type {SpinnerProps} from './Spinner';
 export {default as SpinnerButton} from './SpinnerButton';
 export type {SpinnerButtonProps} from './SpinnerButton';
 
+export {default as TabItem} from './TabItem'
+export type {Tab, TabItemProps} from './TabItem'
+
+export {default as TabList} from './TabList'
+export type {TabListProps} from './TabList'
+
 export {default as ToggleButton} from './ToggleButton'
 export type {ToggleButtonProps} from './ToggleButton'
 

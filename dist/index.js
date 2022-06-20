@@ -22,6 +22,8 @@ export { default as SortableTH } from './SortableTH';
 export { default as SortableTR } from './SortableTR';
 export { default as Spinner } from './Spinner';
 export { default as SpinnerButton } from './SpinnerButton';
+export { default as TabItem } from './TabItem';
+export { default as TabList } from './TabList';
 export { default as ToggleButton } from './ToggleButton';
 export { noop, getRegex } from './utils';
 export { colors, bgColors, buttonColors, textColors } from './colors';

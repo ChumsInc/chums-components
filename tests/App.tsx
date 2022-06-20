@@ -10,14 +10,18 @@ import {BootstrapFlexAlign} from "../src/types";
 import FormCheck from "../src/FormCheck";
 import InputGroup from "../src/InputGroup";
 import PaginationTest from "./PaginationTest";
+import AppTabs, {tab1} from "./AppTabs";
 
 const App: React.FC = () => {
     const [count, setCount] = useState(1);
     const [align, setAlign] = useState<BootstrapFlexAlign>('baseline');
     const [checked, setChecked] = useState(true);
+    const [currentTab, setCurrentTab] = useState(tab1.id);
 
     return (
         <div className="container">
+            <AppTabs currentTabID={currentTab} onSelectTab={setCurrentTab}  />
+            <div>CurrentTab: {currentTab}</div>
             <ErrorBoundary>
                 <FormColumn label={
                     (<button className="btn btn-outline-secondary" onClick={() => setCount(count + 1)} >Again?</button>)

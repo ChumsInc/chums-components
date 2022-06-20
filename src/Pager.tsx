@@ -24,11 +24,11 @@ const Pager: React.FC<PagerProps> = ({
                                     onChangeRowsPerPage,
                                 }) => {
 
-    const pages = calcPages(dataLength, rowsPerPage)
+    const pages = calcPages(dataLength, rowsPerPage);
     return (
         <div className="row g-3">
             <div className="col-auto">
-                <RowsPerPage onChange={onChangeRowsPerPage} value={page}/>
+                <RowsPerPage onChange={onChangeRowsPerPage} value={rowsPerPage}/>
             </div>
             <div className="col-auto">
                 <Pagination pages={pages} page={page} onSelectPage={onChangePage} filtered={filtered}/>

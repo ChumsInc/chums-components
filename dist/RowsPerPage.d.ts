@@ -5,5 +5,5 @@ export interface RowsPerPageProps {
     pageValues?: number[];
     onChange: (value: number) => void;
 }
-declare const _default: React.NamedExoticComponent<RowsPerPageProps>;
-export default _default;
+declare const RowsPerPage: React.FC<RowsPerPageProps>;
+export default RowsPerPage;

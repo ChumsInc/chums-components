@@ -82,6 +82,7 @@
     "commitLimit": false
   },
   "dependencies": {
-    "isomorphic-fetch": "^3.0.0"
+    "isomorphic-fetch": "^3.0.0",
+    "styled-components": "^5.3.5"
   }
 }

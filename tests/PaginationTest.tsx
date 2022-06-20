@@ -1,5 +1,5 @@
 import * as React from "react";
-import {ChangeEvent, useEffect, useState} from "react";
+import {ChangeEvent, useEffect, useRef, useState} from "react";
 import numeral from "numeral";
 import {languages} from './languages'
 import Pager, {filterPage} from "../src/Pager";
@@ -46,7 +46,6 @@ const buildDataSet = (): TableDataRow[] => {
             bgColor: colors[Math.floor(Math.random() * 8)]
         }))
 }
-const pagerKey = 'test-pagination';
 
 const ValueTitle:React.FC = () => {
     const now = new Date();
@@ -80,20 +79,24 @@ const TFoot = ({value}: { value: number }) => (
 
 const dataFilter = (filter: number) => (row:TableDataRow) => row.value <= filter;
 
+const initialFilter = 100;
+
 const PaginationTest: React.FC = () => {
     let rebuildTimer: number;
-    const [filterValue, setFilterValue] = useState(100);
-    const [filter, setFilter] = useState(filterValue);
-    const [tableData, setTableData] = useState<TableDataRow[]>([]);
-    const [filteredData, setFilteredData] = useState<TableDataRow[]>([])
+    const filterRef = useRef<HTMLInputElement>(null)
+    const [filterValue, setFilterValue] = useState(initialFilter);
+    const [filter, setFilter] = useState(initialFilter);
     const [loading, setLoading] = useState(false);
     const [filterTimer, setFilterTimer] = useState(0);
     const [toggleCheck, setToggleCheck] = useState(true);
     const [page, setPage] = useState(1);
     const [rowsPerPage, setRowsPerPage] = useState(25);
     const [sort, setSort] = useState<TableSortProps>({field: 'id', ascending: true});
-    const [pageData, setPageData] = useState<TableDataRow[]>([]);
     const [selected, setSelected] = useState<TableDataRow>({id: 0, value: 0, bgColor: '', color: ''});
+
+    const [tableData, setTableData] = useState<TableDataRow[]>([]);
+    const [filteredData, setFilteredData] = useState<TableDataRow[]>([])
+    const [pageData, setPageData] = useState<TableDataRow[]>([]);
 
     useEffect(() => {
         setPage(1);
@@ -101,10 +104,16 @@ const PaginationTest: React.FC = () => {
         setSort({field: 'id', ascending: true});
 
         const data = buildDataSet();
+        console.log('[] data.length', data.length)
         setTableData(data);
-        const filteredData = data.sort(testTableSorter(sort)).filter(dataFilter(filter));
-        setFilteredData(filteredData);
-        setPageData(filteredData.filter(filterPage(1, 25)));
+
+        const _filteredData = [...data].sort(testTableSorter(sort)).filter(dataFilter(initialFilter));
+        console.log('[] filteredData.length', _filteredData.length)
+        setFilteredData(_filteredData);
+
+        const _pageData = _filteredData.filter(filterPage(1, 25));
+        console.log('[] firstPage.length', _pageData.length)
+        setPageData(_pageData);
 
         return () => {
             window.clearTimeout(rebuildTimer);
@@ -113,10 +122,18 @@ const PaginationTest: React.FC = () => {
     }, []);
 
     useEffect(() => {
-        const filteredData = tableData.sort(testTableSorter(sort)).filter(dataFilter(filter));
+        const filteredData = [...tableData].sort(testTableSorter(sort)).filter(dataFilter(filter));
         setFilteredData(filteredData);
-        setPageData(filteredData.filter(filterPage(1, 25)));
-    }, [filter]);
+        setPageData(filteredData.filter(filterPage(1, rowsPerPage)));
+    }, [filter, sort]);
+
+    useEffect(() => {
+        setPageData(filteredData.filter(filterPage(1, rowsPerPage)));
+    }, [rowsPerPage]);
+
+    useEffect(() => {
+        setPageData(filteredData.filter(filterPage(page, rowsPerPage)));
+    }, [page]);
 
     const total = pageData.reduce((acc, row) => acc + row.value, 0);
 
@@ -124,8 +141,12 @@ const PaginationTest: React.FC = () => {
         window.clearTimeout(rebuildTimer);
         setLoading(true);
         rebuildTimer = window.setTimeout(() => {
+            setPage(1);
             const data = buildDataSet();
             setTableData(data);
+            const filteredData = data.sort(testTableSorter(sort)).filter(dataFilter(filter));
+            setFilteredData(filteredData);
+            setPageData(filteredData.filter(filterPage(1, rowsPerPage)));
             setLoading(false);
         }, 2500);
     }
@@ -135,14 +156,15 @@ const PaginationTest: React.FC = () => {
 
     const tableClickHandler = (row: TableDataRow) => setSelected(row);
 
+    const filterDebounceHandler = () => {
+        setFilter(filterRef?.current?.valueAsNumber || initialFilter);
+    }
     const filterChangeHandler = (ev: ChangeEvent<HTMLInputElement>) => {
-        console.log('filterChangeHandler()', ev.target.value);
-        setFilterValue(Number(ev.target.value));
-
         window.clearTimeout(filterTimer);
-        const t = window.setTimeout(() => {
-            setFilter(Number(ev.target.value));
-        }, 450);
+        console.log('filterChangeHandler()', ev.target.value);
+        setFilterValue(ev.target.valueAsNumber || 0);
+
+        const t = window.setTimeout(filterDebounceHandler, 1000);
         setFilterTimer(t);
     }
 
@@ -171,7 +193,7 @@ const PaginationTest: React.FC = () => {
                 </div>
                 <div className="col-auto"><label className="form-label">Filter Values:</label></div>
                 <div className="col-auto">
-                    <Input type="number" className="from-control form-control-sm"
+                    <Input type="number" className="from-control form-control-sm" myRef={filterRef}
                            value={filterValue} onChange={filterChangeHandler} min={0} max={100}/>
                     <small>filter = {filter}</small>
                 </div>
