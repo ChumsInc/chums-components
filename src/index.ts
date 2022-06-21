@@ -75,6 +75,9 @@ export type {SpinnerProps} from './Spinner';
 export {default as SpinnerButton} from './SpinnerButton';
 export type {SpinnerButtonProps} from './SpinnerButton';
 
+export {default as StatusButtonGroup} from './StatusButtonGroup';
+export type {StatusButtonGroupProps} from './StatusButtonGroup';
+
 export {default as TabItem} from './TabItem'
 export type {Tab, TabItemProps} from './TabItem'
 
