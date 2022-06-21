@@ -10,7 +10,8 @@ export interface ToggleButtonProps {
     size?: BootstrapButtonSize,
     className?: string,
     onClick: () => void,
-    children: ReactNode,
+    disabled?: boolean;
+    children?: React.ReactNode;
 }
 
 const ToggleButton: React.FC<ToggleButtonProps> = ({
@@ -21,6 +22,7 @@ const ToggleButton: React.FC<ToggleButtonProps> = ({
                                                        size,
                                                        className,
                                                        onClick,
+    disabled,
                                                        children,
                                                    }) => {
     const btnClassName = classNames(className, {
@@ -30,7 +32,8 @@ const ToggleButton: React.FC<ToggleButtonProps> = ({
     });
     return (
         <>
-            <input type={type} className="btn-check" id={id} autoComplete="off" onChange={onClick} checked={checked}/>
+            <input type={type} className="btn-check" id={id} autoComplete="off"
+                   onChange={onClick} checked={checked} disabled={disabled}/>
             <label htmlFor={id} className={btnClassName}>{children}</label>
         </>
     );
