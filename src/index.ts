@@ -98,7 +98,7 @@ export type {
     BootstrapTextColor,
     BootstrapFlexAlign,
     InputField,
-    BasicAlert
+    BasicAlert,
 } from './types'
 
 export {noop, getRegex} from './utils'

@@ -57,5 +57,5 @@ export { default as TabList } from './TabList';
 export type { TabListProps } from './TabList';
 export { default as ToggleButton } from './ToggleButton';
 export type { ToggleButtonProps } from './ToggleButton';
-export type { SortProps, SortableTableField, BootstrapColor, BootstrapSize, BootstrapBGColor, BootstrapButtonColor, BootstrapButtonSize, BootstrapTextColor, BootstrapFlexAlign, InputField, BasicAlert } from './types';
+export type { SortProps, SortableTableField, BootstrapColor, BootstrapSize, BootstrapBGColor, BootstrapButtonColor, BootstrapButtonSize, BootstrapTextColor, BootstrapFlexAlign, InputField, BasicAlert, } from './types';
 export { noop, getRegex } from './utils';

@@ -5,6 +5,7 @@ import SortableTR from "./SortableTR";
 import {BootstrapSize, SortableTableField, SortProps} from "./types";
 import {noop} from "./utils";
 
+
 export interface SortableTableProps extends TableHTMLAttributes<HTMLTableElement> {
     fields: SortableTableField[],
     data: any[],
