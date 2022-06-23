@@ -1,6 +1,6 @@
 import React from 'react';
 import { BootstrapBGColor } from "./types";
-export interface BadgeProps {
+export interface BadgeProps extends Omit<React.HTMLAttributes<HTMLSpanElement>, 'className'> {
     color: BootstrapBGColor;
     pill?: boolean;
     text?: string;
