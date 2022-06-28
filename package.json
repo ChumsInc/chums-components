@@ -80,7 +80,8 @@
   "auto-changelog": {
     "template": "keepachangelog",
     "unreleased": true,
-    "commitLimit": false
+    "commitLimit": false,
+    "breakingPattern": "BREAKING CHANGE:"
   },
   "dependencies": {
     "@tsconfig/node16": "^1.0.3",
