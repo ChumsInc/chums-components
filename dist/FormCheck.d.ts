@@ -1,13 +1,10 @@
 import React from 'react';
-export interface FormCheckProps {
+export interface FormCheckProps extends React.HTMLAttributes<HTMLInputElement> {
     id?: string;
     label: string;
     checked: boolean;
-    onClick: () => void;
     inline?: boolean;
-    className?: string | object;
     type: 'radio' | 'checkbox';
-    disabled?: boolean;
 }
 declare const FormCheck: React.FC<FormCheckProps>;
 export default FormCheck;
