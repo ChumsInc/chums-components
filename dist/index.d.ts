@@ -51,6 +51,8 @@ export { default as SpinnerButton } from './SpinnerButton';
 export type { SpinnerButtonProps } from './SpinnerButton';
 export { default as StatusButtonGroup } from './StatusButtonGroup';
 export type { StatusButtonGroupProps } from './StatusButtonGroup';
+export { initialTabState, tabsReducer } from './tabUtils';
+export type { TabsState, PartialTab, TabsActionType } from './tabUtils';
 export { default as TabItem } from './TabItem';
 export type { Tab, TabItemProps } from './TabItem';
 export { default as TabList } from './TabList';
