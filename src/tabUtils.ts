@@ -1,15 +1,17 @@
 import {Tab} from './TabItem';
 
-export interface PartialTab extends Partial<Tab> {
+export interface TabType<T extends Tab = Tab> {}
+
+export interface PartialTab<T extends Tab = Tab> extends Partial<TabType<T>> {
     id: string,
 }
 
-export interface TabsState {
-    tabs: Tab[],
+export interface TabsState<T extends Tab = Tab> {
+    tabs: T[],
     current: string | null
 }
 
-const tabAdder = (newTabs:Tab|Tab[]) => (state:TabsState):TabsState => {
+const tabAdder = <T extends Tab = Tab>(newTabs: T | T[]) => (state: TabsState<T>): TabsState<T> => {
     let {current} = state;
     if (!Array.isArray(newTabs)) {
         newTabs = [newTabs];
@@ -25,7 +27,7 @@ const tabAdder = (newTabs:Tab|Tab[]) => (state:TabsState):TabsState => {
     }
 }
 
-const tabRemover = (id:string) => (state:TabsState):TabsState => {
+const tabRemover = <T extends Tab = Tab>(id: string) => (state: TabsState<T>): TabsState<T> => {
     let {current} = state;
     const [currentTab] = state.tabs.filter(t => t.id === id);
     if (currentTab?.id === id) {
@@ -39,7 +41,7 @@ const tabRemover = (id:string) => (state:TabsState):TabsState => {
     }
 }
 
-const tabUpdater = (partials:PartialTab|PartialTab[]) => (state:TabsState) => {
+const tabUpdater = <T extends Tab = Tab>(partials: PartialTab<T> | PartialTab<T>[]) => (state: TabsState<T>):TabsState<T> => {
     let {current} = state;
     if (!Array.isArray(partials)) {
         return {
@@ -50,22 +52,21 @@ const tabUpdater = (partials:PartialTab|PartialTab[]) => (state:TabsState) => {
 
     return {
         tabs: state.tabs.map(tab => {
-                const [partial] = partials.filter(partial => partial.id === tab.id);
-                if (!partial) {
-                    return tab;
-                }
-                return {...tab, ...partial}
-            }),
+            const [partial] = partials.filter(partial => partial.id === tab.id);
+            if (!partial) {
+                return tab;
+            }
+            return {...tab, ...partial}
+        }),
         current
     }
 }
 
 
-
-const modifyTabSet = (state: TabsState, tabsModifier: (state:TabsState) => TabsState): TabsState => {
+const modifyTabSet = <T extends Tab = Tab>(state: TabsState<T>, tabsModifier: (state: TabsState<T>) => TabsState<T>): TabsState<T> => {
     let {tabs, current} = tabsModifier(state);
     if (tabs.filter(t => t.id === current && t.disabled).length === 0) {
-       current = tabs[0]?.id || null;
+        current = tabs[0]?.id || null;
     }
     return {
         tabs,
@@ -73,10 +74,11 @@ const modifyTabSet = (state: TabsState, tabsModifier: (state:TabsState) => TabsS
     }
 }
 
-export type TabsActionType =
-    | { type: 'add', payload: Tab|Tab[] }
-    | { type: 'update', payload: PartialTab|PartialTab[] }
-    | { type: 'remove', payload: string};
+export type TabsActionType<T extends Tab = Tab> =
+    | { type: 'add', payload: T | T[] }
+    | { type: 'select', payload: string }
+    | { type: 'update', payload: PartialTab<T> | PartialTab<T>[] }
+    | { type: 'remove', payload: string };
 
 
 export const initialTabState: TabsState = {
@@ -84,14 +86,19 @@ export const initialTabState: TabsState = {
     current: null,
 };
 
-export function tabsReducer(state: TabsState, action:TabsActionType) {
+export function tabsReducer<T extends Tab = Tab>(state: TabsState<T & Tab>, action: TabsActionType<T>):TabsState<T> {
     switch (action.type) {
+    case 'select':
+        return {
+            ...state,
+            current: action.payload
+        }
     case 'add':
-        return modifyTabSet(state, tabAdder(action.payload));
+        return modifyTabSet<T>(state, tabAdder<T>(action.payload));
     case 'update':
-        return modifyTabSet(state, tabUpdater(action.payload));
+        return modifyTabSet<T>(state, tabUpdater<T>(action.payload));
     case 'remove':
-        return modifyTabSet(state, tabRemover(action.payload));
+        return modifyTabSet<T>(state, tabRemover<T>(action.payload));
     }
     return state;
 }

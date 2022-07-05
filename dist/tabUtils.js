@@ -61,6 +61,11 @@ export const initialTabState = {
 };
 export function tabsReducer(state, action) {
     switch (action.type) {
+        case 'select':
+            return {
+                ...state,
+                current: action.payload
+            };
         case 'add':
             return modifyTabSet(state, tabAdder(action.payload));
         case 'update':

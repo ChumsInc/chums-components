@@ -10,6 +10,9 @@ export declare type TabsActionType = {
     type: 'add';
     payload: Tab | Tab[];
 } | {
+    type: 'select';
+    payload: string;
+} | {
     type: 'update';
     payload: PartialTab | PartialTab[];
 } | {
