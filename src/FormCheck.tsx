@@ -1,6 +1,5 @@
-import React from 'react';
+import React, {useId} from 'react';
 import classNames from 'classnames';
-import {v4 as uuid4} from 'uuid';
 
 export interface FormCheckProps extends React.ComponentProps<"input"> {
     type: 'radio' | 'checkbox',
@@ -21,8 +20,7 @@ const FormCheck: React.FC<FormCheckProps> = ({
                                                  disabled,
                                                  ...props
                                              }) => {
-    const inputId = id || ('form-check-' + uuid4());
-
+    const inputId = id || useId();
     return (
         <div className={classNames("form-check", className, {"form-check-inline": inline})}>
             <input type={type} className="form-check-input"
