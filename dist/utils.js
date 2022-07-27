@@ -29,4 +29,7 @@ export const getRegex = (str, flags = 'i') => {
     const string = '^(.*?)' + split.join('(.*?)') + '(.*?)(.*)$';
     return new RegExp(string, flags);
 };
+export const commaFormatter = (n) => {
+    return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+};
 //# sourceMappingURL=utils.js.map

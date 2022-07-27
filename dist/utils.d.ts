@@ -8,3 +8,4 @@ export declare const noop: (any?: any) => void;
  * @see https://git.io/v7LGt
  */
 export declare const getRegex: (str: string, flags?: string) => RegExp;
+export declare const commaFormatter: (n: number) => string;
