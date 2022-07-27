@@ -1,8 +1,8 @@
 import React from "react";
 import classNames from 'classnames';
-import numeral from "numeral";
 import {BasicAlert} from "./types";
 import Badge from "./Badge";
+import {commaFormatter} from "./utils";
 
 export interface AlertProps extends BasicAlert {
     count?: number,
@@ -36,7 +36,7 @@ const Alert: React.FC<AlertProps> = ({
             {!!title && (<strong className="me-1">{title}:</strong>)}
             {message || children || null}
             {!!count && count > 1 && (
-                <Badge color={color} className="mx-3">{numeral(count).format('0,0')}</Badge>
+                <Badge color={color} className="mx-3">{commaFormatter(count)}</Badge>
             )}
             {canDismiss && typeof onDismiss === 'function' && (
                 <button type="button" aria-label="close" onClick={onDismiss} className="btn-close"/>
