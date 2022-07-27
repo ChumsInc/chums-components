@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from "classnames";
+import {commaFormatter} from "./utils";
 
 // import styled from 'styled-components';
 
@@ -24,7 +25,7 @@ const CurrentPageButton: React.FC<PageButtonProps> = ({
 }) => {
     return (
         <li className={classNames('page-item active')}>
-            <span className="page-link">{label || page}</span>
+            <span className="page-link">{label || commaFormatter(page)}</span>
         </li>
     )
 };
@@ -43,7 +44,7 @@ const SelectablePageButton: React.FC<PageButtonProps> = ({
     };
     return (
         <li className={classNames('page-item', {disabled: disabled})}>
-            <a href="#" className='page-link' onClick={handleClick}>{label || page}</a>
+            <a href="#" className='page-link' onClick={handleClick}>{label || commaFormatter(page)}</a>
         </li>
     )
 };
