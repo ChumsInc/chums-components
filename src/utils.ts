@@ -34,3 +34,8 @@ export const getRegex = (str:string, flags:string = 'i'):RegExp => {
     const string = '^(.*?)' + split.join('(.*?)') + '(.*?)(.*)$';
     return new RegExp(string, flags);
 }
+
+
+export const commaFormatter =(n:number):string => {
+    return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
