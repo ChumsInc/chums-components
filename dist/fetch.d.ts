@@ -1,7 +1,6 @@
 /**
  * Created by steve on 8/24/2016.
  */
-import 'isomorphic-fetch';
 export declare const fetchOptions: {
     PostJSON: (object?: Object, options?: RequestInit) => RequestInit;
     Delete: (options?: RequestInit) => RequestInit;
