@@ -31,4 +31,6 @@ export { default as TabItem } from './TabItem';
 export { default as TabList } from './TabList';
 export { default as ToggleButton } from './ToggleButton';
 export { noop, getRegex } from './utils';
+export { default as LocalStore } from './LocalStore';
+export { default as SessionStore } from './SessionStore';
 //# sourceMappingURL=index.js.map

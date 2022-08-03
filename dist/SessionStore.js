@@ -1,12 +1,11 @@
 export default class SessionStore {
-    static clear():any {
+    static clear() {
         if (!window || !window.sessionStorage) {
             return;
         }
         window.sessionStorage.clear();
     }
-
-    static getItem(key:string):any {
+    static getItem(key) {
         if (!window || !window.sessionStorage) {
             return;
         }
@@ -16,25 +15,25 @@ export default class SessionStore {
         }
         try {
             return JSON.parse(data);
-        } catch(err:unknown) {
+        }
+        catch (err) {
             if (err instanceof Error) {
                 console.log("getItem()", key, err.message);
             }
             return data;
         }
     }
-
-    static setItem(key:string, data:any) {
+    static setItem(key, data) {
         if (!window || !window.sessionStorage) {
             return;
         }
         window.sessionStorage.setItem(key, JSON.stringify(data));
     }
-
-    static removeItem(key:string) {
+    static removeItem(key) {
         if (!window || !window.sessionStorage) {
             return;
         }
         window.sessionStorage.removeItem(key);
     }
 }
+//# sourceMappingURL=SessionStore.js.map

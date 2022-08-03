@@ -106,3 +106,5 @@ export type {
 
 export {noop, getRegex} from './utils'
 
+export {default as LocalStore} from './LocalStore';
+export {default as SessionStore} from './SessionStore';
