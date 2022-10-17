@@ -13,7 +13,7 @@ export { default as ItemDataList } from './ItemDataList';
 export { default as Modal } from './Modal';
 export { default as LoadingProgressBar } from './LoadingProgressBar';
 export { default as PageButton } from './PageButton';
-export { default as Pager, filterPage, pageFilter, calcPages } from './Pager';
+export { default as Pager, filterPage, pageFilter, calcPages, defaultPageSet, filterByPageSet } from './Pager';
 export { default as Pagination } from './Pagination';
 export { default as Progress } from './Progress';
 export { default as ProgressBar } from './ProgressBar';

@@ -39,7 +39,7 @@ export type {LoadingProgressProps} from './LoadingProgressBar';
 export {default as PageButton} from './PageButton';
 export type {PageButtonProps} from './PageButton'
 
-export {default as Pager, filterPage, pageFilter, calcPages} from './Pager';
+export {default as Pager, filterPage, pageFilter, calcPages, defaultPageSet, filterByPageSet} from './Pager';
 export type {PagerProps, PageSet} from './Pager'
 
 export {default as Pagination} from './Pagination';
