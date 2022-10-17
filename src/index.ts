@@ -40,7 +40,7 @@ export {default as PageButton} from './PageButton';
 export type {PageButtonProps} from './PageButton'
 
 export {default as Pager, filterPage, pageFilter, calcPages} from './Pager';
-export type {PagerProps} from './Pager'
+export type {PagerProps, PageSet} from './Pager'
 
 export {default as Pagination} from './Pagination';
 export type {PaginationProps} from './Pagination';
