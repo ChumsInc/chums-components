@@ -3,6 +3,7 @@ export interface PageSet {
     page: number;
     rowsPerPage: number;
 }
+export declare const defaultPageSet: PageSet;
 export declare const filterPage: (page: number, rowsPerPage: number) => (row: any, index: number) => boolean;
 export declare const filterByPageSet: (pageSet: PageSet) => (row: any, index: number) => boolean;
 export declare const pageFilter: (page: number, rowsPerPage: number) => (row: any, index: number) => boolean;

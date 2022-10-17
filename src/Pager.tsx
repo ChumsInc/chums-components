@@ -7,6 +7,11 @@ export interface PageSet {
     rowsPerPage: number,
 }
 
+export const defaultPageSet:PageSet = {
+    page: 1,
+    rowsPerPage: 25,
+}
+
 export const filterPage = (page: number, rowsPerPage: number) => (row: any, index: number): boolean => Math.ceil((index + 1) / rowsPerPage) === page;
 export const filterByPageSet = (pageSet: PageSet) => filterPage(pageSet.page, pageSet.rowsPerPage);
 
