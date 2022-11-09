@@ -27,16 +27,16 @@ export interface InputField {
 
 export type BootstrapFlexAlign = 'start'|'end'|'center'|'baseline'|'stretch';
 
-export interface SortableTableField {
-    field: string,
+export interface SortableTableField<T = any> {
+    field: keyof T,
     title: ReactNode|string,
     sortable?: boolean,
-    render?: (row:any) => ReactNode|string|number,
-    className?: string|object|((any:any) => string|object),
+    render?: (row:T) => ReactNode|string|number,
+    className?: string|object|((row:T) => string|object),
     colSpan?: number,
 }
 
-export interface SortProps {
-    field: string,
+export interface SortProps<T = any> {
+    field: keyof T,
     ascending: boolean,
 }
