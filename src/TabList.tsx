@@ -2,6 +2,7 @@ import React from "react";
 import classNames from "classnames";
 import TabItem, {Tab} from "./TabItem";
 import styled from "styled-components";
+import {noop} from "./utils";
 
 
 export const StyledTabList = styled.ul`
@@ -22,10 +23,10 @@ export const StyledTabList = styled.ul`
 
 export interface TabListProps {
     tabs?: Tab[],
-    currentTabId: string,
+    currentTabId?: string,
     className?: string,
     itemClassName?: string,
-    onSelectTab: (tab: Tab) => void,
+    onSelectTab?: (tab: Tab) => void,
     onCloseTab?: (tab: Tab) => void,
     children?: React.ReactNode,
 }
@@ -35,7 +36,7 @@ const TabList: React.FC<TabListProps> = ({
                                              currentTabId,
                                              className,
                                              itemClassName,
-                                             onSelectTab,
+                                             onSelectTab = noop,
                                              onCloseTab,
                                              children
                                          }) => {

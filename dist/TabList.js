@@ -3,6 +3,7 @@ import React from "react";
 import classNames from "classnames";
 import TabItem from "./TabItem";
 import styled from "styled-components";
+import { noop } from "./utils";
 export const StyledTabList = styled.ul `
     &.nav-tabs {
       .nav-item {
@@ -18,7 +19,7 @@ export const StyledTabList = styled.ul `
       }
     }
 `;
-const TabList = ({ tabs, currentTabId, className, itemClassName, onSelectTab, onCloseTab, children }) => {
+const TabList = ({ tabs, currentTabId, className, itemClassName, onSelectTab = noop, onCloseTab, children }) => {
     const closeHandler = (tab) => {
         if (!!onCloseTab) {
             onCloseTab(tab);
