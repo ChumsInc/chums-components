@@ -4,7 +4,7 @@ import TablesTest from "./TablesTest";
 
 const App = () => {
 
-    const [currentTab, setCurrentTab] = useState(tab2.id);
+    const [currentTab, setCurrentTab] = useState(tab1.id);
 
     return (
         <div className="container">

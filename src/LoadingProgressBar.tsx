@@ -2,6 +2,8 @@ import React, {ReactNode} from "react";
 import {default as Progress, ProgressProps} from "./Progress";
 import {default as ProgressBar} from "./ProgressBar";
 import {BootstrapColor} from "./types";
+import classNames from "classnames";
+
 
 export interface LoadingProgressProps extends ProgressProps {
     color?: BootstrapColor,
@@ -10,7 +12,7 @@ export interface LoadingProgressProps extends ProgressProps {
     valueMax?: number,
     striped?: boolean,
     animated?: boolean,
-    className?: string | object,
+    className?: string | classNames.ArgumentArray,
     children?: ReactNode
 }
 

@@ -1,6 +1,7 @@
 import React, {TableHTMLAttributes} from "react";
 import SortableTH from "./SortableTH";
 import {SortableTableField, SortProps} from "./types";
+import classNames from "classnames";
 
 
 
@@ -22,7 +23,11 @@ const SortableTableHead:React.FC<SortableTableHeadProps> = ({
                 {fields.map((tableField, index) => (
                     <SortableTH key={index} field={tableField}
                                 sorted={field === tableField.field} ascending={ascending}
-                                className={tableField.className} onClick={onChangeSort} />
+                                className={classNames(
+                                    typeof tableField.className === 'function'
+                                        ? {[`text-${tableField.align}`]: !!tableField.align}
+                                        : tableField.className
+                                )} onClick={onChangeSort} />
                 ))}
             </tr>
         </thead>

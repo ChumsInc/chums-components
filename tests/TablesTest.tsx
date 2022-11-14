@@ -43,12 +43,13 @@ const TablesTest = () => {
                     </InputGroup>
                 </FormColumn>
                 <FormColumn label="Checkbox & Radio test">
-                    <FormCheck label={'checked'} checked={checked} onClick={() => setChecked(!checked)} type={'checkbox'} inline />
-                    <FormCheck label={'start'} checked={align === 'start'} onClick={() => setAlign('start')} type={'radio'} inline />
-                    <FormCheck label={'end'} checked={align === 'end'} onClick={() => setAlign('end')} type={'radio'} inline />
-                    <FormCheck label={'center'} checked={align === 'center'} onClick={() => setAlign('center')} type={'radio'} inline />
-                    <FormCheck label={'baseline'} checked={align === 'baseline'} onClick={() => setAlign('baseline')} type={'radio'} inline />
-                    <FormCheck label={'stretch'} checked={align === 'stretch'} onClick={() => setAlign('stretch')} type={'radio'} inline />
+                    <FormCheck label={'checked'} checked={checked} onChange={() => setChecked(!checked)} type={'checkbox'} inline />
+
+                    <FormCheck label={'start'} checked={align === 'start'} onChange={() => setAlign('start')} type={'radio'} inline />
+                    <FormCheck label={'end'} checked={align === 'end'} onChange={() => setAlign('end')} type={'radio'} inline />
+                    <FormCheck label={'center'} checked={align === 'center'} onChange={() => setAlign('center')} type={'radio'} inline />
+                    <FormCheck label={'baseline'} checked={align === 'baseline'} onChange={() => setAlign('baseline')} type={'radio'} inline />
+                    <FormCheck label={'stretch'} checked={align === 'stretch'} onChange={() => setAlign('stretch')} type={'radio'} inline />
                 </FormColumn>
             </ErrorBoundary>
             <PaginationTest />

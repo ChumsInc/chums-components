@@ -3,7 +3,7 @@ import classNames from "classnames";
 
 export interface InputGroupProps {
     bsSize?: 'sm'|'lg',
-    className?: string|object,
+    className?: string|classNames.ArgumentArray,
     children?: ReactNode,
 }
 const InputGroup:React.FC<InputGroupProps> = ({bsSize = '', className, children}) => {

@@ -7,7 +7,7 @@ export interface BadgeProps extends Omit<React.HTMLAttributes<HTMLSpanElement>, 
     color: BootstrapBGColor,
     pill?: boolean,
     text?: string,
-    className?: string | object,
+    className?: string | classNames.ArgumentArray,
     colorCode?: string,
     description?: string,
     children?: React.ReactNode

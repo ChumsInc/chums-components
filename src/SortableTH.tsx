@@ -7,7 +7,7 @@ export interface SortableTHProps {
     field: SortableTableField,
     sorted?: boolean,
     ascending?: boolean,
-    className?: string|object,
+    className?: string|classNames.ArgumentArray,
     onClick: (sort:SortProps) => void,
 }
 
@@ -18,23 +18,26 @@ const SortableTH: React.FC<SortableTHProps> = ({
                                                    className,
                                                    onClick
                                                }) => {
+    const thClassName = classNames({[`text-${field.align}`]: !!field.align}, className);
+
     if (!field.sortable) {
-        return (<th className={classNames(className)}>{field.title}</th>)
-    }
-    const iconClassName = {
-        'bi-sort-down': !!sorted && !!ascending,
-        'bi-sort-up': !!sorted && !ascending,
+        return (<th className={thClassName}>{field.title}</th>)
     }
     const clickHandler = () => {
         onClick({field: field.field, ascending: !sorted ? true : !ascending});
     }
+    const iconClassName = {
+        'bi-arrow-down': !!sorted && !!ascending,
+        'bi-arrow-up': !!sorted && !ascending,
+    }
+
 
     return (
-        <th className={classNames("sortable", className)} onClick={clickHandler}>
-            {field.title}
+        <th className={classNames("sortable", thClassName)} onClick={clickHandler}>
             {!!sorted && (
-                <span className={classNames('ms-1', iconClassName)}/>
+                <span className={classNames('me-1', iconClassName)}/>
             )}
+            {field.title}
         </th>
     )
 }

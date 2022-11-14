@@ -14,7 +14,7 @@ export interface Tab {
 
 export interface TabItemProps extends Tab {
     active?: boolean,
-    className?: string | object,
+    className?: string|classNames.ArgumentArray,
     onSelect: (id?: string) => void,
     onClose?: (id?: string) => void,
 }

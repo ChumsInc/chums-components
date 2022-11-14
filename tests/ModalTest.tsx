@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
-import {BootstrapSize, DateInput, FormCheck, InputGroup, LoadingModal, Modal} from "../src";
-import Select from "../src/components/Select";
+import {BootstrapSize, DateInput, FormCheck, InputGroup, Modal} from "../src";
+import Select from "../src/Select";
+
 
 const ModalTest: React.FC = () => {
     const [showModal, setShowModal] = useState(false);
@@ -29,7 +30,7 @@ const ModalTest: React.FC = () => {
                     Content goes here?
                 </Modal>
             )}
-            <LoadingModal title="Modal Loading Test" visible={showModalWaiting} color="success" size={size} centered={centered}>Content goes here?</LoadingModal>
+            {/*<LoadingModal title="Modal Loading Test" visible={showModalWaiting} color="success" size={size} centered={centered}>Content goes here?</LoadingModal>*/}
 
             <div className="row g-3">
                 <div className="col-auto">
