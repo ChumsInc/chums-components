@@ -2,7 +2,7 @@ import React from "react";
 import { Tab } from "./TabItem";
 export declare const StyledTabList: import("styled-components").StyledComponent<"ul", any, {}, never>;
 export interface TabListProps {
-    tabs: Tab[];
+    tabs?: Tab[];
     currentTabId: string;
     className?: string;
     itemClassName?: string;

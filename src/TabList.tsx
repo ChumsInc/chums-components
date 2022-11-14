@@ -21,7 +21,7 @@ export const StyledTabList = styled.ul`
 `;
 
 export interface TabListProps {
-    tabs: Tab[],
+    tabs?: Tab[],
     currentTabId: string,
     className?: string,
     itemClassName?: string,
@@ -46,7 +46,7 @@ const TabList: React.FC<TabListProps> = ({
     }
     return (
         <StyledTabList className={classNames('nav nav-tabs', className)}>
-            {tabs.map(tab => (
+            {tabs?.map(tab => (
                 <TabItem key={tab.id} id={tab.id} title={tab.title} className={itemClassName}
                          icon={tab.icon}
                          onSelect={() => onSelectTab(tab)}

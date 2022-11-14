@@ -24,7 +24,7 @@ const TabList = ({ tabs, currentTabId, className, itemClassName, onSelectTab, on
             onCloseTab(tab);
         }
     };
-    return (_jsxs(StyledTabList, { className: classNames('nav nav-tabs', className), children: [tabs.map(tab => (_jsx(TabItem, { id: tab.id, title: tab.title, className: itemClassName, icon: tab.icon, onSelect: () => onSelectTab(tab), disabled: tab.disabled, active: tab.id === currentTabId, canClose: tab.canClose && !!onCloseTab, onClose: () => closeHandler(tab) }, tab.id))), children] }));
+    return (_jsxs(StyledTabList, { className: classNames('nav nav-tabs', className), children: [tabs?.map(tab => (_jsx(TabItem, { id: tab.id, title: tab.title, className: itemClassName, icon: tab.icon, onSelect: () => onSelectTab(tab), disabled: tab.disabled, active: tab.id === currentTabId, canClose: tab.canClose && !!onCloseTab, onClose: () => closeHandler(tab) }, tab.id))), children] }));
 };
 export default React.memo(TabList);
 //# sourceMappingURL=TabList.js.map
