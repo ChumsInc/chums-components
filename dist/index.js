@@ -29,6 +29,7 @@ export { default as StatusButtonGroup } from './StatusButtonGroup';
 export { initialTabState, tabsReducer } from './tabUtils';
 export { default as TabItem } from './TabItem';
 export { default as TabList } from './TabList';
+export { default as TablePagination } from './TablePagination';
 export { default as ToggleButton } from './ToggleButton';
 export { noop, getRegex } from './utils';
 export { default as LocalStore } from './LocalStore';

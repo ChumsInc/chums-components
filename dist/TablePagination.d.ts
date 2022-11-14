@@ -1,6 +1,6 @@
 /// <reference types="react" />
 import { BootstrapButtonSize } from "./types";
-interface TablePaginationProps {
+export interface TablePaginationProps {
     page: number;
     onChangePage: (page: number) => void;
     rowsPerPage: number;
