@@ -1,9 +1,10 @@
 import React from 'react';
+import classNames from 'classnames';
 export interface PaginationProps {
     page: number;
     pages: number;
     filtered?: boolean;
-    className?: string | object;
+    className?: string | classNames.ArgumentArray;
     maxButtons?: number;
     onSelectPage: (page: number) => void;
 }

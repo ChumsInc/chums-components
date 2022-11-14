@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
 import { BootstrapColor } from "./types";
+import classNames from "classnames";
 export interface ProgressBarProps {
     color?: BootstrapColor;
     value?: number;
@@ -7,7 +8,7 @@ export interface ProgressBarProps {
     valueMax?: number;
     striped?: boolean;
     animated?: boolean;
-    className?: string | object;
+    className?: string | classNames.ArgumentArray;
     style?: object;
     children?: ReactNode;
 }

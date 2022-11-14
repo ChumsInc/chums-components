@@ -9,9 +9,9 @@ const SortableTR = ({ className, rowClassName, selected, fields, row, trRef, onC
     return (_jsx("tr", { ref: trRef, className: classNames({ 'table-active': selected }, className, _className), onClick: clickHandler, ...rest, children: fields.map((field, index) => {
             const fieldClassName = typeof field.className === 'function' ? field.className(row) : field.className;
             if (typeof field.render === 'function') {
-                return (_jsx("td", { className: classNames(fieldClassName), colSpan: field.colSpan, children: field.render(row) }, index));
+                return (_jsx("td", { className: classNames({ [`text-${field.align}`]: !!field.align }, fieldClassName), colSpan: field.colSpan, children: field.render(row) }, index));
             }
-            return (_jsx("td", { className: classNames(fieldClassName), colSpan: field.colSpan, children: row[field.field] }, index));
+            return (_jsx("td", { className: classNames({ [`text-${field.align}`]: !!field.align }, fieldClassName), colSpan: field.colSpan, children: row[field.field] }, index));
         }) }));
 };
 export default SortableTR;

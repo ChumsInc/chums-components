@@ -3,7 +3,7 @@ import RowsPerPage from "./RowsPerPage";
 import {BootstrapButtonSize} from "./types";
 import classNames from "classnames";
 
-interface TablePaginationProps {
+export interface TablePaginationProps {
     page: number;
     onChangePage: (page: number) => void;
     rowsPerPage: number;

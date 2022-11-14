@@ -1,4 +1,5 @@
 import React from "react";
+import classNames from "classnames";
 import { BootstrapSize } from "./types";
 export interface ModalProps {
     title?: string;
@@ -9,7 +10,7 @@ export interface ModalProps {
     scrollable?: boolean;
     centered?: boolean;
     staticBackdrop?: boolean;
-    dialogClassName?: string | object;
+    dialogClassName?: string | classNames.ArgumentArray;
     visible?: boolean;
     onClose?: (any?: any) => any;
     children?: React.ReactNode;

@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { ArgumentArray } from 'classnames';
 export declare type BootstrapColor = 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark' | 'body' | 'custom';
 export declare type BootstrapBGColor = BootstrapColor | 'transparent';
 export declare type BootstrapTextColor = BootstrapColor | 'muted' | 'white' | 'black-50' | 'white-50';
@@ -8,7 +9,7 @@ export interface BasicAlert {
     message?: string;
     context?: string;
     color?: BootstrapColor;
-    className?: string | object;
+    className?: string | ArgumentArray;
     canDismiss?: boolean;
 }
 export declare type BootstrapSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
@@ -19,11 +20,13 @@ export interface InputField {
 }
 export declare type BootstrapFlexAlign = 'start' | 'end' | 'center' | 'baseline' | 'stretch';
 export interface SortableTableField<T = any> {
+    id?: number | string;
     field: keyof T;
-    title: ReactNode | string;
+    title: ReactNode;
     sortable?: boolean;
-    render?: (row: T) => ReactNode | string | number;
-    className?: string | object | ((row: T) => string | object);
+    align?: 'start' | 'center' | 'end';
+    render?: (row: T) => ReactNode;
+    className?: string | ArgumentArray | ((row: T) => string | ArgumentArray);
     colSpan?: number;
 }
 export interface SortProps<T = any> {
