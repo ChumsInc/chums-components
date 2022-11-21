@@ -2,7 +2,10 @@ import { jsxs as _jsxs, jsx as _jsx } from "react/jsx-runtime";
 import classNames from 'classnames';
 import Badge from "./Badge";
 import { commaFormatter } from "./utils";
-const Alert = ({ message, color = 'primary', title, className = '', context, count = 0, canDismiss = true, onDismiss, children }) => {
+const Alert = ({ message, color = 'primary', title, className = '', context, count = 0, canDismiss, onDismiss, children }) => {
+    if (typeof onDismiss === 'function') {
+        canDismiss = true;
+    }
     if (process.env.NODE_ENV !== 'production' && canDismiss && !onDismiss) {
         console.warn('Alert component is missing onDismiss handler with canDismiss=true.', alert);
     }

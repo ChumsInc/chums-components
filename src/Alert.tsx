@@ -17,10 +17,13 @@ const Alert: React.FC<AlertProps> = ({
                                     className = '',
                                     context,
                                     count = 0,
-                                    canDismiss = true,
+                                    canDismiss,
                                     onDismiss,
                                     children
                                 }) => {
+    if (typeof onDismiss === 'function') {
+        canDismiss = true;
+    }
     if (process.env.NODE_ENV !== 'production' && canDismiss && !onDismiss) {
         console.warn('Alert component is missing onDismiss handler with canDismiss=true.', alert);
     }
