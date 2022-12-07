@@ -4,7 +4,7 @@ import RowsPerPage from "./RowsPerPage";
 import classNames from "classnames";
 const TablePagination = ({ page, onChangePage, rowsPerPage, onChangeRowsPerPage, count, bsSize, rowsPerPageOptions, showFirst, showLast }) => {
     const rppId = useId();
-    const first = (page * rowsPerPage) + 1;
+    const first = count === 0 ? 0 : (page * rowsPerPage) + 1;
     const last = Math.min(page * rowsPerPage + rowsPerPage, count);
     const lastPage = rowsPerPage === 0 ? 0 : Math.floor((count - 1) / rowsPerPage);
     const buttonClassName = classNames("btn btn-light", { [`btn-${bsSize}`]: !!bsSize });
