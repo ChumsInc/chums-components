@@ -105,6 +105,7 @@ export type {
     BootstrapFlexAlign,
     InputField,
     BasicAlert,
+    ErrorAlert,
 } from './types'
 
 export {noop, getRegex} from './utils'
