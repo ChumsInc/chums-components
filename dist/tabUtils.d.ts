@@ -8,7 +8,7 @@ export interface TabsState<T extends Tab = Tab> {
     tabs: T[];
     current: string | null;
 }
-export declare type TabsActionType<T extends Tab = Tab> = {
+export type TabsActionType<T extends Tab = Tab> = {
     type: 'add';
     payload: T | T[];
 } | {
