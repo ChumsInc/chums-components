@@ -17,6 +17,15 @@ export interface BasicAlert {
     canDismiss?: boolean,
 }
 
+export interface ErrorAlert {
+    id: number;
+    context: string;
+    message: string;
+    count: number;
+    color?: BootstrapColor;
+}
+
+
 export type BootstrapSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 export type BootstrapButtonSize = 'xs' | 'sm' | 'lg';
 
