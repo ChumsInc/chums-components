@@ -18,6 +18,7 @@ const FormCheck: React.FC<FormCheckProps> = ({
                                                  inline = false,
                                                  className,
                                                  disabled,
+                                                 title,
                                                  ...props
                                              }) => {
     const inputId = id || useId();
@@ -25,8 +26,9 @@ const FormCheck: React.FC<FormCheckProps> = ({
         <div className={classNames("form-check", className, {"form-check-inline": inline})}>
             <input type={type} className="form-check-input"
                    id={inputId} checked={checked} disabled={disabled}
+                   title={title}
                    onChange={onChange} {...props}/>
-            <label className="form-check-label" htmlFor={inputId}>
+            <label className="form-check-label" htmlFor={inputId} title={title}>
                 {label}
             </label>
         </div>
