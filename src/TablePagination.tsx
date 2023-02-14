@@ -7,7 +7,7 @@ export interface TablePaginationProps {
     page: number;
     onChangePage: (page: number) => void;
     rowsPerPage: number;
-    onChangeRowsPerPage: (rowsPerPage: number) => void;
+    onChangeRowsPerPage?: (rowsPerPage: number) => void;
     count: number;
     bsSize?: BootstrapButtonSize;
     rowsPerPageOptions?: number[],
@@ -38,11 +38,13 @@ const TablePagination = ({
             <div className="col-auto">
                 <label htmlFor={rppId}>Rows Per Page</label>
             </div>
-            <div className="col-auto">
-                <RowsPerPage value={rowsPerPage} onChange={onChangeRowsPerPage} pageValues={rowsPerPageOptions}
-                             bsSize={bsSize}
-                             id={rppId}/>
-            </div>
+            {!!onChangeRowsPerPage && (
+                <div className="col-auto">
+                    <RowsPerPage value={rowsPerPage} onChange={onChangeRowsPerPage} pageValues={rowsPerPageOptions}
+                                 bsSize={bsSize}
+                                 id={rppId}/>
+                </div>
+            )}
             <div className="col-auto">
                 {first}-{last} of {count}
             </div>

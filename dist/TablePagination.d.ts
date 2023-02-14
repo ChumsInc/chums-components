@@ -4,7 +4,7 @@ export interface TablePaginationProps {
     page: number;
     onChangePage: (page: number) => void;
     rowsPerPage: number;
-    onChangeRowsPerPage: (rowsPerPage: number) => void;
+    onChangeRowsPerPage?: (rowsPerPage: number) => void;
     count: number;
     bsSize?: BootstrapButtonSize;
     rowsPerPageOptions?: number[];
