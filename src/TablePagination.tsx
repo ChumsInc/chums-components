@@ -35,15 +35,17 @@ const TablePagination = ({
 
     return (
         <div className="row g-3 justify-content-end align-items-baseline">
-            <div className="col-auto">
-                <label htmlFor={rppId}>Rows Per Page</label>
-            </div>
             {!!onChangeRowsPerPage && (
-                <div className="col-auto">
-                    <RowsPerPage value={rowsPerPage} onChange={onChangeRowsPerPage} pageValues={rowsPerPageOptions}
-                                 bsSize={bsSize}
-                                 id={rppId}/>
-                </div>
+                <>
+                    <div className="col-auto">
+                        <label htmlFor={rppId}>Rows Per Page</label>
+                    </div>
+                    <div className="col-auto">
+                        <RowsPerPage value={rowsPerPage} onChange={onChangeRowsPerPage} pageValues={rowsPerPageOptions}
+                                     bsSize={bsSize}
+                                     id={rppId}/>
+                    </div>
+                </>
             )}
             <div className="col-auto">
                 {first}-{last} of {count}
