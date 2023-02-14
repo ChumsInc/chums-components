@@ -1,6 +1,6 @@
 {
   "name": "chums-components",
-  "version": "2.2.8",
+  "version": "2.2.9",
   "description": "Chums Common Components",
   "main": "dist/index.js",
   "source": "src/index.ts",
