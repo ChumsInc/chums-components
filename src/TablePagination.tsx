@@ -1,9 +1,9 @@
-import React, {useId} from 'react';
+import React, {HTMLAttributes, useId} from 'react';
 import RowsPerPage from "./RowsPerPage";
 import {BootstrapButtonSize} from "./types";
 import classNames from "classnames";
 
-export interface TablePaginationProps {
+export interface TablePaginationProps extends HTMLAttributes<HTMLDivElement> {
     page: number;
     onChangePage: (page: number) => void;
     rowsPerPage: number;
@@ -24,7 +24,9 @@ const TablePagination = ({
                              bsSize,
                              rowsPerPageOptions,
                              showFirst,
-                             showLast
+                             showLast,
+                             className,
+                             ...rest
                          }: TablePaginationProps) => {
     const rppId = useId();
     const first = count === 0 ? 0 : (page * rowsPerPage) + 1;
@@ -34,7 +36,7 @@ const TablePagination = ({
     const buttonClassName = classNames("btn btn-light", {[`btn-${bsSize}`]: !!bsSize});
 
     return (
-        <div className="row g-3 justify-content-end align-items-baseline">
+        <div className={classNames("row g-3 justify-content-end align-items-baseline", className)} {...rest}>
             {!!onChangeRowsPerPage && (
                 <>
                     <div className="col-auto">
