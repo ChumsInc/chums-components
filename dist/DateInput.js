@@ -32,7 +32,7 @@ export const dateFromInputValue = (value) => {
     return new Date(date.valueOf() + date.getTimezoneOffset() * 60 * 1000);
 };
 const DateInput = ({ date, value, onChangeDate, onChange, ...rest }) => {
-    const dateValue = inputDate(date || value || new Date());
+    const dateValue = inputDate(date ?? value ?? new Date());
     const changeHandler = (ev) => {
         if (onChangeDate) {
             const date = dateFromInputValue(ev.target.value);

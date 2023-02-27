@@ -42,7 +42,7 @@ export interface DateInputProps extends InputProps {
 }
 
 const DateInput: React.FC<DateInputProps> = ({date, value, onChangeDate, onChange, ...rest}) => {
-    const dateValue = inputDate(date || value || new Date());
+    const dateValue = inputDate(date ?? value ?? new Date());
     const changeHandler = (ev:ChangeEvent<HTMLInputElement>) => {
         if (onChangeDate) {
             const date = dateFromInputValue(ev.target.value);
