@@ -37,7 +37,7 @@ export interface InputField {
 
 export type BootstrapFlexAlign = 'start'|'end'|'center'|'baseline'|'stretch';
 
-export type DataTableClassNames = string | classNames.ArgumentArray | ((row: unknown) => string | classNames.ArgumentArray);
+export type DataTableClassNames<T = any> = string | classNames.ArgumentArray | ((row: T) => string | classNames.ArgumentArray);
 
 export interface DataTableField<T = any> {
     id?: number|string;
@@ -45,7 +45,7 @@ export interface DataTableField<T = any> {
     title: ReactNode,
     align?: 'start'|'center'|'end';
     render?: (row:T) => ReactNode,
-    className?: DataTableClassNames,
+    className?: DataTableClassNames<T>,
     colSpan?: number,
 }
 
@@ -54,6 +54,6 @@ export interface SortableTableField<T = any> extends DataTableField<T> {
 }
 
 export interface SortProps<T = any> {
-    field: keyof T,
+    field: keyof T|'key',
     ascending: boolean,
 }
