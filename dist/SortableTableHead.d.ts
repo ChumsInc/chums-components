@@ -1,6 +1,7 @@
-import React, { TableHTMLAttributes } from "react";
+import React from "react";
 import { SortableTableField, SortProps } from "./types";
-export interface SortableTableHeadProps extends TableHTMLAttributes<HTMLTableSectionElement> {
+import { DataTableHeadProps } from "./DataTableHead";
+export interface SortableTableHeadProps extends DataTableHeadProps {
     currentSort: SortProps;
     fields: SortableTableField[];
     onChangeSort: (sort: SortProps) => void;

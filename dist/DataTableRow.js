@@ -1,19 +1,7 @@
 import { jsx as _jsx } from "react/jsx-runtime";
 import classNames from "classnames";
 import { noop } from "./utils";
-/**
- * @deprecated - use DataTableRow instead - the table row is the sorted item, not the sortable container
- * @param className
- * @param rowClassName
- * @param selected
- * @param fields
- * @param row
- * @param trRef
- * @param onClick
- * @param rest
- * @constructor
- */
-const SortableTR = ({ className, rowClassName, selected, fields, row, trRef, onClick = noop, ...rest }) => {
+const DataTableRow = ({ className, rowClassName, selected, fields, row, trRef, onClick = noop, ...rest }) => {
     const clickHandler = () => {
         return onClick ? onClick() : noop();
     };
@@ -26,5 +14,5 @@ const SortableTR = ({ className, rowClassName, selected, fields, row, trRef, onC
             return (_jsx("td", { className: classNames({ [`text-${field.align}`]: !!field.align }, fieldClassName), colSpan: field.colSpan, children: row[field.field] }, index));
         }) }));
 };
-export default SortableTR;
-//# sourceMappingURL=SortableTR.js.map
+export default DataTableRow;
+//# sourceMappingURL=DataTableRow.js.map

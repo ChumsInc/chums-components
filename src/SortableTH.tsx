@@ -1,14 +1,14 @@
 import React from "react";
 import classNames from "classnames";
 import {SortableTableField, SortProps} from "./types";
+import DataTableTH, {DataTableTHProps} from "./DataTableTH";
 
 
-export interface SortableTHProps {
+export interface SortableTHProps extends DataTableTHProps {
     field: SortableTableField,
     sorted?: boolean,
     ascending?: boolean,
-    className?: string|classNames.ArgumentArray,
-    onClick: (sort:SortProps) => void,
+    onClick: (sort: SortProps) => void,
 }
 
 const SortableTH: React.FC<SortableTHProps> = ({
@@ -18,11 +18,12 @@ const SortableTH: React.FC<SortableTHProps> = ({
                                                    className,
                                                    onClick
                                                }) => {
+    if (!field.sortable) {
+        return (<DataTableTH field={field}/>)
+    }
+
     const thClassName = classNames({[`text-${field.align}`]: !!field.align}, className);
 
-    if (!field.sortable) {
-        return (<th className={thClassName}>{field.title}</th>)
-    }
     const clickHandler = () => {
         onClick({field: field.field, ascending: !sorted ? true : !ascending});
     }

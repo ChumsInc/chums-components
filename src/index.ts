@@ -7,6 +7,11 @@ export type {BadgeProps} from './Badge'
 export {isLightColor} from './color-utils';
 export {colors, bgColors, buttonColors, textColors} from './colors';
 
+export {default as DataTable, DataTableRow, DataTableTBody, DataTableHead, DataTableTH} from './DataTable';
+export type {
+    DataTableProps, DataTableTHProps, DataTableTBodyProps, DataTableHeadProps, DataTableRowProps
+} from './DataTable'
+
 export {default as DateInput, dateFromInputValue, formatInputDate, inputDate} from './DateInput'
 export type {DateInputProps} from './DateInput'
 
@@ -106,6 +111,8 @@ export type {
     InputField,
     BasicAlert,
     ErrorAlert,
+    DataTableField,
+    DataTableClassNames
 } from './types'
 
 export {noop, getRegex} from './utils'

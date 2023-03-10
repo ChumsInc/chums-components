@@ -2,6 +2,7 @@ export { default as Alert } from './Alert';
 export { default as Badge } from './Badge';
 export { isLightColor } from './color-utils';
 export { colors, bgColors, buttonColors, textColors } from './colors';
+export { default as DataTable, DataTableRow, DataTableTBody, DataTableHead, DataTableTH } from './DataTable';
 export { default as DateInput, dateFromInputValue, formatInputDate, inputDate } from './DateInput';
 export { default as ErrorBoundary } from './ErrorBoundary';
 export { fetchJSON, fetchHTML, fetchDELETE, fetchPOST, fetchOptions } from './fetch';

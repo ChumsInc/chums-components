@@ -8,5 +8,17 @@ export interface SortableTRProps extends TableHTMLAttributes<HTMLTableRowElement
     trRef?: React.LegacyRef<HTMLTableRowElement>;
     onClick?: (any?: any) => any;
 }
+/**
+ * @deprecated - use DataTableRow instead - the table row is the sorted item, not the sortable container
+ * @param className
+ * @param rowClassName
+ * @param selected
+ * @param fields
+ * @param row
+ * @param trRef
+ * @param onClick
+ * @param rest
+ * @constructor
+ */
 declare const SortableTR: React.FC<SortableTRProps>;
 export default SortableTR;

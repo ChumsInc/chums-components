@@ -1,26 +1,18 @@
-import React, {ReactNode, TableHTMLAttributes} from 'react';
+import React from 'react';
 import classNames from "classnames";
 import SortableTableHead from "./SortableTableHead";
-import SortableTR from "./SortableTR";
-import {BootstrapSize, SortableTableField, SortProps} from "./types";
+import {SortProps} from "./types";
 import {noop} from "./utils";
+import {DataTableProps} from "./DataTable";
+import DataTableTBody from "./DataTableTBody";
 
 
-export interface SortableTableProps<T = any> extends TableHTMLAttributes<HTMLTableElement> {
-    fields: SortableTableField<T>[],
-    data: any[],
+export interface SortableTableProps<T = any> extends DataTableProps<T> {
     currentSort: SortProps<T>,
-    keyField: string | number | ((row: T) => string | number),
     onChangeSort: (sort: SortProps<T>) => void,
-    size?: BootstrapSize,
-    rowClassName?: string | object | ((row: T) => string | object),
-    onSelectRow?: (row: T) => any | void,
-    selected?: string | number | ((row: T) => boolean),
-    tfoot?: React.ReactElement<HTMLTableSectionElement>,
-    children?: ReactNode,
 }
 
-const SortableTable: React.FC<SortableTableProps> = ({
+const SortableTable = ({
                                                          fields,
                                                          data,
                                                          currentSort,
@@ -34,7 +26,7 @@ const SortableTable: React.FC<SortableTableProps> = ({
                                                          tfoot,
                                                          children,
                                                          ...rest
-                                                     }) => {
+                                                     }:SortableTableProps) => {
 
     const tableClassName = classNames('table', className, {
         [`table-${size}`]: !!size,
@@ -44,17 +36,8 @@ const SortableTable: React.FC<SortableTableProps> = ({
         <table className={tableClassName} {...rest}>
             <SortableTableHead currentSort={currentSort} fields={fields} onChangeSort={onChangeSort}/>
             {!!data.length && (
-                <tbody>
-                {data.map(row => {
-                    const keyValue = typeof keyField === "function" ? keyField(row) : row[keyField];
-                    const isSelected = typeof selected === 'function' ? selected(row) : keyValue === selected;
-                    return (
-                        <SortableTR key={keyValue} onClick={() => onSelectRow(row)} rowClassName={rowClassName}
-                                    fields={fields}
-                                    row={row} selected={isSelected}/>
-                    )
-                })}
-                </tbody>
+                <DataTableTBody fields={fields} data={data} keyField={keyField} rowClassName={rowClassName}
+                                onSelectRow={onSelectRow} selected={selected}/>
             )}
             {children}
             {tfoot}

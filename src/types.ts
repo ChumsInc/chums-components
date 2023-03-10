@@ -1,5 +1,5 @@
 import {ReactNode} from "react";
-import {ArgumentArray} from 'classnames'
+import classNames, {ArgumentArray} from 'classnames'
 
 export type BootstrapColor = 'primary' | 'secondary' | 'success' | 'danger'
     | 'warning' | 'info' | 'light' | 'dark' | 'body' | 'custom';
@@ -37,15 +37,20 @@ export interface InputField {
 
 export type BootstrapFlexAlign = 'start'|'end'|'center'|'baseline'|'stretch';
 
-export interface SortableTableField<T = any> {
+export type DataTableClassNames = string | classNames.ArgumentArray | ((row: unknown) => string | classNames.ArgumentArray);
+
+export interface DataTableField<T = any> {
     id?: number|string;
     field: keyof T,
     title: ReactNode,
-    sortable?: boolean,
     align?: 'start'|'center'|'end';
     render?: (row:T) => ReactNode,
-    className?: string|ArgumentArray|((row:T) => string|ArgumentArray),
+    className?: DataTableClassNames,
     colSpan?: number,
+}
+
+export interface SortableTableField<T = any> extends DataTableField<T> {
+    sortable?: boolean,
 }
 
 export interface SortProps<T = any> {

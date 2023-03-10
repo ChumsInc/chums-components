@@ -1,17 +1,9 @@
-import React, { ReactNode, TableHTMLAttributes } from 'react';
-import { BootstrapSize, SortableTableField, SortProps } from "./types";
-export interface SortableTableProps<T = any> extends TableHTMLAttributes<HTMLTableElement> {
-    fields: SortableTableField<T>[];
-    data: any[];
+/// <reference types="react" />
+import { SortProps } from "./types";
+import { DataTableProps } from "./DataTable";
+export interface SortableTableProps<T = any> extends DataTableProps<T> {
     currentSort: SortProps<T>;
-    keyField: string | number | ((row: T) => string | number);
     onChangeSort: (sort: SortProps<T>) => void;
-    size?: BootstrapSize;
-    rowClassName?: string | object | ((row: T) => string | object);
-    onSelectRow?: (row: T) => any | void;
-    selected?: string | number | ((row: T) => boolean);
-    tfoot?: React.ReactElement<HTMLTableSectionElement>;
-    children?: ReactNode;
 }
-declare const SortableTable: React.FC<SortableTableProps>;
+declare const SortableTable: ({ fields, data, currentSort, onChangeSort, keyField, size, rowClassName, onSelectRow, selected, className, tfoot, children, ...rest }: SortableTableProps) => JSX.Element;
 export default SortableTable;

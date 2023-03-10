@@ -1,10 +1,11 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import classNames from "classnames";
+import DataTableTH from "./DataTableTH";
 const SortableTH = ({ field, sorted, ascending, className, onClick }) => {
-    const thClassName = classNames({ [`text-${field.align}`]: !!field.align }, className);
     if (!field.sortable) {
-        return (_jsx("th", { className: thClassName, children: field.title }));
+        return (_jsx(DataTableTH, { field: field }));
     }
+    const thClassName = classNames({ [`text-${field.align}`]: !!field.align }, className);
     const clickHandler = () => {
         onClick({ field: field.field, ascending: !sorted ? true : !ascending });
     };
