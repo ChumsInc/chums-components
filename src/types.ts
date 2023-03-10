@@ -54,6 +54,6 @@ export interface SortableTableField<T = any> extends DataTableField<T> {
 }
 
 export interface SortProps<T = any> {
-    field: keyof T|'key',
+    field: keyof T,
     ascending: boolean,
 }
