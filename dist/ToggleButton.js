@@ -9,7 +9,7 @@ const ToggleButton = ({ id, type = 'checkbox', checked, color = 'primary', size,
         [`btn-outline-${color}`]: !!color && !checked,
         [`btn-${color}`]: !!color && checked,
     });
-    return (_jsxs(_Fragment, { children: [_jsx("input", { type: type, className: "btn-check", id: buttonId, autoComplete: "off", onChange: onChange, checked: checked, disabled: disabled }), _jsx("label", { htmlFor: id, className: btnClassName, children: children })] }));
+    return (_jsxs(_Fragment, { children: [_jsx("input", { type: type, className: "btn-check", id: buttonId, autoComplete: "off", onChange: onChange, checked: checked, disabled: disabled }), _jsx("label", { htmlFor: buttonId, className: btnClassName, children: children })] }));
 };
 export default ToggleButton;
 //# sourceMappingURL=ToggleButton.js.map

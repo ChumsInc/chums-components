@@ -37,7 +37,7 @@ const ToggleButton: React.FC<ToggleButtonProps> = ({
         <>
             <input type={type} className="btn-check" id={buttonId} autoComplete="off"
                    onChange={onChange} checked={checked} disabled={disabled}/>
-            <label htmlFor={id} className={btnClassName}>{children}</label>
+            <label htmlFor={buttonId} className={btnClassName}>{children}</label>
         </>
     );
 }
