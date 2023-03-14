@@ -2,11 +2,12 @@ import React, {useId} from 'react';
 import classNames from 'classnames';
 
 export interface FormCheckProps extends React.ComponentProps<"input"> {
-    type: 'radio' | 'checkbox',
-    id?: string,
-    label: string,
-    checked: boolean,
-    inline?: boolean,
+    type: 'radio' | 'checkbox';
+    id?: string;
+    label?: string;
+    checked: boolean;
+    inline?: boolean;
+    children?: React.ReactNode;
 }
 
 const FormCheck: React.FC<FormCheckProps> = ({
@@ -19,6 +20,7 @@ const FormCheck: React.FC<FormCheckProps> = ({
                                                  className,
                                                  disabled,
                                                  title,
+                                                 children,
                                                  ...props
                                              }) => {
     const inputId = id || useId();
@@ -29,7 +31,7 @@ const FormCheck: React.FC<FormCheckProps> = ({
                    title={title}
                    onChange={onChange} {...props}/>
             <label className="form-check-label" htmlFor={inputId} title={title}>
-                {label}
+                {children ?? label ?? 'Label Missing'}
             </label>
         </div>
     )
