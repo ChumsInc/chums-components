@@ -15,10 +15,11 @@ export interface DataTableProps<T = any> extends TableHTMLAttributes<HTMLTableEl
     keyField: string | number | ((row: T) => string | number);
     size?: BootstrapSize | '';
     rowClassName?: DataTableClassNames;
+    renderRow?: (row: T) => React.ReactNode;
     onSelectRow?: (row: T) => any | void;
     selected?: string | number | ((row: T) => boolean);
     tfoot?: React.ReactElement<HTMLTableSectionElement>;
     children?: ReactNode;
 }
-declare const DataTable: ({ fields, data, keyField, size, rowClassName, onSelectRow, selected, className, tfoot, children, ...rest }: DataTableProps) => JSX.Element;
+declare const DataTable: ({ fields, data, keyField, size, rowClassName, renderRow, onSelectRow, selected, className, tfoot, children, ...rest }: DataTableProps) => JSX.Element;
 export default DataTable;

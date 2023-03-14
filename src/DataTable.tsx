@@ -21,6 +21,7 @@ export interface DataTableProps<T = any> extends TableHTMLAttributes<HTMLTableEl
     keyField: string | number | ((row: T) => string | number),
     size?: BootstrapSize | '',
     rowClassName?: DataTableClassNames;
+    renderRow?: (row: T) => React.ReactNode;
     onSelectRow?: (row: T) => any | void,
     selected?: string | number | ((row: T) => boolean),
     tfoot?: React.ReactElement<HTMLTableSectionElement>,
@@ -33,6 +34,7 @@ const DataTable = ({
                        keyField,
                        size = '',
                        rowClassName,
+                       renderRow,
                        onSelectRow = noop,
                        selected = '',
                        className = '',
@@ -50,6 +52,7 @@ const DataTable = ({
             <DataTableHead fields={fields}/>
             {!!data.length && (
                 <DataTableTBody fields={fields} data={data} keyField={keyField} rowClassName={rowClassName}
+                                renderRow={renderRow}
                                 onSelectRow={onSelectRow} selected={selected}/>
             )}
             {children}
