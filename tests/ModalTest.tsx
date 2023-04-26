@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {BootstrapSize, DateInput, FormCheck, InputGroup, Modal} from "../src";
-import Select from "../src/Select";
+import Select from "../src/Select/Select";
 
 
 const ModalTest: React.FC = () => {

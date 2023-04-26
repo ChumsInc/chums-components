@@ -1,19 +1,16 @@
 export default class LocalStore {
-    static clear():any {
+    static clear():void {
         window.localStorage.clear();
     }
 
-    static getItem(key:string):any {
+    static getItem<T = any>(key:string):T|null|string {
         if (!window || !window.localStorage) {
-            return;
+            return null;
         }
 
         const data = window.localStorage.getItem(key);
-        if (!data) {
-            return null;
-        }
         try {
-            return JSON.parse(data);
+            return JSON.parse(data ?? 'null');
         } catch(err:unknown) {
             if (err instanceof Error) {
                 console.log("getItem()", key, err.message);

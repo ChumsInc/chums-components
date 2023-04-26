@@ -1,24 +1,9 @@
 import { ReactNode } from "react";
-import classNames, { ArgumentArray } from 'classnames';
+import classNames from 'classnames';
 export type BootstrapColor = 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark' | 'body' | 'custom';
 export type BootstrapBGColor = BootstrapColor | 'transparent';
 export type BootstrapTextColor = BootstrapColor | 'muted' | 'white' | 'black-50' | 'white-50';
 export type BootstrapButtonColor = BootstrapColor | 'outline-primary' | 'outline-secondary' | 'outline-success' | 'outline-danger' | 'outline-warning' | 'outline-info' | 'outline-light' | 'outline-dark';
-export interface BasicAlert {
-    title?: string;
-    message?: string;
-    context?: string;
-    color?: BootstrapColor;
-    className?: string | ArgumentArray;
-    canDismiss?: boolean;
-}
-export interface ErrorAlert {
-    id: number;
-    context: string;
-    message: string;
-    count: number;
-    color?: BootstrapColor;
-}
 export type BootstrapSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 export type BootstrapButtonSize = 'xs' | 'sm' | 'lg';
 export interface InputField {
@@ -42,4 +27,21 @@ export interface SortableTableField<T = any> extends DataTableField<T> {
 export interface SortProps<T = any> {
     field: keyof T;
     ascending: boolean;
+}
+export interface Tab {
+    id: string;
+    title: string;
+    /** Bootstrap icon className */
+    icon?: string;
+    canClose?: boolean;
+    disabled?: boolean;
+}
+export interface TabType<T extends Tab = Tab> {
+}
+export interface PartialTab<T extends Tab = Tab> extends Partial<TabType<T>> {
+    id: string;
+}
+export interface TabsState<T extends Tab = Tab> {
+    tabs: T[];
+    current: string | null;
 }

@@ -6,16 +6,13 @@ export default class SessionStore {
         window.sessionStorage.clear();
     }
 
-    static getItem(key:string):any {
+    static getItem<T = any>(key:string):T|null|string {
         if (!window || !window.sessionStorage) {
-            return;
-        }
-        const data = window.sessionStorage.getItem(key);
-        if (!data) {
             return null;
         }
+        const data = window.sessionStorage.getItem(key);
         try {
-            return JSON.parse(data);
+            return JSON.parse(data ?? 'null');
         } catch(err:unknown) {
             if (err instanceof Error) {
                 console.log("getItem()", key, err.message);

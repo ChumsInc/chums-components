@@ -7,14 +7,11 @@ export default class SessionStore {
     }
     static getItem(key) {
         if (!window || !window.sessionStorage) {
-            return;
-        }
-        const data = window.sessionStorage.getItem(key);
-        if (!data) {
             return null;
         }
+        const data = window.sessionStorage.getItem(key);
         try {
-            return JSON.parse(data);
+            return JSON.parse(data ?? 'null');
         }
         catch (err) {
             if (err instanceof Error) {

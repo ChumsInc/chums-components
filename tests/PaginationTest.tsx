@@ -2,16 +2,16 @@ import * as React from "react";
 import {ChangeEvent, useEffect, useRef, useState} from "react";
 import numeral from "numeral";
 import {languages} from './languages'
-import Pager, {filterPage} from "../src/Pager";
+import Pager, {filterPage} from "../src/Pager/Pager";
 import {BootstrapColor, SortableTableField, SortProps} from "../src/types";
-import SortableTable from "../src/SortableTable";
-import ErrorBoundary from "../src/ErrorBoundary";
-import Input from "../src/Input";
-import SpinnerButton from "../src/SpinnerButton";
-import ItemDataList from "../src/ItemDataList";
-import ToggleButton from "../src/ToggleButton";
-import LoadingProgressBar from "../src/LoadingProgressBar";
-import TablePagination from "../src/TablePagination";
+import SortableTable from "../src/SortableTable/SortableTable";
+import ErrorBoundary from "../src/ErrorBoundary/ErrorBoundary";
+import Input from "../src/Input/Input";
+import SpinnerButton from "../src/SpinnerButton/SpinnerButton";
+import ItemDataList from "../src/ItemDataList/ItemDataList";
+import ToggleButton from "../src/ToggleButton/ToggleButton";
+import LoadingProgressBar from "../src/LoadingProgressBar/LoadingProgressBar";
+import TablePagination from "../src/TablePagination/TablePagination";
 
 
 interface TableDataRow {

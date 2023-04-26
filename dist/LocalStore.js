@@ -4,14 +4,11 @@ export default class LocalStore {
     }
     static getItem(key) {
         if (!window || !window.localStorage) {
-            return;
-        }
-        const data = window.localStorage.getItem(key);
-        if (!data) {
             return null;
         }
+        const data = window.localStorage.getItem(key);
         try {
-            return JSON.parse(data);
+            return JSON.parse(data ?? 'null');
         }
         catch (err) {
             if (err instanceof Error) {
