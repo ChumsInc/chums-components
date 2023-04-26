@@ -1,4 +1,4 @@
-import React, {Component, ReactNode} from 'react';
+import React, {Component} from 'react';
 import Alert from "../Alert/Alert";
 import {ErrorBoundaryProps, ErrorBoundaryState} from "./ErrorBoundary.types";
 
@@ -12,7 +12,7 @@ export default class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBo
         message: '',
     }
 
-    constructor(props:any) {
+    constructor(props: any) {
         super(props);
     }
 
@@ -20,7 +20,7 @@ export default class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBo
         return {hasError: true};
     }
 
-    componentDidCatch(error:Error, errorInfo:any) {
+    componentDidCatch(error: Error, errorInfo: any) {
         this.setState({componentStack: errorInfo.componentStack, message: error.message});
     }
 
