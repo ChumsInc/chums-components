@@ -105,22 +105,9 @@ export * from './TablePagination'
 export {default as ToggleButton} from './ToggleButton'
 export * from './ToggleButton'
 
-export type {
-    SortProps,
-    SortableTableField,
-    BootstrapColor,
-    BootstrapSize,
-    BootstrapBGColor,
-    BootstrapButtonColor,
-    BootstrapButtonSize,
-    BootstrapTextColor,
-    BootstrapFlexAlign,
-    InputField,
-    DataTableField,
-    DataTableClassNames
-} from './types'
+export * from './types'
 
-export {noop, getRegex} from './utils/utils'
+export {noop, getRegex, commaFormatter} from './utils/utils'
 
 export {default as LocalStore} from './LocalStore';
 export {default as SessionStore} from './SessionStore';
