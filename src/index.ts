@@ -105,6 +105,9 @@ export * from './TablePagination'
 export {default as ToggleButton} from './ToggleButton'
 export * from './ToggleButton'
 
+export {default as AppVersion} from './AppVersion';
+export * from './AppVersion';
+
 export * from './types'
 
 export {noop, getRegex, commaFormatter} from './utils/utils'
