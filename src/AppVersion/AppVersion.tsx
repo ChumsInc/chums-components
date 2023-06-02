@@ -48,7 +48,7 @@ const AppVersion = ({path = './package.json', checkInterval, defaultColor = 'lig
     const color = changed ? changedColor : defaultColor;
     return (
         <div onClick={handleCheckVersion}>
-            <Alert color={color} title="Version" canDismiss onDismiss={() => setChanged(false)}>
+            <Alert color={color} title="Version" canDismiss={changed} onDismiss={() => setChanged(false)}>
                 <span className="me-3">{version}</span>
                 {changed && <em>Update Available</em>}
             </Alert>

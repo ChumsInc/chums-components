@@ -37,7 +37,7 @@ const AppVersion = ({ path = './package.json', checkInterval, defaultColor = 'li
         setLoading(false);
     };
     const color = changed ? changedColor : defaultColor;
-    return (_jsx("div", { onClick: handleCheckVersion, children: _jsxs(Alert, { color: color, title: "Version", canDismiss: true, onDismiss: () => setChanged(false), children: [_jsx("span", { className: "me-3", children: version }), changed && _jsx("em", { children: "Update Available" })] }) }));
+    return (_jsx("div", { onClick: handleCheckVersion, children: _jsxs(Alert, { color: color, title: "Version", canDismiss: changed, onDismiss: () => setChanged(false), children: [_jsx("span", { className: "me-3", children: version }), changed && _jsx("em", { children: "Update Available" })] }) }));
 };
 export default AppVersion;
 //# sourceMappingURL=AppVersion.js.map
