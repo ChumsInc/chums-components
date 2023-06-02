@@ -14,5 +14,5 @@ export default class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBo
         hasError: boolean;
     };
     componentDidCatch(error: Error, errorInfo: any): void;
-    render(): string | number | boolean | React.ReactFragment | JSX.Element | null | undefined;
+    render(): string | number | boolean | React.ReactFragment | import("react/jsx-runtime").JSX.Element | null | undefined;
 }
