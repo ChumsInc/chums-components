@@ -11,7 +11,7 @@ export interface InputField {
     value: string | number | boolean;
 }
 export type BootstrapFlexAlign = 'start' | 'end' | 'center' | 'baseline' | 'stretch';
-export type DataTableClassNames<T = any> = string | classNames.ArgumentArray | ((row: T) => string | classNames.ArgumentArray);
+export type DataTableClassNames<T = any> = string | classNames.Argument | ((row: T) => string | classNames.Argument);
 export interface DataTableField<T = any> {
     id?: number | string;
     field: keyof T;
