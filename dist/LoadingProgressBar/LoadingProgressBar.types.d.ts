@@ -9,6 +9,6 @@ export interface LoadingProgressProps extends Omit<ProgressProps, 'children'> {
     valueMax?: number;
     striped?: boolean;
     animated?: boolean;
-    className?: string | classNames.ArgumentArray;
+    className?: string | classNames.Argument;
     children?: ReactNode;
 }

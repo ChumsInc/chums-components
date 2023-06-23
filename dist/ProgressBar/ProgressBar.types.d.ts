@@ -8,7 +8,7 @@ export interface ProgressBarProps {
     valueMax?: number;
     striped?: boolean;
     animated?: boolean;
-    className?: string | classNames.ArgumentArray;
+    className?: string | classNames.Argument;
     style?: object;
     children?: ReactNode;
 }
