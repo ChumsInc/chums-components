@@ -3,6 +3,6 @@ import {ReactNode} from "react";
 
 export interface InputGroupProps {
     bsSize?: 'sm'|'lg',
-    className?: string|classNames.ArgumentArray,
+    className?: string|classNames.Argument,
     children?: ReactNode,
 }

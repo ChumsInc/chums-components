@@ -11,7 +11,7 @@ export interface ModalProps {
     scrollable?: boolean,
     centered?: boolean,
     staticBackdrop?: boolean,
-    dialogClassName?: string | classNames.ArgumentArray,
+    dialogClassName?: string | classNames.Argument,
     visible?: boolean,
     onClose?: (any?:any) => any,
     children?:React.ReactNode,

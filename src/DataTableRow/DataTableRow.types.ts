@@ -3,7 +3,7 @@ import classNames from "classnames";
 import {DataTableField} from "../types";
 
 export interface DataTableRowProps extends TableHTMLAttributes<HTMLTableRowElement> {
-    rowClassName?: string | classNames.ArgumentArray | ((row: unknown) => string | classNames.ArgumentArray),
+    rowClassName?: string | classNames.Argument | ((row: unknown) => string | classNames.Argument),
     selected?: boolean,
     fields: DataTableField[],
     row: any,
