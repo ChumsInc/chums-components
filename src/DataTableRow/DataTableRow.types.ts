@@ -2,12 +2,12 @@ import React, {TableHTMLAttributes} from "react";
 import classNames from "classnames";
 import {DataTableField} from "../types";
 
-export interface DataTableRowProps extends TableHTMLAttributes<HTMLTableRowElement> {
-    rowClassName?: string | classNames.Argument | ((row: unknown) => string | classNames.Argument),
+export interface DataTableRowProps<T = any> extends Omit <TableHTMLAttributes<HTMLTableRowElement>, 'onClick'> {
+    rowClassName?: string | classNames.Argument | ((row: T) => string | classNames.Argument),
     selected?: boolean,
-    fields: DataTableField[],
-    row: any,
+    fields: DataTableField<T>[],
+    row: T,
     trRef?: React.Ref<HTMLTableRowElement>,
-    onClick?: (row?: unknown) => any|void,
+    onClick?: (row?: T) => any|void,
 }
 

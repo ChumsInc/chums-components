@@ -1,6 +1,6 @@
 import {TableHTMLAttributes} from "react";
 import {DataTableField} from "../types";
 
-export interface DataTableHeadProps extends TableHTMLAttributes<HTMLTableSectionElement> {
-    fields: DataTableField[];
+export interface DataTableHeadProps<T = any> extends TableHTMLAttributes<HTMLTableSectionElement> {
+    fields: DataTableField<T>[];
 }

@@ -1,9 +1,9 @@
 import {DataTableHeadProps} from "../DataTableHead";
 import {SortableTableField, SortProps} from "../types";
 
-export interface SortableTableHeadProps extends DataTableHeadProps {
-    currentSort: SortProps,
-    fields: SortableTableField[],
-    onChangeSort: (sort: SortProps) => void,
+export interface SortableTableHeadProps<T = any> extends DataTableHeadProps {
+    currentSort: SortProps<T>,
+    fields: SortableTableField<T>[],
+    onChangeSort: (sort: SortProps<T>) => void,
 }
 

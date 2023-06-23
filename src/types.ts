@@ -23,7 +23,7 @@ export type BootstrapFlexAlign = 'start' | 'end' | 'center' | 'baseline' | 'stre
 export type DataTableClassNames<T = any> =
     string
     | classNames.Argument
-    | ((row: T) => string | classNames.Argument);
+    | ((row: T) => (string | classNames.Argument));
 
 export interface DataTableField<T = any> {
     id?: number | string;

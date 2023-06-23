@@ -1,10 +1,14 @@
 import React, { TableHTMLAttributes } from "react";
 import { SortableTableField } from "../types";
-export interface SortableTRProps extends TableHTMLAttributes<HTMLTableRowElement> {
-    rowClassName?: string | object | ((any: any) => string | object);
+import classNames from "classnames";
+/**
+ * @deprecated - use DataTableRow instead - the table row is the sorted item, not the sortable container
+ */
+export interface SortableTRProps<T = any> extends Omit<TableHTMLAttributes<HTMLTableRowElement>, 'onClick'> {
+    rowClassName?: classNames.Argument | ((row: T) => classNames.Argument);
     selected?: boolean;
-    fields: SortableTableField[];
-    row: any;
+    fields: SortableTableField<T>[];
+    row: T;
     trRef?: React.LegacyRef<HTMLTableRowElement>;
-    onClick?: (any?: any) => any;
+    onClick?: (row?: T) => any | void;
 }
