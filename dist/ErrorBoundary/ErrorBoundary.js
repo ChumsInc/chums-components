@@ -5,13 +5,13 @@ import Alert from "../Alert/Alert";
  * @deprecated Use react-error-boundary instead.
  */
 export default class ErrorBoundary extends Component {
+    state = {
+        hasError: false,
+        componentStack: '',
+        message: '',
+    };
     constructor(props) {
         super(props);
-        this.state = {
-            hasError: false,
-            componentStack: '',
-            message: '',
-        };
     }
     static getDerivedStateFromError() {
         return { hasError: true };
