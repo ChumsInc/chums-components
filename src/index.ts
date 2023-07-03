@@ -51,6 +51,9 @@ export * from './Modal'
 export {default as LoadingProgressBar} from './LoadingProgressBar';
 export * from './LoadingProgressBar';
 
+export {default as NavList} from './NavList';
+export * from './NavList'
+
 export {default as PageButton} from './PageButton';
 export * from './PageButton'
 

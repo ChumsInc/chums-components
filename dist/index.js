@@ -33,6 +33,8 @@ export { default as Modal } from './Modal';
 export * from './Modal';
 export { default as LoadingProgressBar } from './LoadingProgressBar';
 export * from './LoadingProgressBar';
+export { default as NavList } from './NavList';
+export * from './NavList';
 export { default as PageButton } from './PageButton';
 export * from './PageButton';
 export { default as Pager } from './Pager';

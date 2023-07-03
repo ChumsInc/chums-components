@@ -2,10 +2,8 @@ import * as React from "react";
 import {ChangeEvent, useEffect, useRef, useState} from "react";
 import numeral from "numeral";
 import {languages} from './languages'
-import Pager, {filterPage} from "../src/Pager/Pager";
 import {BootstrapColor, SortableTableField, SortProps} from "../src/types";
 import SortableTable from "../src/SortableTable/SortableTable";
-import ErrorBoundary from "../src/ErrorBoundary/ErrorBoundary";
 import Input from "../src/Input/Input";
 import SpinnerButton from "../src/SpinnerButton/SpinnerButton";
 import ItemDataList from "../src/ItemDataList/ItemDataList";
@@ -218,7 +216,7 @@ const PaginationTest: React.FC = () => {
                 </div>
                 <div className="col-auto">
                     <ToggleButton id={'test-toggle'} size="sm" color="success" checked={toggleCheck}
-                                  onClick={onClickToggle}>Toggle this muthafucka!</ToggleButton>
+                                  onChange={onClickToggle}>Toggle this muthafucka!</ToggleButton>
                 </div>
             </div>
             {loading && <LoadingProgressBar animated/>}

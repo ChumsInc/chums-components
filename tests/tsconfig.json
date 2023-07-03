@@ -5,17 +5,15 @@
     "lib": ["dom", "dom.iterable", "esnext"],
     "module": "esnext",
     "allowJs": true,
-    "noEmit": false,
+    "noEmit": true,
     "jsx": "react-jsx",
-    "outDir": "./dist/",
     "declaration": true,
     "noImplicitAny": true,
-    "sourceMap": true,
     "allowSyntheticDefaultImports": true,
     "isolatedModules": true,
   },
   "include": [
-    "src/**/*"
+    "*"
   ],
   "exclude": [
     "node_modules",
