@@ -21,6 +21,6 @@ export interface NavItemProps extends NavItemElement {
     className?: string | classNames.Argument;
     disabled?: boolean;
     element?: React.ReactNode;
-    onSelect: (id: string) => void;
+    onSelect?: (id: string) => void;
     onClose?: (id: string) => void;
 }

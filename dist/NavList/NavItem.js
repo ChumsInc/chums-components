@@ -1,13 +1,19 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { useEffect } from 'react';
 import classNames from "classnames";
 export default function NavItem({ id, title, icon, className, element, active = false, disabled = false, onSelect, canClose, onClose, }) {
+    useEffect(() => {
+        if (!onSelect && !element) {
+            console.warn('NavItem:onSelect is required if element is undefined');
+        }
+    }, []);
     const closeHandler = () => {
         if (canClose && onClose !== undefined) {
             onClose(id);
         }
     };
     const clickHandler = () => {
-        if (disabled || active) {
+        if (disabled || active || !onSelect) {
             return;
         }
         onSelect(id);
