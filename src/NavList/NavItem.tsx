@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import classNames from "classnames";
 import {NavItemProps} from "./NavList.types";
 
@@ -14,6 +14,12 @@ export default function NavItem({
                                     canClose,
                                     onClose,
                                 }: NavItemProps) {
+    useEffect(() => {
+        if (!onSelect && !element) {
+            console.warn('NavItem:onSelect is required if element is undefined');
+        }
+    }, []);
+
     const closeHandler = () => {
         if (canClose && onClose !== undefined) {
             onClose(id);
@@ -21,7 +27,7 @@ export default function NavItem({
     }
 
     const clickHandler = () => {
-        if (disabled || active) {
+        if (disabled || active || !onSelect) {
             return;
         }
         onSelect(id);
