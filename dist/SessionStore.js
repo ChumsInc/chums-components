@@ -7,7 +7,7 @@ class SessionStore {
         }
         window.sessionStorage.clear();
     }
-    static getItem(key) {
+    static getItem(key, defaultValue = null) {
         if (!window || !window.sessionStorage) {
             return null;
         }

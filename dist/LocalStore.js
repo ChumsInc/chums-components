@@ -4,7 +4,7 @@ class LocalStore {
     static clear() {
         window.localStorage.clear();
     }
-    static getItem(key) {
+    static getItem(key, defaultValue = null) {
         if (!window || !window.localStorage) {
             return null;
         }
@@ -16,7 +16,7 @@ class LocalStore {
             if (err instanceof Error) {
                 console.log("getItem()", key, err.message);
             }
-            return null;
+            return defaultValue;
         }
     }
     static setItem(key, data) {

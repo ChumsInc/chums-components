@@ -3,7 +3,7 @@ export default class LocalStore {
         window.localStorage.clear();
     }
 
-    static getItem<T = any>(key:string):T|null {
+    static getItem<T = any>(key:string, defaultValue: T|null = null):T|null {
         if (!window || !window.localStorage) {
             return null;
         }
@@ -15,7 +15,7 @@ export default class LocalStore {
             if (err instanceof Error) {
                 console.log("getItem()", key, err.message);
             }
-            return null;
+            return defaultValue;
         }
     }
 
