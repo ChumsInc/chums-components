@@ -1,6 +1,5 @@
 import React from 'react';
 import classNames from "classnames";
-import {isLightColor} from "../bootstrap/color-utils";
 import {BadgeProps} from "./Badge.types";
 
 
@@ -13,13 +12,10 @@ const Badge = ({
                    description,
                    children
                }: BadgeProps) => {
-    const isLight = !!colorCode ? isLightColor(colorCode) : null;
     const _className = {
         'badge': true,
         'badge-pill': pill,
         [`bg-${color}`]: !!color,
-        'text-light': !!colorCode && !isLight,
-        'text-dark': !!colorCode && isLight,
     }
 
     const style: React.CSSProperties = {};

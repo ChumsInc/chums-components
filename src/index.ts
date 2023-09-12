@@ -4,7 +4,6 @@ export * from './Alert'
 export {default as Badge} from './Badge';
 export * from './Badge'
 
-export {isLightColor} from './bootstrap/color-utils';
 export {colors, bgColors, buttonColors, textColors} from './bootstrap/colors';
 
 export {default as DataTable} from './DataTable'

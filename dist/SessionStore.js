@@ -1,4 +1,6 @@
-export default class SessionStore {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+class SessionStore {
     static clear() {
         if (!window || !window.sessionStorage) {
             return;
@@ -17,7 +19,7 @@ export default class SessionStore {
             if (err instanceof Error) {
                 console.log("getItem()", key, err.message);
             }
-            return data;
+            return null;
         }
     }
     static setItem(key, data) {
@@ -33,4 +35,5 @@ export default class SessionStore {
         window.sessionStorage.removeItem(key);
     }
 }
+exports.default = SessionStore;
 //# sourceMappingURL=SessionStore.js.map

@@ -3,7 +3,7 @@ export default class LocalStore {
         window.localStorage.clear();
     }
 
-    static getItem<T = any>(key:string):T|null|string {
+    static getItem<T = any>(key:string):T|null {
         if (!window || !window.localStorage) {
             return null;
         }
@@ -15,11 +15,11 @@ export default class LocalStore {
             if (err instanceof Error) {
                 console.log("getItem()", key, err.message);
             }
-            return data;
+            return null;
         }
     }
 
-    static setItem(key:string, data:any) {
+    static setItem<T = any>(key:string, data:T) {
         if (!window || !window.localStorage) {
             return;
         }

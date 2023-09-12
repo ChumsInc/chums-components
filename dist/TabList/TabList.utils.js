@@ -1,3 +1,6 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.tabsReducer = exports.initialTabState = void 0;
 const tabAdder = (newTabs) => (state) => {
     let { current } = state;
     if (!Array.isArray(newTabs)) {
@@ -55,11 +58,11 @@ const modifyTabSet = (state, tabsModifier) => {
         current,
     };
 };
-export const initialTabState = {
+exports.initialTabState = {
     tabs: [],
     current: null,
 };
-export function tabsReducer(state, action) {
+function tabsReducer(state, action) {
     switch (action.type) {
         case 'select':
             return {
@@ -75,4 +78,5 @@ export function tabsReducer(state, action) {
     }
     return state;
 }
+exports.tabsReducer = tabsReducer;
 //# sourceMappingURL=TabList.utils.js.map

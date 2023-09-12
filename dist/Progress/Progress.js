@@ -1,10 +1,15 @@
-import { jsx as _jsx } from "react/jsx-runtime";
-import classNames from "classnames";
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const jsx_runtime_1 = require("react/jsx-runtime");
+const classnames_1 = __importDefault(require("classnames"));
 const Progress = ({ height, className = '', style = {}, children }) => {
     if (height && !style.height) {
         style.height = height;
     }
-    return (_jsx("div", { className: classNames('progress', className), style: style, children: children }));
+    return ((0, jsx_runtime_1.jsx)("div", { className: (0, classnames_1.default)('progress', className), style: style, children: children }));
 };
-export default Progress;
+exports.default = Progress;
 //# sourceMappingURL=Progress.js.map

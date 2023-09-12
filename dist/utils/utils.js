@@ -1,4 +1,8 @@
-export const noop = (any) => { };
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.commaFormatter = exports.getRegex = exports.noop = void 0;
+const noop = (any) => { };
+exports.noop = noop;
 /**
  * Returns a regular expression that is used by the
  * subsequence search engine.
@@ -7,7 +11,7 @@ export const noop = (any) => { };
  * @return {RegExp}     Regular expression based off input search string
  * @see https://git.io/v7LGt
  */
-export const getRegex = (str, flags = 'i') => {
+const getRegex = (str, flags = 'i') => {
     const split = str.split('').map(char => {
         //escape special chars
         if ('*' === char ||
@@ -29,7 +33,9 @@ export const getRegex = (str, flags = 'i') => {
     const string = '^(.*?)' + split.join('(.*?)') + '(.*?)(.*)$';
     return new RegExp(string, flags);
 };
-export const commaFormatter = (n) => {
+exports.getRegex = getRegex;
+const commaFormatter = (n) => {
     return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 };
+exports.commaFormatter = commaFormatter;
 //# sourceMappingURL=utils.js.map

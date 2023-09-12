@@ -6,7 +6,7 @@ export default class SessionStore {
         window.sessionStorage.clear();
     }
 
-    static getItem<T = any>(key:string):T|null|string {
+    static getItem<T = any>(key:string):T|null {
         if (!window || !window.sessionStorage) {
             return null;
         }
@@ -17,11 +17,11 @@ export default class SessionStore {
             if (err instanceof Error) {
                 console.log("getItem()", key, err.message);
             }
-            return data;
+            return null;
         }
     }
 
-    static setItem(key:string, data:any) {
+    static setItem<T = any>(key:string, data:T) {
         if (!window || !window.sessionStorage) {
             return;
         }

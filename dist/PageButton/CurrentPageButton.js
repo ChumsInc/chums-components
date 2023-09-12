@@ -1,8 +1,13 @@
-import { jsx as _jsx } from "react/jsx-runtime";
-import classNames from "classnames";
-import { commaFormatter } from "../utils/utils";
-const CurrentPageButton = ({ page, label = null }) => {
-    return (_jsx("li", { className: classNames('page-item active'), children: _jsx("span", { className: "page-link", children: label ?? commaFormatter(page) }) }));
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-export default CurrentPageButton;
+Object.defineProperty(exports, "__esModule", { value: true });
+const jsx_runtime_1 = require("react/jsx-runtime");
+const classnames_1 = __importDefault(require("classnames"));
+const utils_1 = require("../utils/utils");
+const CurrentPageButton = ({ page, label = null }) => {
+    return ((0, jsx_runtime_1.jsx)("li", { className: (0, classnames_1.default)('page-item active'), children: (0, jsx_runtime_1.jsx)("span", { className: "page-link", children: label ?? (0, utils_1.commaFormatter)(page) }) }));
+};
+exports.default = CurrentPageButton;
 //# sourceMappingURL=CurrentPageButton.js.map

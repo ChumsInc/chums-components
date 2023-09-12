@@ -1,5 +1,8 @@
-import { fetchJSON } from "../utils/fetch";
-export function parseSearchParams(search, filter) {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.loadItemSearch = exports.parseSearchParams = void 0;
+const fetch_1 = require("../utils/fetch");
+function parseSearchParams(search, filter) {
     const params = new URLSearchParams();
     params.set('search', search);
     if (!filter) {
@@ -23,14 +26,15 @@ export function parseSearchParams(search, filter) {
     }
     return params;
 }
-export async function loadItemSearch(search, filter, signal) {
+exports.parseSearchParams = parseSearchParams;
+async function loadItemSearch(search, filter, signal) {
     try {
         if (!search) {
             return [];
         }
         const params = parseSearchParams(search, filter);
         const url = `/api/search/item/chums/?${params.toString()}`;
-        const { result } = await fetchJSON(url, { signal });
+        const { result } = await (0, fetch_1.fetchJSON)(url, { signal });
         return result || [];
     }
     catch (error) {
@@ -42,4 +46,5 @@ export async function loadItemSearch(search, filter, signal) {
         return [];
     }
 }
+exports.loadItemSearch = loadItemSearch;
 //# sourceMappingURL=ItemDataList.utils.js.map

@@ -1,4 +1,7 @@
-export const colors = {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.bgColors = exports.textColors = exports.buttonColors = exports.colors = void 0;
+exports.colors = {
     primary: 'primary',
     secondary: 'secondary',
     success: 'success',
@@ -8,8 +11,8 @@ export const colors = {
     light: 'light',
     dark: 'dark',
 };
-export const buttonColors = {
-    ...colors,
+exports.buttonColors = {
+    ...exports.colors,
     'outline-primary': 'outline-primary',
     'outline-secondary': 'outline-secondary',
     'outline-success': 'outline-success',
@@ -19,13 +22,13 @@ export const buttonColors = {
     'outline-light': 'outline-light',
     'outline-dark': 'outline-dark',
 };
-export const textColors = {
-    ...colors,
+exports.textColors = {
+    ...exports.colors,
     white: 'white',
     muted: 'muted',
 };
-export const bgColors = {
-    ...colors,
+exports.bgColors = {
+    ...exports.colors,
     white: 'white',
     transparent: 'transparent',
 };

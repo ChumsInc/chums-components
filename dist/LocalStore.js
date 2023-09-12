@@ -1,4 +1,6 @@
-export default class LocalStore {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+class LocalStore {
     static clear() {
         window.localStorage.clear();
     }
@@ -14,7 +16,7 @@ export default class LocalStore {
             if (err instanceof Error) {
                 console.log("getItem()", key, err.message);
             }
-            return data;
+            return null;
         }
     }
     static setItem(key, data) {
@@ -30,4 +32,5 @@ export default class LocalStore {
         window.localStorage.removeItem(key);
     }
 }
+exports.default = LocalStore;
 //# sourceMappingURL=LocalStore.js.map

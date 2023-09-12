@@ -1,9 +1,6 @@
 {
-  "extends": "@tsconfig/node18",
-
   "compilerOptions": {
     "lib": ["dom", "dom.iterable", "esnext"],
-    "module": "esnext",
     "allowJs": true,
     "noEmit": false,
     "jsx": "react-jsx",
@@ -13,6 +10,13 @@
     "sourceMap": true,
     "allowSyntheticDefaultImports": true,
     "isolatedModules": true,
+    "module": "node16",
+    "target": "es2022",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node16"
   },
   "include": [
     "src/**/*"

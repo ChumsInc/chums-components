@@ -1,7 +1,10 @@
+"use strict";
 /**
  * Created by steve on 8/24/2016.
  */
-export const fetchOptions = {
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.fetchDELETE = exports.fetchPOST = exports.fetchHTML = exports.fetchJSON = exports.fetchOptions = void 0;
+exports.fetchOptions = {
     PostJSON: (object, options) => {
         options = options || {};
         const headers = options?.headers || {};
@@ -46,7 +49,7 @@ async function handleJSONResponse(res) {
     }
     return json || {};
 }
-export async function fetchJSON(url, options = {}) {
+async function fetchJSON(url, options = {}) {
     try {
         if (!!options?.method && ['POST', 'PUT'].includes(options.method.toUpperCase())) {
             const headers = options?.headers || {};
@@ -74,7 +77,8 @@ export async function fetchJSON(url, options = {}) {
         return Promise.reject(err);
     }
 }
-export async function fetchHTML(url, options = {}) {
+exports.fetchJSON = fetchJSON;
+async function fetchHTML(url, options = {}) {
     try {
         const res = await fetch(url, { credentials: 'same-origin', ...options });
         if (!res.ok) {
@@ -95,9 +99,10 @@ export async function fetchHTML(url, options = {}) {
         return Promise.reject(err);
     }
 }
-export async function fetchPOST(url, body, options = {}) {
+exports.fetchHTML = fetchHTML;
+async function fetchPOST(url, body, options = {}) {
     try {
-        const _options = fetchOptions.PostJSON(body, options);
+        const _options = exports.fetchOptions.PostJSON(body, options);
         return await fetchJSON(url, _options);
     }
     catch (err) {
@@ -112,9 +117,10 @@ export async function fetchPOST(url, body, options = {}) {
         return Promise.reject(err);
     }
 }
-export async function fetchDELETE(url, options = {}) {
+exports.fetchPOST = fetchPOST;
+async function fetchDELETE(url, options = {}) {
     try {
-        const _options = fetchOptions.PostJSON(options);
+        const _options = exports.fetchOptions.PostJSON(options);
         return await fetchJSON(url, _options);
     }
     catch (err) {
@@ -129,4 +135,5 @@ export async function fetchDELETE(url, options = {}) {
         return Promise.reject(err);
     }
 }
+exports.fetchDELETE = fetchDELETE;
 //# sourceMappingURL=fetch.js.map
