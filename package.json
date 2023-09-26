@@ -27,14 +27,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/UtahGooner/chums-components.git"
+    "url": "git+https://github.com/ChumsInc/chums-components.git"
   },
   "author": "Steve Montgomery",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/UtahGooner/chums-components/issues"
+    "url": "https://github.com/ChumsInc/chums-components/issues"
   },
-  "homepage": "https://github.com/UtahGooner/chums-components#readme",
+  "homepage": "https://github.com/ChumsInc/chums-components#readme",
   "devDependencies": {
     "@babel/cli": "^7.12.17",
     "@babel/core": "^7.12.3",
