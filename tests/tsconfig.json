@@ -3,14 +3,21 @@
 
   "compilerOptions": {
     "lib": ["dom", "dom.iterable", "esnext"],
-    "module": "esnext",
     "allowJs": true,
-    "noEmit": true,
+    "noEmit": false,
     "jsx": "react-jsx",
     "declaration": true,
     "noImplicitAny": true,
+    "sourceMap": true,
     "allowSyntheticDefaultImports": true,
     "isolatedModules": true,
+    "module": "Node16",
+    "target": "es2022",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "Node16"
   },
   "include": [
     "*"

@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from "classnames";
 import {BadgeProps} from "./Badge.types";
+import {isLightColor} from "../utils/utils";
 
 
 const Badge = ({
@@ -21,6 +22,9 @@ const Badge = ({
     const style: React.CSSProperties = {};
     if (color === 'custom' && !!colorCode) {
         style.backgroundColor = colorCode;
+        if (isLightColor(colorCode)) {
+            style.color = 'black';
+        }
     }
 
     return (

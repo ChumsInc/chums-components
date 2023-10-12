@@ -10,6 +10,8 @@ import ItemDataList from "../src/ItemDataList/ItemDataList";
 import ToggleButton from "../src/ToggleButton/ToggleButton";
 import LoadingProgressBar from "../src/LoadingProgressBar/LoadingProgressBar";
 import TablePagination from "../src/TablePagination/TablePagination";
+import {Badge} from "../src";
+import TestBadge from "./TestBadge";
 
 
 interface TableDataRow {
@@ -57,6 +59,7 @@ const tableFields: SortableTableField[] = [
     {field: 'id', title: 'ID', sortable: true},
     {field: 'color', title: 'Color', sortable: true, className: (row) => `text-${colors[Math.floor(row.id % 8)]}`},
     {field: 'bgColor', title: 'Background Color', sortable: true, render: (row) => <span>table-{row.bgColor}</span>},
+    {field: 'bgColor', title: 'Badge Test', sortable: false, render: (row) => <TestBadge value={row.value} /> },
     {field: 'value', title: (<ValueTitle />), sortable: true, className: 'right', render: (row) => numeral(row.value).format('0,0.0000')},
 ];
 
