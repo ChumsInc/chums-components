@@ -1,4 +1,5 @@
 {
+  "extends": "@tsconfig/node18",
   "compilerOptions": {
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
@@ -10,13 +11,6 @@
     "sourceMap": true,
     "allowSyntheticDefaultImports": true,
     "isolatedModules": true,
-    "module": "Node16",
-    "target": "es2022",
-    "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "moduleResolution": "Node16"
   },
   "include": [
     "src/**/*"
