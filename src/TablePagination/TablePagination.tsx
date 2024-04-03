@@ -21,7 +21,7 @@ const TablePagination = ({
     const last = Math.min(page * rowsPerPage + rowsPerPage, count);
     const lastPage = rowsPerPage === 0 ? 0 : Math.floor((count - 1) / rowsPerPage);
 
-    const buttonClassName = classNames("btn btn-light", {[`btn-${bsSize}`]: !!bsSize});
+    const buttonClassName = classNames("btn btn-link", {[`btn-${bsSize}`]: !!bsSize});
 
     return (
         <div className={classNames("row g-3 justify-content-end align-items-baseline", className)} {...rest}>
