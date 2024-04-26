@@ -12,8 +12,11 @@ class SessionStore {
             return null;
         }
         const data = window.sessionStorage.getItem(key);
+        if (data === null) {
+            return defaultValue;
+        }
         try {
-            return JSON.parse(data ?? 'null');
+            return JSON.parse(data);
         }
         catch (err) {
             if (err instanceof Error) {
