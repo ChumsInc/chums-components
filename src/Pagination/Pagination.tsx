@@ -48,7 +48,7 @@ const Pagination = ({
                 )}
                 <PageButton page={1} onClick={onSelect} isCurrent={page === 1}/>
                 {hasMore && firstEllipsis.length === 1 && (
-                    <PageButton page={firstEllipsis[0]} label={firstEllipsis[0]}/>
+                    <PageButton page={firstEllipsis[0]!} label={firstEllipsis[0]!}/>
                 )}
                 {hasMore && firstEllipsis.length > 1 && (
                     <PageButton page={0} label={PAGE_LABELS.ellipsis} disabled/>
@@ -57,7 +57,7 @@ const Pagination = ({
                     <PageButton key={p} page={p} isCurrent={p === page} onClick={onSelect}/>
                 ))}
                 {hasMore && lastEllipsis.length === 1 && (
-                    <PageButton page={lastEllipsis[0]} label={lastEllipsis[0]}/>
+                    <PageButton page={lastEllipsis[0]!} label={lastEllipsis[0]!}/>
                 )}
                 {hasMore && lastEllipsis.length > 1 && (
                     <PageButton page={0} label={PAGE_LABELS.ellipsis} disabled/>

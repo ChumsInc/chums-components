@@ -1,4 +1,4 @@
-export declare const noop: (any?: any) => void;
+export declare const noop: () => void;
 /**
  * Returns a regular expression that is used by the
  * subsequence search engine.

@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.isLightColor = exports.averageColor = exports.commaFormatter = exports.getRegex = exports.noop = void 0;
-const noop = (any) => { };
+const noop = () => { };
 exports.noop = noop;
 /**
  * Returns a regular expression that is used by the

@@ -19,7 +19,7 @@ class SessionStore {
             if (err instanceof Error) {
                 console.log("getItem()", key, err.message);
             }
-            return null;
+            return defaultValue;
         }
     }
     static setItem(key, data) {

@@ -1,4 +1,4 @@
-export const noop = (any?:any):void => {};
+export const noop = ():void => {};
 
 
 /**
