@@ -7,10 +7,12 @@ export default class LocalStore {
         if (!window || !window.localStorage) {
             return null;
         }
-
         const data = window.localStorage.getItem(key);
+        if (data === null) {
+            return defaultValue;
+        }
         try {
-            return JSON.parse(data ?? 'null');
+            return JSON.parse(data);
         } catch(err:unknown) {
             if (err instanceof Error) {
                 console.log("getItem()", key, err.message);
