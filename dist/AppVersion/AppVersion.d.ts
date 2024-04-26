@@ -8,9 +8,9 @@ import { BootstrapColor } from "../types";
  * @constructor
  */
 declare const AppVersion: ({ path, checkInterval, defaultColor, changedColor }: {
-    path?: string | undefined;
-    checkInterval?: number | undefined;
-    defaultColor?: BootstrapColor | undefined;
-    changedColor?: BootstrapColor | undefined;
+    path?: string;
+    checkInterval?: number;
+    defaultColor?: BootstrapColor;
+    changedColor?: BootstrapColor;
 }) => import("react/jsx-runtime").JSX.Element;
 export default AppVersion;
