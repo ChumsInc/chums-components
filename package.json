@@ -90,7 +90,6 @@
     "base16": "^1.0.0",
     "isomorphic-fetch": "^3.0.0",
     "styled-components": "^6.0.7",
-    "tsup": "^8.0.2",
     "uuid": "^9.0.0"
   }
 }
