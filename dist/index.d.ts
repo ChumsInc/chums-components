@@ -76,5 +76,3 @@ export * from './types';
 export { noop, getRegex, commaFormatter } from './utils/utils';
 export { default as LocalStore } from './LocalStore';
 export { default as SessionStore } from './SessionStore';
-export { initialListState, initialCurrentValueState, createDefaultListActions } from './utils/redux-utils';
-export type { ListState, CurrentValueState } from './utils/redux-utils';
