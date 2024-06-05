@@ -34,8 +34,8 @@ async function loadItemSearch(search, filter, signal) {
         }
         const params = parseSearchParams(search, filter);
         const url = `/api/search/item/chums/?${params.toString()}`;
-        const { result } = await (0, fetch_1.fetchJSON)(url, { signal });
-        return result || [];
+        const res = await (0, fetch_1.fetchJSON)(url, { signal });
+        return res?.result ?? [];
     }
     catch (error) {
         if (error instanceof Error) {

@@ -33,8 +33,8 @@ export async function loadItemSearch(search: string, filter?: ItemSearchFilter, 
         }
         const params = parseSearchParams(search, filter)
         const url = `/api/search/item/chums/?${params.toString()}`
-        const {result} = await fetchJSON<{ result: ItemSearchRecord[] }>(url, {signal});
-        return result || []
+        const res = await fetchJSON<{ result: ItemSearchRecord[] }>(url, {signal});
+        return res?.result ?? []
     } catch (error: unknown) {
         if (error instanceof Error) {
             console.log("loadItemSearch()", error.name, error.message);
