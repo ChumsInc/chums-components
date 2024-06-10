@@ -30,7 +30,7 @@ export interface SortProps<T = any> {
 }
 export interface Tab {
     id: string;
-    title: string;
+    title: string | ReactNode;
     /** Bootstrap icon className */
     icon?: string;
     canClose?: boolean;

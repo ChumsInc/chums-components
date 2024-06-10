@@ -27,7 +27,7 @@ export const tab3:Tab = {
 
 export const addTab:Tab = {
     id: 'tab-adder',
-    title: '+',
+    title: <span className="bi-plus-circle"/>,
     canClose: false,
     disabled: false,
 }

@@ -18,7 +18,7 @@ export interface NavListProps extends Omit<HTMLAttributes<HTMLUListElement>, 'on
     justify?: boolean;
 }
 
-export type NavItemElement = Tab & Omit<HTMLAttributes<HTMLLIElement>, 'onSelect' | 'className'>;
+export type NavItemElement = Tab & Omit<HTMLAttributes<HTMLLIElement>, 'onSelect' | 'className'|'title'>;
 
 export interface NavItemProps extends NavItemElement {
     active?: boolean;
