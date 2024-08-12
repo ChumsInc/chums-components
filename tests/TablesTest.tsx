@@ -1,11 +1,11 @@
-import ErrorBoundary from "../src/ErrorBoundary/ErrorBoundary";
-import FormColumn from "../src/FormColumn/FormColumn";
-import Alert from "../src/Alert/Alert";
-import Badge from "../src/Badge/Badge";
-import InputGroup from "../src/InputGroup/InputGroup";
-import Select from "../src/Select/Select";
-import {BootstrapFlexAlign} from "../src";
-import FormCheck from "../src/FormCheck/FormCheck";
+import ErrorBoundary from "../dist/ErrorBoundary/ErrorBoundary";
+import FormColumn from "../dist/FormColumn/FormColumn";
+import Alert from "../dist/Alert/Alert";
+import Badge from "../dist/Badge/Badge";
+import InputGroup from "../dist/InputGroup/InputGroup";
+import Select from "../dist/Select/Select";
+import {BootstrapFlexAlign} from "../dist";
+import FormCheck from "../dist/FormCheck/FormCheck";
 import PaginationTest from "./PaginationTest";
 import * as React from "react";
 import {useState} from "react";
@@ -18,7 +18,7 @@ const TablesTest = () => {
 
     return (
         <>
-            <ErrorBoundary>
+            <>
                 <FormColumn label={
                     (<button className="btn btn-outline-secondary" onClick={() => setCount(count + 1)} >Again?</button>)
                 } align={align}>
@@ -51,7 +51,7 @@ const TablesTest = () => {
                     <FormCheck label={'baseline'} checked={align === 'baseline'} onChange={() => setAlign('baseline')} type={'radio'} inline />
                     <FormCheck label={'stretch'} checked={align === 'stretch'} onChange={() => setAlign('stretch')} type={'radio'} inline />
                 </FormColumn>
-            </ErrorBoundary>
+            </>
             <PaginationTest />
         </>
     )

@@ -3,7 +3,7 @@
   "version": "2.7.5",
   "description": "Chums Common Components",
   "main": "dist/index.js",
-  "source": "src/index.ts",
+  "source": "./src/index.ts",
   "scripts": {
     "start": "webpack serve --config webpack.dev.js --progress",
     "test": "webpack serve --config webpack.test.js --progress",

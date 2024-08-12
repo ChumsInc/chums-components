@@ -5,11 +5,7 @@ const path = require('path');
 const WebpackBundleAnalyzer = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const localProxy = {
-    target: {
-        host: 'localhost',
-        protocol: 'http:',
-        port: 8081
-    },
+    target: 'http://localhost:8081',
     ignorePath: false,
     changeOrigin: true,
     secure: false,
@@ -25,9 +21,9 @@ module.exports = merge(common, {
             {directory: process.cwd(), watch: false}
         ],
         hot: true,
-        proxy: {
-            '/images/': {...localProxy},
-        },
+        proxy: [
+            {context: ['/images'], ...localProxy},
+        ],
         watchFiles: ['src/**/*', 'test/**/*'],
     },
     devtool: 'inline-source-map',

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Tab, TabList} from "../src";
+import {Tab, TabList} from "../dist";
 
 export const tab1:Tab = {
     id: 'tab-1',

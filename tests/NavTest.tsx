@@ -1,12 +1,11 @@
 import React, {useState} from 'react';
-import {FormCheck} from "../src";
-import NavList, {NavVariant} from "../src/NavList";
+import {NavList, FormCheck, NavVariant} from "../dist";
 import {tab1, tab2, tab3} from "./AppTabs";
 
 const tabs = [tab1, tab2, tab3];
 export default function NavTest() {
-    const [variant, setVariant] = useState<NavVariant|null>(null);
-    const [direction, setDirection] = useState<'horizontal'|'vertical'>('horizontal');
+    const [variant, setVariant] = useState<NavVariant | null>(null);
+    const [direction, setDirection] = useState<'horizontal' | 'vertical'>('horizontal');
     const [currentTab, setCurrentTab] = useState(tab1.id);
 
     return (
@@ -14,23 +13,23 @@ export default function NavTest() {
             <div>
                 <label className="me-3">Style</label>
                 <FormCheck type="radio" checked={variant === null} inline label="Text"
-                           onChange={() => setVariant(null)} />
+                           onChange={() => setVariant(null)}/>
                 <FormCheck type="radio" checked={variant === 'tabs'} inline label="Tabs"
-                           onChange={() => setVariant('tabs')} />
+                           onChange={() => setVariant('tabs')}/>
                 <FormCheck type="radio" checked={variant === 'pills'} inline label="Pills"
-                           onChange={() => setVariant('pills')} />
+                           onChange={() => setVariant('pills')}/>
                 <FormCheck type="radio" checked={variant === 'underline'} inline label="Underline"
-                           onChange={() => setVariant('underline')} />
+                           onChange={() => setVariant('underline')}/>
             </div>
             <div>
                 <label className="me-3">Direction</label>
                 <FormCheck type="radio" checked={direction === 'horizontal'} inline label="Horizontal"
-                           onChange={() => setDirection('horizontal')} />
+                           onChange={() => setDirection('horizontal')}/>
                 <FormCheck type="radio" checked={direction === 'vertical'} inline label="Vertical"
-                           onChange={() => setDirection('vertical')} />
+                           onChange={() => setDirection('vertical')}/>
 
             </div>
-            <hr />
+            <hr/>
             <div>
                 <NavList items={tabs}
                          currentTab={currentTab} onChange={(id) => setCurrentTab(id)}

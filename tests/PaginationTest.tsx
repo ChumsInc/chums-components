@@ -1,16 +1,18 @@
-import * as React from "react";
-import {ChangeEvent, useEffect, useRef, useState} from "react";
+import React, {ChangeEvent, useEffect, useRef, useState} from "react";
 import numeral from "numeral";
 import {languages} from './languages'
-import {BootstrapColor, SortableTableField, SortProps} from "../src/types";
-import SortableTable from "../src/SortableTable/SortableTable";
-import Input from "../src/Input/Input";
-import SpinnerButton from "../src/SpinnerButton/SpinnerButton";
-import ItemDataList from "../src/ItemDataList/ItemDataList";
-import ToggleButton from "../src/ToggleButton/ToggleButton";
-import LoadingProgressBar from "../src/LoadingProgressBar/LoadingProgressBar";
-import TablePagination from "../src/TablePagination/TablePagination";
-import {Badge} from "../src";
+import {
+    BootstrapColor,
+    Input,
+    ItemDataList,
+    LoadingProgressBar,
+    SortableTable,
+    SortableTableField,
+    SortProps,
+    SpinnerButton,
+    TablePagination,
+    ToggleButton
+} from "../dist";
 import TestBadge from "./TestBadge";
 
 
@@ -21,13 +23,7 @@ interface TableDataRow {
     bgColor: string,
 }
 
-export type TableDataRowField = keyof TableDataRow;
-
-export interface TestSorterProps extends SortProps {
-    field: TableDataRowField,
-}
-
-const testTableSorter = ({field, ascending}: TestSorterProps) => (a: TableDataRow, b: TableDataRow):number => {
+const testTableSorter = ({field, ascending}: SortProps<TableDataRow>) => (a: TableDataRow, b: TableDataRow): number => {
     return (
         a[field] === b[field]
             ? (a.id - b.id)
@@ -48,24 +44,26 @@ const buildDataSet = (): TableDataRow[] => {
         }))
 }
 
-const ValueTitle:React.FC = () => {
+const ValueTitle: React.FC = () => {
     const now = new Date();
     return (
         <span>Value @ {now.toLocaleTimeString()}</span>
     )
 }
 
-const tableFields: SortableTableField[] = [
+const tableFields: SortableTableField<TableDataRow>[] = [
     {field: 'id', title: 'ID', sortable: true},
     {field: 'color', title: 'Color', sortable: true, className: (row) => `text-${colors[Math.floor(row.id % 8)]}`},
     {field: 'bgColor', title: 'Background Color', sortable: true, render: (row) => <span>table-{row.bgColor}</span>},
-    {field: 'bgColor', title: 'Badge Test', sortable: false, render: (row) => <TestBadge value={row.value} /> },
-    {field: 'value', title: (<ValueTitle />), sortable: true, className: 'right', render: (row) => numeral(row.value).format('0,0.0000')},
+    {field: 'bgColor', title: 'Badge Test', sortable: false, render: (row) => <TestBadge value={row.value}/>},
+    {
+        field: 'value',
+        title: (<ValueTitle/>),
+        sortable: true,
+        className: 'right',
+        render: (row) => numeral(row.value).format('0,0.0000')
+    },
 ];
-
-interface TableSortProps extends SortProps {
-    field: keyof TableDataRow
-}
 
 const rowColor = (row: TableDataRow) => `table-${row.bgColor}`;
 
@@ -73,13 +71,13 @@ const TFoot = ({value}: { value: number }) => (
     <tfoot>
     <tr>
         <th>Total</th>
-        <td colSpan={2} />
+        <td colSpan={3}/>
         <th className="right">{numeral(value).format('0,0.0000')}</th>
     </tr>
     </tfoot>
 )
 
-const dataFilter = (filter: number) => (row:TableDataRow) => row.value <= filter;
+const dataFilter = (filter: number) => (row: TableDataRow) => row.value <= filter;
 
 const initialFilter = 100;
 
@@ -93,7 +91,7 @@ const PaginationTest: React.FC = () => {
     const [toggleCheck, setToggleCheck] = useState(true);
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(25);
-    const [sort, setSort] = useState<TableSortProps>({field: 'id', ascending: true});
+    const [sort, setSort] = useState<SortProps<TableDataRow>>({field: 'id', ascending: true});
     const [selected, setSelected] = useState<TableDataRow>({id: 0, value: 0, bgColor: '', color: ''});
 
     const [tableData, setTableData] = useState<TableDataRow[]>([]);
@@ -103,7 +101,7 @@ const PaginationTest: React.FC = () => {
     useEffect(() => {
         const initialPage = 0;
         const initialRowsPerPage = 25;
-        const initialSort:SortProps<TableDataRow> = {field: 'id', ascending: true};
+        const initialSort: SortProps<TableDataRow> = {field: 'id', ascending: true};
 
         setPage(initialPage);
         setRowsPerPage(initialRowsPerPage);
@@ -175,19 +173,19 @@ const PaginationTest: React.FC = () => {
         setFilterTimer(t);
     }
 
-    const tfoot = (<TFoot value={total} />);
+    const tfoot = (<TFoot value={total}/>);
 
     const onClickToggle = () => {
         console.log('onClickToggle', toggleCheck, !toggleCheck)
         setToggleCheck(!toggleCheck);
     }
 
-    const onChangeSort = (sort:SortProps) => {
-        setSort(sort as TableSortProps);
+    const onChangeSort = (sort: SortProps<TableDataRow>) => {
+        setSort(sort);
         setPage(0);
     }
 
-    const onChangeRowsPerPage = (nextRpp:number) => {
+    const onChangeRowsPerPage = (nextRpp: number) => {
         setPage(0);
         setRowsPerPage(nextRpp);
     }
@@ -196,12 +194,13 @@ const PaginationTest: React.FC = () => {
             <div className="row g-3">
                 <div className="col-auto"><label className="form-label">Filter Values:</label></div>
                 <div className="col-auto">
-                    <Input type="number" className="from-control form-control-sm" myRef={filterRef}
+                    <Input type="number" className="from-control form-control-sm" ref={filterRef}
                            value={filterValue} onChange={filterChangeHandler} min={0} max={100}/>
                     <small>filter = {filter}</small>
                 </div>
                 <div className="col-auto">
-                    <SpinnerButton spinning={loading} onClick={rebuildData} size="sm" spinnerAfter color="outline-success">
+                    <SpinnerButton spinning={loading} onClick={rebuildData} size="sm" spinnerAfter
+                                   color="outline-success">
                         Reload Data
                     </SpinnerButton>
                 </div>
@@ -215,7 +214,7 @@ const PaginationTest: React.FC = () => {
                 <div className="col-auto">
                     <Input type="text" list="item-search" value={search} bsSize="sm" name="item"
                            onChange={(ev) => setSearch(ev.target.value)}/>
-                    <ItemDataList id="item-search" search={search} delay={50} />
+                    <ItemDataList id="item-search" search={search} delay={50}/>
                 </div>
                 <div className="col-auto">
                     <ToggleButton id={'test-toggle'} size="sm" color="success" checked={toggleCheck}
@@ -223,7 +222,8 @@ const PaginationTest: React.FC = () => {
                 </div>
             </div>
             {loading && <LoadingProgressBar animated/>}
-            <SortableTable fields={tableFields} data={pageData} currentSort={sort} keyField={"id"} size="xs" onChangeSort={onChangeSort}
+            <SortableTable fields={tableFields} data={pageData} currentSort={sort} keyField={"id"} size="xs"
+                           onChangeSort={onChangeSort}
                            selected={selected.id}
                            rowClassName={rowColor} onSelectRow={tableClickHandler} tfoot={tfoot}/>
             <TablePagination page={page} onChangePage={setPage} bsSize="sm" rowsPerPageOptions={[10, 25, 50]}

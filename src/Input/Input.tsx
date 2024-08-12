@@ -1,20 +1,25 @@
-import React, {ChangeEvent, useRef} from 'react';
+import React, {ChangeEvent, useEffect, useState} from 'react';
 import classNames from "classnames";
 import {getRegex, noop} from "../utils/utils";
 import {InputProps} from "./Input.types";
 
 
-const Input = ({
-                   bsSize,
-                   fuzzyList,
-                   myRef,
-                   type = 'text',
-                   className,
-                   value,
-                   onChange = noop,
-                   ...rest
-               }: InputProps) => {
-    const inputRef = myRef || useRef<HTMLInputElement>(null);
+export default React.forwardRef(function Input({
+                                                   bsSize,
+                                                   fuzzyList,
+                                                   type = 'text',
+                                                   className,
+                                                   value,
+                                                   onChange,
+                                                   pattern,
+                                                   ...rest
+                                               }: InputProps,
+                                               ref: React.ForwardedRef<HTMLInputElement>) {
+    const [_pattern, setPattern] = useState<string | undefined>(pattern);
+
+    useEffect(() => {
+        setPattern(pattern);
+    }, [pattern]);
 
     const inputClassName = {
         'form-control': !/form-control-plaintext/.test(className || ''),
@@ -23,19 +28,19 @@ const Input = ({
 
     const changeHandler = (ev: ChangeEvent<HTMLInputElement>) => {
         if (!!rest.list && fuzzyList) {
-            if (inputRef.current) {
-                inputRef.current.pattern = getRegex(ev.target.value).source;
-            }
+            setPattern(getRegex(ev.target.value).source)
         }
-        onChange(ev);
+        if (onChange) {
+            onChange(ev);
+        }
     }
 
     return (
         <input type={type}
                className={classNames(inputClassName, className)}
                value={value || ''}
+               pattern={_pattern}
                onChange={changeHandler}
-               ref={inputRef} {...rest} />
+               ref={ref} {...rest} />
     )
-}
-export default Input;
+})

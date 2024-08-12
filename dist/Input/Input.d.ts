@@ -1,3 +1,4 @@
+import React from 'react';
 import { InputProps } from "./Input.types";
-declare const Input: ({ bsSize, fuzzyList, myRef, type, className, value, onChange, ...rest }: InputProps) => import("react/jsx-runtime").JSX.Element;
-export default Input;
+declare const _default: React.ForwardRefExoticComponent<InputProps & React.RefAttributes<HTMLInputElement>>;
+export default _default;
