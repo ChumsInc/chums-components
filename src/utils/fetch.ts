@@ -3,8 +3,9 @@
  */
 
 
-
-
+/**
+ * @deprecated use fetchJSON instead
+ */
 export const fetchOptions = {
     PostJSON: (object?:Object, options?:RequestInit):RequestInit => {
         options = options || {};
@@ -40,7 +41,7 @@ export const fetchOptions = {
 };
 
 
-async function handleJSONResponse<T = any>(res:Response):Promise<T|null> {
+async function handleJSONResponse<T = unknown>(res:Response):Promise<T|null> {
     if (!res.ok) {
         const text = await res.text();
         return Promise.reject(new Error(text));
@@ -53,7 +54,7 @@ async function handleJSONResponse<T = any>(res:Response):Promise<T|null> {
     return json as T ?? null;
 }
 
-export async function fetchJSON<T = any>(url:string, options:RequestInit = {}):Promise<T|null> {
+export async function fetchJSON<T = unknown>(url:string, options:RequestInit = {}):Promise<T|null> {
     try {
         if (!!options?.method && ['POST', 'PUT'].includes(options.method.toUpperCase())) {
             const headers = options?.headers || {};
@@ -102,7 +103,10 @@ export async function fetchHTML(url:string, options: RequestInit = {}):Promise<s
     }
 }
 
-export async function fetchPOST<T = any>(url:string, body:Object, options: RequestInit = {}):Promise<T|null> {
+/**
+ * @deprecated use fetchJSON instead
+ */
+export async function fetchPOST<T = unknown>(url:string, body:Object, options: RequestInit = {}):Promise<T|null> {
     try {
         const _options = fetchOptions.PostJSON(body, options);
         return await fetchJSON(url, _options);
@@ -120,7 +124,10 @@ export async function fetchPOST<T = any>(url:string, body:Object, options: Reque
     }
 }
 
-export async function fetchDELETE<T = any>(url:string, options: RequestInit = {}):Promise<T|null> {
+/**
+ * @deprecated use fetchJSON instead
+ */
+export async function fetchDELETE<T = unknown>(url:string, options: RequestInit = {}):Promise<T|null> {
     try {
         const _options = fetchOptions.PostJSON(options);
         return await fetchJSON<T>(url, _options);
