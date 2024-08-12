@@ -16,7 +16,7 @@ const Badge = ({
     const _className = {
         'badge': true,
         'badge-pill': pill,
-        [`bg-${color}`]: !!color,
+        [`text-bg-${color}`]: !!color,
     }
 
     const style: React.CSSProperties = {};
