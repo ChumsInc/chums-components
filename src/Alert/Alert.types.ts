@@ -4,7 +4,7 @@ import {BootstrapColor} from "../types";
 
 export interface AlertProps extends BasicAlert {
     count?: number,
-    onDismiss?: (args?: any) => void,
+    onDismiss?: (args?: unknown) => void,
     children?: React.ReactNode
 }
 export interface BasicAlert {

@@ -3,7 +3,7 @@ import {ReactNode} from "react";
 
 export interface ProgressProps {
     height?: string,
-    style?: any,
+    style?: unknown,
     className?: string | classNames.Argument,
     children: ReactNode,
 }

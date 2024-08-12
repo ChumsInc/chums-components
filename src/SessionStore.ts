@@ -1,12 +1,12 @@
 export default class SessionStore {
-    static clear():any {
+    static clear():void {
         if (!window || !window.sessionStorage) {
             return;
         }
         window.sessionStorage.clear();
     }
 
-    static getItem<T = any>(key:string, defaultValue:T|null = null):T|null {
+    static getItem<T = unknown>(key:string, defaultValue:T|null = null):T|null {
         if (!window || !window.sessionStorage) {
             return null;
         }
@@ -24,7 +24,7 @@ export default class SessionStore {
         }
     }
 
-    static setItem<T = any>(key:string, data:T) {
+    static setItem<T = unknown>(key:string, data:T) {
         if (!window || !window.sessionStorage) {
             return;
         }

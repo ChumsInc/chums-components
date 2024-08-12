@@ -3,7 +3,7 @@ export default class LocalStore {
         window.localStorage.clear();
     }
 
-    static getItem<T = any>(key:string, defaultValue: T|null = null):T|null {
+    static getItem<T = unknown>(key:string, defaultValue: T|null = null):T|null {
         if (!window || !window.localStorage) {
             return null;
         }
@@ -21,14 +21,14 @@ export default class LocalStore {
         }
     }
 
-    static setItem<T = any>(key:string, data:T) {
+    static setItem<T = unknown>(key:string, data:T):void {
         if (!window || !window.localStorage) {
             return;
         }
         window.localStorage.setItem(key, JSON.stringify(data));
     }
 
-    static removeItem(key:string) {
+    static removeItem(key:string):void {
         if (!window || !window.localStorage) {
             return;
         }
