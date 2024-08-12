@@ -25,7 +25,7 @@ const StyledTabList = styled_components_1.default.ul `
 `;
 const TabList = ({ tabs, variant, vertical, align, fill, currentTabId, className, itemClassName, onSelectTab = utils_1.noop, onCloseTab, children, ...rest }) => {
     const closeHandler = (tab) => {
-        if (!!onCloseTab) {
+        if (onCloseTab) {
             onCloseTab(tab);
         }
     };
@@ -39,7 +39,7 @@ const TabList = ({ tabs, variant, vertical, align, fill, currentTabId, className
         'nav-fill': fill === 'fill',
         'nav-justified': fill === 'justified',
     };
-    return ((0, jsx_runtime_1.jsxs)(StyledTabList, { className: (0, classnames_1.default)('nav nav-tabs', tabClassName, className), ...rest, children: [tabs?.map(tab => ((0, jsx_runtime_1.jsx)(TabItem_1.default, { id: tab.id, title: tab.title, className: itemClassName, icon: tab.icon, onSelect: () => onSelectTab(tab), disabled: tab.disabled, active: tab.id === currentTabId, canClose: tab.canClose && !!onCloseTab, onClose: () => closeHandler(tab) }, tab.id))), children] }));
+    return ((0, jsx_runtime_1.jsxs)(StyledTabList, { className: (0, classnames_1.default)('nav', tabClassName, className), ...rest, children: [tabs?.map(tab => ((0, jsx_runtime_1.jsx)(TabItem_1.default, { id: tab.id, title: tab.title, className: itemClassName, icon: tab.icon, onSelect: () => onSelectTab(tab), disabled: tab.disabled, active: tab.id === currentTabId, canClose: tab.canClose && !!onCloseTab, onClose: () => closeHandler(tab) }, tab.id))), children] }));
 };
 exports.default = TabList;
 //# sourceMappingURL=TabList.js.map

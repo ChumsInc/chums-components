@@ -38,7 +38,7 @@ const TabList = ({
                      ...rest
                  }: TabListProps) => {
     const closeHandler = (tab: Tab) => {
-        if (!!onCloseTab) {
+        if (onCloseTab) {
             onCloseTab(tab);
         }
     }
@@ -54,7 +54,7 @@ const TabList = ({
     }
 
     return (
-        <StyledTabList className={classNames('nav nav-tabs', tabClassName, className)} {...rest}>
+        <StyledTabList className={classNames('nav', tabClassName, className)} {...rest}>
             {tabs?.map(tab => (
                 <TabItem key={tab.id} id={tab.id} title={tab.title} className={itemClassName}
                          icon={tab.icon}
