@@ -25,6 +25,10 @@ export type DataTableClassNames<T = unknown> =
     | classNames.Argument
     | ((row: T) => (string | classNames.Argument));
 
+export type DataTableObject<T = unknown> = {
+    [Property in keyof T]: unknown
+}
+
 export interface DataTableField<T = unknown> {
     id?: number | string;
     field: keyof T,
@@ -54,13 +58,6 @@ export interface Tab {
 
     canClose?: boolean,
     disabled?: boolean,
-}
-
-export interface TabType<T extends Tab = Tab> {
-}
-
-export interface PartialTab<T extends Tab = Tab> extends Partial<TabType<T>> {
-    id: string,
 }
 
 export interface TabsState<T extends Tab = Tab> {

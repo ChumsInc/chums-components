@@ -3,7 +3,14 @@
  * Created by steve on 8/24/2016.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.fetchDELETE = exports.fetchPOST = exports.fetchHTML = exports.fetchJSON = exports.fetchOptions = void 0;
+exports.fetchOptions = void 0;
+exports.fetchJSON = fetchJSON;
+exports.fetchHTML = fetchHTML;
+exports.fetchPOST = fetchPOST;
+exports.fetchDELETE = fetchDELETE;
+/**
+ * @deprecated use fetchJSON instead
+ */
 exports.fetchOptions = {
     PostJSON: (object, options) => {
         options = options || {};
@@ -77,7 +84,6 @@ async function fetchJSON(url, options = {}) {
         return Promise.reject(err);
     }
 }
-exports.fetchJSON = fetchJSON;
 async function fetchHTML(url, options = {}) {
     try {
         const res = await fetch(url, { credentials: 'same-origin', ...options });
@@ -99,7 +105,9 @@ async function fetchHTML(url, options = {}) {
         return Promise.reject(err);
     }
 }
-exports.fetchHTML = fetchHTML;
+/**
+ * @deprecated use fetchJSON instead
+ */
 async function fetchPOST(url, body, options = {}) {
     try {
         const _options = exports.fetchOptions.PostJSON(body, options);
@@ -117,7 +125,9 @@ async function fetchPOST(url, body, options = {}) {
         return Promise.reject(err);
     }
 }
-exports.fetchPOST = fetchPOST;
+/**
+ * @deprecated use fetchJSON instead
+ */
 async function fetchDELETE(url, options = {}) {
     try {
         const _options = exports.fetchOptions.PostJSON(options);
@@ -135,5 +145,4 @@ async function fetchDELETE(url, options = {}) {
         return Promise.reject(err);
     }
 }
-exports.fetchDELETE = fetchDELETE;
 //# sourceMappingURL=fetch.js.map

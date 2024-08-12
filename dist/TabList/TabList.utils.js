@@ -1,8 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.tabsReducer = exports.initialTabState = void 0;
+exports.initialTabState = void 0;
+exports.tabsReducer = tabsReducer;
 const tabAdder = (newTabs) => (state) => {
-    let { current } = state;
+    const { current } = state;
     if (!Array.isArray(newTabs)) {
         newTabs = [newTabs];
     }
@@ -21,7 +22,7 @@ const tabRemover = (id) => (state) => {
     const [currentTab] = state.tabs.filter(t => t.id === id);
     if (currentTab?.id === id) {
         const tabs = state.tabs.filter(t => t.id !== id && !t.disabled);
-        let currentTabIndex = state.tabs.findIndex(t => t.id === id);
+        const currentTabIndex = state.tabs.findIndex(t => t.id === id);
         current = tabs[currentTabIndex]?.id || tabs[currentTabIndex - 1]?.id || null;
     }
     return {
@@ -30,7 +31,7 @@ const tabRemover = (id) => (state) => {
     };
 };
 const tabUpdater = (partials) => (state) => {
-    let { current } = state;
+    const { current } = state;
     if (!Array.isArray(partials)) {
         return {
             tabs: state.tabs.map(t => ({ ...t, ...partials })),
@@ -49,14 +50,11 @@ const tabUpdater = (partials) => (state) => {
     };
 };
 const modifyTabSet = (state, tabsModifier) => {
-    let { tabs, current } = tabsModifier(state);
-    if (tabs.filter(t => t.id === current && t.disabled).length === 0) {
-        current = tabs[0]?.id || null;
+    const modifiedState = tabsModifier(state);
+    if (modifiedState.tabs.filter(t => t.id === modifiedState.current && t.disabled).length === 0) {
+        modifiedState.current = modifiedState.tabs[0]?.id || null;
     }
-    return {
-        tabs,
-        current,
-    };
+    return modifiedState;
 };
 exports.initialTabState = {
     tabs: [],
@@ -78,5 +76,4 @@ function tabsReducer(state, action) {
     }
     return state;
 }
-exports.tabsReducer = tabsReducer;
 //# sourceMappingURL=TabList.utils.js.map

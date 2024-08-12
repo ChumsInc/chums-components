@@ -1,5 +1,5 @@
 import React, { InputHTMLAttributes } from "react";
-export interface FormCheckProps extends InputHTMLAttributes<any> {
+export interface FormCheckProps<T = unknown> extends InputHTMLAttributes<T> {
     type: 'radio' | 'checkbox';
     id?: string;
     label?: string;

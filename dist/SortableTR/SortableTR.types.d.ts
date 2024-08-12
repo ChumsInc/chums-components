@@ -4,11 +4,11 @@ import classNames from "classnames";
 /**
  * @deprecated - use DataTableRow instead - the table row is the sorted item, not the sortable container
  */
-export interface SortableTRProps<T = any> extends Omit<TableHTMLAttributes<HTMLTableRowElement>, 'onClick'> {
+export interface SortableTRProps<T = unknown> extends Omit<TableHTMLAttributes<HTMLTableRowElement>, 'onClick'> {
     rowClassName?: classNames.Argument | ((row: T) => classNames.Argument);
     selected?: boolean;
     fields: SortableTableField<T>[];
     row: T;
     trRef?: React.LegacyRef<HTMLTableRowElement>;
-    onClick?: (row?: T) => any | void;
+    onClick?: (row?: T) => T | void;
 }

@@ -4,13 +4,13 @@ import DataTableTH from "../DataTableTH";
 import {SortableTHProps} from "./SortableTH.types";
 
 
-const SortableTH = ({
+export default function SortableTH<T = unknown>({
                         field,
                         sorted,
                         ascending,
                         className,
                         onClick
-                    }: SortableTHProps) => {
+                    }: SortableTHProps<T>) {
     if (!field.sortable) {
         return (<DataTableTH field={field} className={className}/>)
     }
@@ -35,5 +35,3 @@ const SortableTH = ({
         </th>
     )
 }
-
-export default SortableTH;

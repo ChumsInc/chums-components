@@ -5,7 +5,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const jsx_runtime_1 = require("react/jsx-runtime");
 const classnames_1 = __importDefault(require("classnames"));
-const Progress = ({ height, className = '', style = {}, children }) => {
+const Progress = ({ height, className = '', style, children }) => {
+    if (!style) {
+        style = {};
+    }
     if (height && !style.height) {
         style.height = height;
     }

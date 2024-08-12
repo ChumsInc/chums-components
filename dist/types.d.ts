@@ -11,8 +11,11 @@ export interface InputField {
     value: string | number | boolean;
 }
 export type BootstrapFlexAlign = 'start' | 'end' | 'center' | 'baseline' | 'stretch';
-export type DataTableClassNames<T = any> = string | classNames.Argument | ((row: T) => (string | classNames.Argument));
-export interface DataTableField<T = any> {
+export type DataTableClassNames<T = unknown> = string | classNames.Argument | ((row: T) => (string | classNames.Argument));
+export type DataTableObject<T = unknown> = {
+    [Property in keyof T]: unknown;
+};
+export interface DataTableField<T = unknown> {
     id?: number | string;
     field: keyof T;
     title: ReactNode;
@@ -21,10 +24,10 @@ export interface DataTableField<T = any> {
     className?: DataTableClassNames<T>;
     colSpan?: number;
 }
-export interface SortableTableField<T = any> extends DataTableField<T> {
+export interface SortableTableField<T = unknown> extends DataTableField<T> {
     sortable?: boolean;
 }
-export interface SortProps<T = any> {
+export interface SortProps<T = unknown> {
     field: keyof T;
     ascending: boolean;
 }
@@ -35,11 +38,6 @@ export interface Tab {
     icon?: string;
     canClose?: boolean;
     disabled?: boolean;
-}
-export interface TabType<T extends Tab = Tab> {
-}
-export interface PartialTab<T extends Tab = Tab> extends Partial<TabType<T>> {
-    id: string;
 }
 export interface TabsState<T extends Tab = Tab> {
     tabs: T[];

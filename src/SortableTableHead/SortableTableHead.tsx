@@ -4,11 +4,11 @@ import classNames from "classnames";
 import {SortableTableHeadProps} from "./SortableTableHead.types";
 
 
-const SortableTableHead = ({
-                               currentSort,
-                               fields,
-                               onChangeSort,
-                           }: SortableTableHeadProps) => {
+export default function SortableTableHead<T = unknown>({
+                                                           currentSort,
+                                                           fields,
+                                                           onChangeSort,
+                                                       }: SortableTableHeadProps<T>) {
     const {field, ascending} = currentSort;
     return (
         <thead>
@@ -26,4 +26,3 @@ const SortableTableHead = ({
         </thead>
     )
 }
-export default SortableTableHead;

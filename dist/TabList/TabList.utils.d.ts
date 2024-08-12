@@ -1,4 +1,4 @@
-import { PartialTab, Tab, TabsState } from "../types";
+import { Tab, TabsState } from "../types";
 export type TabsActionType<T extends Tab = Tab> = {
     type: 'add';
     payload: T | T[];
@@ -7,7 +7,7 @@ export type TabsActionType<T extends Tab = Tab> = {
     payload: string;
 } | {
     type: 'update';
-    payload: PartialTab<T> | PartialTab<T>[];
+    payload: Partial<T> | Partial<T>[];
 } | {
     type: 'remove';
     payload: string;

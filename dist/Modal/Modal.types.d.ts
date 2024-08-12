@@ -12,6 +12,6 @@ export interface ModalProps {
     staticBackdrop?: boolean;
     dialogClassName?: string | classNames.Argument;
     visible?: boolean;
-    onClose?: (any?: any) => any;
+    onClose?: (arg?: unknown) => unknown;
     children?: React.ReactNode;
 }

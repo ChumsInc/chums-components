@@ -1,9 +1,8 @@
 import classNames from "classnames";
-import {ReactNode} from "react";
+import {HTMLAttributes, ReactNode} from "react";
 
-export interface ProgressProps {
+export interface ProgressProps<T = unknown> extends Omit<HTMLAttributes<T>, 'className'>{
     height?: string,
-    style?: unknown,
     className?: string | classNames.Argument,
     children: ReactNode,
 }

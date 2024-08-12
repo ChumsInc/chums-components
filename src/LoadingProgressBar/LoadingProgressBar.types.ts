@@ -3,7 +3,7 @@ import {BootstrapColor} from "../types";
 import classNames from "classnames";
 import {ReactNode} from "react";
 
-export interface LoadingProgressProps extends Omit<ProgressProps, 'children'> {
+export interface LoadingProgressProps<T = unknown> extends Omit<ProgressProps<T>, 'children'> {
     color?: BootstrapColor,
     value?: number,
     valueMin?: number,

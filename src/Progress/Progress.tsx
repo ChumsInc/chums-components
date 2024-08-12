@@ -5,9 +5,12 @@ import {ProgressProps} from "./Progress.types";
 const Progress = ({
                       height,
                       className = '',
-                      style = {},
+                      style,
                       children
                   }: ProgressProps) => {
+    if (!style) {
+        style = {};
+    }
     if (height && !style.height) {
         style.height = height;
     }

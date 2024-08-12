@@ -8,6 +8,6 @@ export interface DataTableRowProps<T = unknown> extends Omit <TableHTMLAttribute
     fields: DataTableField<T>[],
     row: T,
     trRef?: React.Ref<HTMLTableRowElement>,
-    onClick?: (row?: T) => T|void,
+    onClick?: (row?: T) => T | void,
 }
 

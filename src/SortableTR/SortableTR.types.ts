@@ -12,5 +12,5 @@ export interface SortableTRProps<T = unknown> extends Omit<TableHTMLAttributes<H
     fields: SortableTableField<T>[],
     row: T,
     trRef?: React.LegacyRef<HTMLTableRowElement>,
-    onClick?: (row?: T) => T|void,
+    onClick?: (row?: T) => T | void,
 }

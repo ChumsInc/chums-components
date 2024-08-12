@@ -23,7 +23,7 @@ const SortableTR = ({ className, rowClassName, selected, fields, row, trRef, onC
             if (typeof field.render === 'function') {
                 return ((0, jsx_runtime_1.jsx)("td", { className: (0, classnames_1.default)({ [`text-${field.align}`]: !!field.align }, fieldClassName), colSpan: field.colSpan, children: field.render(row) }, index));
             }
-            return ((0, jsx_runtime_1.jsx)("td", { className: (0, classnames_1.default)({ [`text-${field.align}`]: !!field.align }, fieldClassName), colSpan: field.colSpan, children: row[field.field] }, index));
+            return ((0, jsx_runtime_1.jsx)("td", { className: (0, classnames_1.default)({ [`text-${field.align}`]: !!field.align }, fieldClassName), colSpan: field.colSpan, children: row?.[field.field] }, index));
         }) }));
 };
 exports.default = SortableTR;

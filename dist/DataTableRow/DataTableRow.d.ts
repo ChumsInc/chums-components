@@ -1,3 +1,2 @@
 import { DataTableRowProps } from "./DataTableRow.types";
-declare const DataTableRow: ({ className, rowClassName, selected, fields, row, trRef, onClick, ...rest }: DataTableRowProps) => import("react/jsx-runtime").JSX.Element;
-export default DataTableRow;
+export default function DataTableRow<T = unknown>({ className, rowClassName, selected, fields, row, trRef, onClick, ...rest }: DataTableRowProps<T>): import("react/jsx-runtime").JSX.Element | null;

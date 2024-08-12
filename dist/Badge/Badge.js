@@ -10,7 +10,7 @@ const Badge = ({ color, pill, text, className, colorCode, description, children 
     const _className = {
         'badge': true,
         'badge-pill': pill,
-        [`bg-${color}`]: !!color,
+        [`text-bg-${color}`]: !!color,
     };
     const style = {};
     if (color === 'custom' && !!colorCode) {

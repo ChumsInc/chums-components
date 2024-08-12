@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.loadVersion = void 0;
+exports.loadVersion = loadVersion;
 const fetch_1 = require("../utils/fetch");
 async function loadVersion(path) {
     try {
@@ -17,5 +17,4 @@ async function loadVersion(path) {
         return Promise.reject(new Error('Error in checkVersion()'));
     }
 }
-exports.loadVersion = loadVersion;
 //# sourceMappingURL=api.js.map

@@ -37,7 +37,7 @@ const SortableTR = ({
                     );
                 }
                 return (<td key={index} className={classNames({[`text-${field.align}`]: !!field.align}, fieldClassName)}
-                            colSpan={field.colSpan}>{row[field.field]}</td>);
+                            colSpan={field.colSpan}>{row?.[field.field]}</td>);
             })}
         </tr>
     )

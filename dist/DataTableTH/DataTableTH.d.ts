@@ -1,3 +1,2 @@
 import { DataTableTHProps } from "./DataTableTH.types";
-declare const DataTableTH: ({ field, className, }: DataTableTHProps) => import("react/jsx-runtime").JSX.Element;
-export default DataTableTH;
+export default function DataTableTH<T = unknown>({ field, className, }: DataTableTHProps<T>): import("react/jsx-runtime").JSX.Element;
