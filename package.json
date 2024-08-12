@@ -1,6 +1,6 @@
 {
   "name": "chums-components",
-  "version": "2.7.4",
+  "version": "2.7.5",
   "description": "Chums Common Components",
   "main": "dist/index.js",
   "source": "src/index.ts",
@@ -96,5 +96,7 @@
     "styled-components": "^6.0.7",
     "uuid": "^10.0.0"
   },
-  "overrides": { "eslint": "^9.9.0" }
+  "overrides": {
+    "eslint": "^9.9.0"
+  }
 }
