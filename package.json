@@ -42,7 +42,7 @@
     "@babel/preset-react": "^7.12.13",
     "@babel/preset-typescript": "^7.12.1",
     "@tsconfig/node18": "^18.2.1",
-    "@types/node": "^20.6.0",
+    "@types/node": "^22.2.0",
     "@types/numeral": "^2.0.2",
     "@types/react": "^18.3.0",
     "@types/react-dom": "^18.3.0",
@@ -58,9 +58,9 @@
     "numeral": "^2.0.6",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "rimraf": "^5.0.1",
+    "rimraf": "^6.0.1",
     "sass": "^1.32.10",
-    "sass-loader": "^14.1.1",
+    "sass-loader": "^16.0.0",
     "style-loader": "^4.0.0",
     "terser-webpack-plugin": "^5.1.1",
     "ts-loader": "^9.0.0",
@@ -70,7 +70,7 @@
     "webpack-cli": "^5.0.1",
     "webpack-dev-server": "^5.0.4",
     "webpack-manifest-plugin": "^5.0.0",
-    "webpack-merge": "^5.7.3"
+    "webpack-merge": "^6.0.1"
   },
   "peerDependencies": {
     "classnames": "*",
@@ -85,10 +85,10 @@
   },
   "dependencies": {
     "@types/base16": "^1.0.2",
-    "@types/uuid": "^9.0.0",
+    "@types/uuid": "^10.0.0",
     "base16": "^1.0.0",
     "isomorphic-fetch": "^3.0.0",
     "styled-components": "^6.0.7",
-    "uuid": "^9.0.0"
+    "uuid": "^10.0.0"
   }
 }
