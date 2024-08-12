@@ -1,9 +1,10 @@
 import React, { HTMLAttributes } from "react";
 import { Tab } from "../types";
 import classNames from "classnames";
-export type NavVariant = 'tabs' | 'pills' | 'underline';
-export type NavAlign = 'center' | 'end' | 'start';
-export type NavFill = 'fill' | 'justified';
+import { TabAlign, TabFill, TabVariant } from "../TabList";
+export type NavVariant = TabVariant;
+export type NavAlign = TabAlign;
+export type NavFill = TabFill;
 export interface NavListProps extends Omit<HTMLAttributes<HTMLUListElement>, 'onChange'> {
     items: NavItemElement[];
     currentTab: string;
