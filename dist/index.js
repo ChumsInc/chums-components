@@ -17,7 +17,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.SessionStore = exports.LocalStore = exports.commaFormatter = exports.getRegex = exports.noop = exports.AppVersion = exports.ToggleButton = exports.TablePagination = exports.TabList = exports.TabItem = exports.StatusButtonGroup = exports.SpinnerButton = exports.Spinner = exports.SortableTR = exports.SortableTH = exports.SortableTableHead = exports.SortableTable = exports.Select = exports.RowsPerPage = exports.ProgressBar = exports.Progress = exports.Pagination = exports.Pager = exports.PageButton = exports.NavList = exports.LoadingProgressBar = exports.Modal = exports.ItemDataList = exports.InputGroup = exports.Input = exports.FormColumn = exports.FormCheck = exports.fetchOptions = exports.fetchPOST = exports.fetchDELETE = exports.fetchHTML = exports.fetchJSON = exports.ErrorBoundary = exports.DateInput = exports.DataTableTH = exports.DataTableTBody = exports.DataTableRow = exports.DataTableHead = exports.DataTable = exports.textColors = exports.buttonColors = exports.bgColors = exports.colors = exports.Badge = exports.Alert = void 0;
+exports.SessionStore = exports.LocalStore = exports.commaFormatter = exports.getRegex = exports.noop = exports.AppVersion = exports.ToggleButton = exports.TablePagination = exports.TabList = exports.TabItem = exports.StatusButtonGroup = exports.SpinnerButton = exports.Spinner = exports.SortableTH = exports.SortableTableHead = exports.SortableTable = exports.Select = exports.RowsPerPage = exports.ProgressBar = exports.Progress = exports.Pagination = exports.Pager = exports.PageButton = exports.NavList = exports.LoadingProgressBar = exports.Modal = exports.ItemDataList = exports.InputGroup = exports.Input = exports.FormColumn = exports.FormCheck = exports.fetchOptions = exports.fetchPOST = exports.fetchDELETE = exports.fetchHTML = exports.fetchJSON = exports.ErrorBoundary = exports.DateInput = exports.DataTableTH = exports.DataTableTBody = exports.DataTableRow = exports.DataTableHead = exports.DataTable = exports.textColors = exports.buttonColors = exports.bgColors = exports.colors = exports.Badge = exports.Alert = void 0;
 var Alert_1 = require("./Alert");
 Object.defineProperty(exports, "Alert", { enumerable: true, get: function () { return __importDefault(Alert_1).default; } });
 __exportStar(require("./Alert"), exports);
@@ -110,9 +110,6 @@ __exportStar(require("./SortableTableHead"), exports);
 var SortableTH_1 = require("./SortableTH");
 Object.defineProperty(exports, "SortableTH", { enumerable: true, get: function () { return __importDefault(SortableTH_1).default; } });
 __exportStar(require("./SortableTH"), exports);
-var SortableTR_1 = require("./SortableTR");
-Object.defineProperty(exports, "SortableTR", { enumerable: true, get: function () { return __importDefault(SortableTR_1).default; } });
-__exportStar(require("./SortableTR"), exports);
 var Spinner_1 = require("./Spinner");
 Object.defineProperty(exports, "Spinner", { enumerable: true, get: function () { return __importDefault(Spinner_1).default; } });
 __exportStar(require("./Spinner"), exports);

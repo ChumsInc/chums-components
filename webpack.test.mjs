@@ -1,8 +1,6 @@
-const {merge} = require('webpack-merge');
-const webpack = require('webpack');
-const common = require('./webpack.common.js');
-const path = require('path');
-const WebpackBundleAnalyzer = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+import {merge}  from 'webpack-merge';
+import common from './webpack.common.mjs';
+import path from 'node:path';
 
 const localProxy = {
     target: 'http://localhost:8081',
@@ -11,7 +9,7 @@ const localProxy = {
     secure: false,
 };
 
-module.exports = merge(common, {
+export default merge(common, {
     entry: './tests/test.tsx',
     mode: 'development',
     devServer: {
@@ -26,6 +24,5 @@ module.exports = merge(common, {
         ],
         watchFiles: ['src/**/*', 'test/**/*'],
     },
-    devtool: 'inline-source-map',
-    plugins: [new WebpackBundleAnalyzer({analyzerPort: 'auto'})]
+    devtool: 'inline-source-map'
 });

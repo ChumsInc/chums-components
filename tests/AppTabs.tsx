@@ -32,7 +32,6 @@ export const addTab:Tab = {
     disabled: false,
 }
 
-
 const tabList:Tab[] = [tab1, tab2, addTab];
 
 export interface AppTabsProps {

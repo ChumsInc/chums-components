@@ -3,10 +3,8 @@ import AppTabs, {tab1, tab2} from "./AppTabs";
 import TablesTest from "./TablesTest";
 import NavTest from "./NavTest";
 
-const App = () => {
-
+export default function App() {
     const [currentTab, setCurrentTab] = useState(tab1.id);
-
     return (
         <div className="container">
             <AppTabs currentTabID={currentTab} onSelectTab={setCurrentTab}/>
@@ -16,4 +14,3 @@ const App = () => {
         </div>
     )
 }
-export default App;

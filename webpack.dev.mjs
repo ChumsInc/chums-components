@@ -1,9 +1,8 @@
-const {merge} = require('webpack-merge');
-const webpack = require('webpack');
-const common = require('./webpack.common.js');
-const path = require('path');
+import {merge} from 'webpack-merge';
+import common from './webpack.common.mjs';
+import path from 'path';
 
-module.exports = merge(common, {
+export default merge(common, {
     entry: './tests/test.tsx',
     mode: 'development',
     devServer: {

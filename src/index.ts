@@ -83,9 +83,6 @@ export * from './SortableTableHead'
 export {default as SortableTH} from './SortableTH';
 export * from './SortableTH'
 
-export {default as SortableTR} from './SortableTR';
-export * from './SortableTR';
-
 export {default as Spinner} from './Spinner';
 export * from './Spinner';
 

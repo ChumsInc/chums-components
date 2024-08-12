@@ -12,9 +12,6 @@ export interface InputField {
 }
 export type BootstrapFlexAlign = 'start' | 'end' | 'center' | 'baseline' | 'stretch';
 export type DataTableClassNames<T = unknown> = string | classNames.Argument | ((row: T) => (string | classNames.Argument));
-export type DataTableObject<T = unknown> = {
-    [Property in keyof T]: unknown;
-};
 export interface DataTableField<T = unknown> {
     id?: number | string;
     field: keyof T;
