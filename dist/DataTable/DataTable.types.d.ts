@@ -3,7 +3,7 @@ import { BootstrapSize, DataTableClassNames, DataTableField } from "../types";
 export interface DataTableProps<T = unknown> extends TableHTMLAttributes<HTMLTableElement> {
     fields: DataTableField<T>[];
     data: T[];
-    keyField: keyof T | ((row: T) => keyof T);
+    keyField: keyof T | ((row: T) => string);
     size?: BootstrapSize | '';
     rowClassName?: DataTableClassNames<T>;
     renderRow?: (row: T) => React.ReactNode;

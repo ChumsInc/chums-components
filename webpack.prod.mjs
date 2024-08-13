@@ -4,6 +4,7 @@ import {WebpackManifestPlugin} from 'webpack-manifest-plugin';
 import TerserPlugin from 'terser-webpack-plugin';
 import {CleanWebpackPlugin} from 'clean-webpack-plugin';
 import {BundleAnalyzerPlugin} from 'webpack-bundle-analyzer';
+import path from "node:path";
 
 
 export default merge(common, {
@@ -24,6 +25,26 @@ export default merge(common, {
                 // cache: true,
             })
         ],
+    },
+    resolve: {
+        alias: {
+            'react': path.resolve(process.cwd(), './node_modules/react'),
+            'react-dom': path.resolve(process.cwd(), './node_modules/react-dom'),
+        }
+    },
+    externals: {
+        react: {
+            commonjs: 'react',
+            commonjs2: 'react',
+            amd: 'React',
+            root: 'React',
+        },
+        'react-dim': {
+            commonjs: 'react-dom',
+            commonjs2: 'react-dom',
+            amd: 'ReactDOM',
+            root: 'ReactDOM',
+        }
     },
     output: {
         filename: "[name].[contenthash].js",

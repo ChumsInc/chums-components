@@ -34,7 +34,12 @@ export default {
     },
     resolve: {
         extensions: ['.tsx', '.ts', '.js'],
+        alias: {
+            'react': path.resolve(process.cwd(), './node_modules/react'),
+            'react-dom': path.resolve(process.cwd(), './node_modules/react-dom'),
+        }
     },
+
     optimization: {
         splitChunks: {
             cacheGroups: {
