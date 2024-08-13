@@ -6,7 +6,7 @@ import {CleanWebpackPlugin} from 'clean-webpack-plugin';
 import {BundleAnalyzerPlugin} from 'webpack-bundle-analyzer';
 
 
-module.exports = merge(common, {
+export default merge(common, {
     mode: 'production',
     devtool: 'source-map',
     optimization: {

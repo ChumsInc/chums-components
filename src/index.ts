@@ -109,7 +109,7 @@ export * from './AppVersion';
 
 export * from './types'
 
-export {noop, getRegex, commaFormatter} from './utils/utils'
+export {noop, getRegex, commaFormatter, averageColor, isLightColor} from './utils/utils'
 
 export {default as LocalStore} from './LocalStore';
 export {default as SessionStore} from './SessionStore';

@@ -1,60 +1,63 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import classNames from "classnames";
 import TabItem from "../TabItem";
-import styled from "styled-components";
 import {noop} from "../utils/utils";
 import {TabListProps} from "./TabList.types";
 import {Tab} from "../types";
+import StyledTabList from "./StyledTabList";
 
+const getTabClassName = ({align, vertical, variant = 'tabs', fill}: {
+    align?: string | null;
+    vertical?: boolean;
+    variant?: string | null;
+    fill?: string | null;
+}):classNames.Argument => ({
+    'justify-content-center': align === 'center',
+    'justify-content-end': align === 'end',
+    'flex-column': vertical,
+    'nav-tabs': variant === 'tabs',
+    'nav-pills': variant === 'pills',
+    'nav-underline': variant === 'underline',
+    'nav-fill': fill === 'fill',
+    'nav-justified': fill === 'justified',
+})
 
-const StyledTabList = styled.ul`
-    &.nav-tabs {
-        .nav-item {
-            .nav-link {
-                .btn-close {
-                    width: 0.75rem;
-                    height: 0.75rem;
-                    margin-left: 0.25rem;
-                    line-height: 0.75rem;
-                    font-size: 0.75rem;
-                }
-            }
-        }
-    }
-`;
+export default function TabList({
+                                    tabs,
+                                    variant,
+                                    vertical,
+                                    align,
+                                    fill,
+                                    currentTabId,
+                                    className,
+                                    itemClassName,
+                                    onSelectTab = noop,
+                                    onCloseTab,
+                                    children,
+                                    ...rest
+                                }: TabListProps) {
 
-const TabList = ({
-                     tabs,
-                     variant,
-                     vertical,
-                     align,
-                     fill,
-                     currentTabId,
-                     className,
-                     itemClassName,
-                     onSelectTab = noop,
-                     onCloseTab,
-                     children,
-                     ...rest
-                 }: TabListProps) => {
+    const [tabClassName, setTabClassName] = useState<classNames.Argument>(getTabClassName({
+        variant,
+        align,
+        vertical,
+        fill
+    }))
+
+    useEffect(() => {
+        setTabClassName(getTabClassName({variant, align, vertical, fill}));
+    }, [variant, align, vertical, fill]);
+
     const closeHandler = (tab: Tab) => {
         if (onCloseTab) {
             onCloseTab(tab);
         }
     }
-    const tabClassName = {
-        'justify-content-center': align === 'center',
-        'justify-content-end': align === 'end',
-        'flex-column': vertical,
-        'nav-tabs': variant === 'tabs',
-        'nav-pills': variant === 'pills',
-        'nav-underline': variant === 'underline',
-        'nav-fill': fill === 'fill',
-        'nav-justified': fill === 'justified',
-    }
 
+    const _className = classNames('nav', tabClassName, className);
+    console.log(tabClassName, className, _className);
     return (
-        <StyledTabList className={classNames('nav', tabClassName, className)} {...rest}>
+        <StyledTabList className={_className} {...rest}>
             {tabs?.map(tab => (
                 <TabItem key={tab.id} id={tab.id} title={tab.title} className={itemClassName}
                          icon={tab.icon}
@@ -67,5 +70,3 @@ const TabList = ({
         </StyledTabList>
     )
 }
-
-export default TabList;

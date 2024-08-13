@@ -1,6 +1,5 @@
 import { Tab } from "../types";
 import React, { HTMLAttributes } from "react";
-import { NavAlign, NavFill, NavVariant } from "../NavList";
 import { Argument } from "classnames";
 export type TabVariant = 'tabs' | 'pills' | 'underline';
 export type TabAlign = 'center' | 'end' | 'start';
@@ -12,9 +11,9 @@ export interface TabListProps<T = HTMLUListElement> extends HTMLAttributes<T> {
     itemClassName?: string | ((tab: Tab) => string | Argument);
     onSelectTab?: (tab: Tab) => void;
     onCloseTab?: (tab: Tab) => void;
-    variant?: NavVariant;
-    align?: NavAlign;
+    variant?: TabVariant;
+    align?: TabVariant;
     vertical?: boolean;
-    fill?: NavFill;
+    fill?: TabFill;
     children?: React.ReactNode;
 }
