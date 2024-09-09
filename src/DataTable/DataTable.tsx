@@ -6,7 +6,7 @@ import DataTableTBody from "../DataTableTBody/DataTableTBody";
 import {DataTableProps} from "./DataTable.types";
 
 
-const DataTable = ({
+export default function DataTable<T = unknown>({
                        fields,
                        data,
                        keyField,
@@ -19,7 +19,7 @@ const DataTable = ({
                        tfoot,
                        children,
                        ...rest
-                   }: DataTableProps) => {
+                   }: DataTableProps<T>) {
 
     const tableClassName = classNames('table', className, {
         [`table-${size}`]: !!size,
@@ -39,4 +39,3 @@ const DataTable = ({
     )
 }
 
-export default DataTable;
