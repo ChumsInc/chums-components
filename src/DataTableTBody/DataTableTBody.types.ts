@@ -4,7 +4,7 @@ import {DataTableClassNames, DataTableField} from "../types";
 export interface DataTableTBodyProps<T = unknown> extends TableHTMLAttributes<HTMLTableSectionElement> {
     fields: DataTableField<T>[],
     data: T[],
-    keyField: keyof T | ((row: T) => string),
+    keyField: keyof T | ((row: T) => string|number),
     rowClassName?: DataTableClassNames<T>;
     renderRow?: (row: T) => React.ReactNode;
     onSelectRow?: (row: T) => T | void,
