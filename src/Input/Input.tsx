@@ -1,6 +1,6 @@
 import React, {ChangeEvent, useEffect, useState} from 'react';
 import classNames from "classnames";
-import {getRegex, noop} from "../utils/utils";
+import {getRegex} from "../utils/utils";
 import {InputProps} from "./Input.types";
 
 

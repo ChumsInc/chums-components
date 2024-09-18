@@ -4,7 +4,7 @@ import classNames from "classnames";
 import {DataTableHeadProps} from "./DataTableHead.types";
 
 
-const DataTableHead = ({fields, ...rest}: DataTableHeadProps) => {
+export default function DataTableHead<T=unknown>({fields, ...rest}: DataTableHeadProps<T>) {
     return (
         <thead {...rest}>
         <tr>
@@ -20,4 +20,4 @@ const DataTableHead = ({fields, ...rest}: DataTableHeadProps) => {
         </thead>
     )
 }
-export default DataTableHead;
+

@@ -1,8 +1,8 @@
-import React, {useId} from "react";
+import React, {ForwardedRef, useId} from "react";
 import classNames from "classnames";
 import {ToggleButtonProps} from "./ToggleButton.types";
 
-const ToggleButton = ({
+export default React.forwardRef(function ToggleButton({
                           id,
                           type = 'checkbox',
                           checked,
@@ -12,7 +12,7 @@ const ToggleButton = ({
                           onChange,
                           disabled,
                           children,
-                      }: ToggleButtonProps) => {
+                      }: ToggleButtonProps, ref:ForwardedRef<HTMLInputElement>) {
     const buttonId = id ?? useId()
     const btnClassName = classNames(className, {
         btn: true,
@@ -24,10 +24,9 @@ const ToggleButton = ({
     return (
         <>
             <input type={type} className="btn-check" id={buttonId} autoComplete="off"
+                   ref={ref}
                    onChange={onChange} checked={checked} disabled={disabled}/>
             <label htmlFor={buttonId} className={btnClassName}>{children}</label>
         </>
     );
-}
-
-export default ToggleButton;
+})
