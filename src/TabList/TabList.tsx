@@ -55,7 +55,7 @@ export default function TabList({
     }
 
     const _className = classNames('nav', tabClassName, className);
-    console.log(tabClassName, className, _className);
+
     return (
         <StyledTabList className={_className} {...rest}>
             {tabs?.map(tab => (

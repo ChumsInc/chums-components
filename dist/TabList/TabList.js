@@ -36,7 +36,6 @@ function TabList({ tabs, variant, vertical, align, fill, currentTabId, className
         }
     };
     const _className = (0, classnames_1.default)('nav', tabClassName, className);
-    console.log(tabClassName, className, _className);
     return ((0, jsx_runtime_1.jsxs)(StyledTabList_1.default, { className: _className, ...rest, children: [tabs?.map(tab => ((0, jsx_runtime_1.jsx)(TabItem_1.default, { id: tab.id, title: tab.title, className: itemClassName, icon: tab.icon, onSelect: () => onSelectTab(tab), disabled: tab.disabled, active: tab.id === currentTabId, canClose: tab.canClose && !!onCloseTab, onClose: () => closeHandler(tab) }, tab.id))), children] }));
 }
 //# sourceMappingURL=TabList.js.map
