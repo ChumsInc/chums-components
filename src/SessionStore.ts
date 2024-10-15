@@ -1,3 +1,7 @@
+
+/**
+ * @deprecated prefer usehooks-ts useSessionStorage instead
+ */
 export default class SessionStore {
     static clear():void {
         if (!window || !window.sessionStorage) {

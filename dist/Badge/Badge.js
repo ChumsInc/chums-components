@@ -6,6 +6,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const jsx_runtime_1 = require("react/jsx-runtime");
 const classnames_1 = __importDefault(require("classnames"));
 const utils_1 = require("../utils/utils");
+/**
+ * @deprecated Prefer react-bootstrap/Badge instead
+ */
 const Badge = ({ color, pill, text, className, colorCode, description, children }) => {
     const _className = {
         'badge': true,

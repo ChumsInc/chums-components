@@ -20,6 +20,9 @@ const StyledButton = styled_components_1.default.button `
     }
   }
 `;
+/**
+ * @deprecated prefer react-bootstrap/SpinnerButton instead
+ */
 const SpinnerButton = ({ spinning = false, spinnerType = 'border', spinnerAfter = false, color = 'primary', size, className, children, disabled, ...rest }) => {
     const btnClassName = (0, classnames_1.default)(className, {
         btn: true,

@@ -20,6 +20,9 @@ const getTabClassName = ({ align, vertical, variant = 'tabs', fill }) => ({
     'nav-fill': fill === 'fill',
     'nav-justified': fill === 'justified',
 });
+/**
+ * @deprecated prefer react-bootstrap/Tabs instead
+ */
 function TabList({ tabs, variant, vertical, align, fill, currentTabId, className, itemClassName, onSelectTab = utils_1.noop, onCloseTab, children, ...rest }) {
     const [tabClassName, setTabClassName] = (0, react_1.useState)(getTabClassName({
         variant,

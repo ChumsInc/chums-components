@@ -1,5 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+/**
+ * @deprecated prefer usehooks-ts useLocalStorage instead
+ */
 class LocalStore {
     static clear() {
         window.localStorage.clear();

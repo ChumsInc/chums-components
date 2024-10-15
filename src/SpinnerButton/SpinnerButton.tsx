@@ -18,6 +18,9 @@ const StyledButton = styled.button`
   }
 `;
 
+/**
+ * @deprecated prefer react-bootstrap/SpinnerButton instead
+ */
 const SpinnerButton = ({
                            spinning = false,
                            spinnerType = 'border',

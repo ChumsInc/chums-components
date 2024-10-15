@@ -5,6 +5,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const jsx_runtime_1 = require("react/jsx-runtime");
 const classnames_1 = __importDefault(require("classnames"));
+/**
+ * @deprecated prefer react-bootstrap/Spinner instead
+ */
 const Spinner = ({ type, bsSize, role = 'status', hiddenLabel, color, className, ...rest }) => {
     const spinnerClassName = {
         'spinner-border': type === 'border',

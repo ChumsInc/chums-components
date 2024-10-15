@@ -4,6 +4,7 @@ import {FormColumnProps} from "./FormColumn.types";
 
 const FormColumn = ({
                         label,
+                        labelProps,
                         width = 8,
                         className,
                         align = 'baseline',
@@ -24,7 +25,7 @@ const FormColumn = ({
     }
     return (
         <div className={classNames('row g-3', parentClassName, className)}>
-            <label className={classNames(labelClassName)}>{label}</label>
+            <label {...labelProps} className={classNames(labelClassName)}>{label}</label>
             <div className={classNames(containerClassName)}>
                 {children}
             </div>

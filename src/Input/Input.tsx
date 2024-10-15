@@ -3,7 +3,9 @@ import classNames from "classnames";
 import {getRegex} from "../utils/utils";
 import {InputProps} from "./Input.types";
 
-
+/**
+ * @deprecated Prefer react-bootstrap/FormControl instead
+ */
 export default React.forwardRef(function Input({
                                                    bsSize,
                                                    fuzzyList,

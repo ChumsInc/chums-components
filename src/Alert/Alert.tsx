@@ -4,7 +4,9 @@ import Badge from "../Badge/Badge";
 import {commaFormatter} from "../utils/utils";
 import {AlertProps} from "./Alert.types";
 
-
+/**
+ * @deprecated Prefer react-bootstrap/Alert instead
+ */
 const Alert = ({
                    message,
                    color = 'primary',

@@ -7,6 +7,9 @@ const jsx_runtime_1 = require("react/jsx-runtime");
 const react_1 = require("react");
 const classnames_1 = __importDefault(require("classnames"));
 const utils_1 = require("../utils/utils");
+/**
+ * @deprecated Prefer react-bootstrap/Modal instead
+ */
 const Modal = ({ title, size = 'md', header, footer, canClose = true, scrollable, centered, staticBackdrop, dialogClassName, visible = true, onClose = utils_1.noop, children, }) => {
     const modalRef = (0, react_1.createRef)();
     let fadeTimer = 0;

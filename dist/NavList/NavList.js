@@ -7,6 +7,9 @@ exports.default = NavList;
 const jsx_runtime_1 = require("react/jsx-runtime");
 const classnames_1 = __importDefault(require("classnames"));
 const NavItem_1 = __importDefault(require("./NavItem"));
+/**
+ * @deprecated Prefer react-bootstrap/Nav instead
+ */
 function NavList({ variant, vertical, align, fill, items, currentTab, onChange, onClose, className, ...rest }) {
     const navClassName = {
         'justify-content-center': align === 'center',

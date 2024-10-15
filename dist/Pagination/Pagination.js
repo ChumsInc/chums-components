@@ -8,6 +8,9 @@ const classnames_1 = __importDefault(require("classnames"));
 const PageButton_1 = __importDefault(require("../PageButton"));
 const PaginationUL_1 = __importDefault(require("./PaginationUL"));
 const Pagination_utils_1 = require("./Pagination.utils");
+/**
+ * @deprecated prefer TablePagination or react-bootstrap/Pagination instead
+ */
 const Pagination = ({ page, pages, filtered, className, maxButtons = Pagination_utils_1.DEFAULT_MAX_PAGES, onSelectPage }) => {
     const onSelect = (nextPage) => {
         if (!nextPage || nextPage < 1 || nextPage > pages) {

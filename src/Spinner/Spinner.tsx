@@ -2,7 +2,9 @@ import React from 'react';
 import classNames from "classnames";
 import {SpinnerProps} from "./Spinner.types";
 
-
+/**
+ * @deprecated prefer react-bootstrap/Spinner instead
+ */
 const Spinner = ({
                      type,
                      bsSize,

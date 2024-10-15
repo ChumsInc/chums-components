@@ -3,6 +3,9 @@ import classNames from "classnames";
 import {noop} from "../utils/utils";
 import {ModalProps} from "./Modal.types";
 
+/**
+ * @deprecated Prefer react-bootstrap/Modal instead
+ */
 const Modal = ({
                    title,
                    size = 'md',

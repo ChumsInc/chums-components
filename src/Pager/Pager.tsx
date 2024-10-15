@@ -4,6 +4,9 @@ import Pagination from "../Pagination/Pagination";
 import {PagerProps} from "./Pager.types";
 import {calcPages} from "./Pager.utils";
 
+/**
+ * @deprecated prefer TablePagination or react-bootstrap/Pagination instead
+ */
 
 const Pager = ({
                    page,

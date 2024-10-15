@@ -7,6 +7,9 @@ exports.default = NavItem;
 const jsx_runtime_1 = require("react/jsx-runtime");
 const react_1 = require("react");
 const classnames_1 = __importDefault(require("classnames"));
+/**
+ * @deprecated Prefer react-bootstrap/NavItem instead
+ */
 function NavItem({ id, title, icon, className, element, active = false, disabled = false, onSelect, canClose, onClose, }) {
     (0, react_1.useEffect)(() => {
         if (!onSelect && !element) {

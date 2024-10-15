@@ -7,6 +7,9 @@ const jsx_runtime_1 = require("react/jsx-runtime");
 const classnames_1 = __importDefault(require("classnames"));
 const Badge_1 = __importDefault(require("../Badge/Badge"));
 const utils_1 = require("../utils/utils");
+/**
+ * @deprecated Prefer react-bootstrap/Alert instead
+ */
 const Alert = ({ message, color = 'primary', title, className = '', context, count = 0, canDismiss, onDismiss, children }) => {
     if (typeof onDismiss === 'function') {
         canDismiss = true;

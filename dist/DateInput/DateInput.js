@@ -6,6 +6,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const jsx_runtime_1 = require("react/jsx-runtime");
 const Input_1 = __importDefault(require("../Input"));
 const DateInput_utils_1 = require("./DateInput.utils");
+/**
+ * @deprecated Prefer react-bootstrap/FormControl instead
+ */
 const DateInput = ({ date, value, onChangeDate, onChange, ...rest }) => {
     const dateValue = (0, DateInput_utils_1.inputDate)(date ?? value ?? new Date());
     const changeHandler = (ev) => {

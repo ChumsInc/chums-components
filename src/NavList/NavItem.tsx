@@ -2,6 +2,9 @@ import React, {useEffect} from 'react';
 import classNames from "classnames";
 import {NavItemProps} from "./NavList.types";
 
+/**
+ * @deprecated Prefer react-bootstrap/NavItem instead
+ */
 export default function NavItem({
                                     id,
                                     title,

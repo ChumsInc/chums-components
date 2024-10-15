@@ -2,7 +2,9 @@ import React, {useEffect} from "react";
 import classNames from "classnames";
 import {TabItemProps} from "./TabItem.types";
 
-
+/**
+ * @deprecated Prefer react-bootstrap/Tab instead
+ */
 const TabItem = ({
                      id,
                      title,

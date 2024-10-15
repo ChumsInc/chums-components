@@ -1,3 +1,6 @@
+/**
+ * @deprecated prefer usehooks-ts useLocalStorage instead
+ */
 export default class LocalStore {
     static clear():void {
         window.localStorage.clear();

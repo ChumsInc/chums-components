@@ -5,6 +5,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const jsx_runtime_1 = require("react/jsx-runtime");
 const classnames_1 = __importDefault(require("classnames"));
+/**
+ * @deprecated prefer react-bootstrap/FormSelect instead
+ */
 const Select = ({ bsSize, className, children, ...rest }) => {
     const selectClassName = {
         [`form-select-${bsSize}`]: !!bsSize

@@ -29,6 +29,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const jsx_runtime_1 = require("react/jsx-runtime");
 const react_1 = __importStar(require("react"));
 const classnames_1 = __importDefault(require("classnames"));
+/**
+ * @deprecated Prefer react-bootstrap/FormCheck instead
+ */
 exports.default = react_1.default.forwardRef(function FormCheck({ type = "checkbox", id, label, checked, onChange, inline = false, className, disabled, title, children, ...props }, ref) {
     const _id = (0, react_1.useId)();
     const inputId = id ?? _id;

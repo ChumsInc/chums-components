@@ -2,6 +2,9 @@ import React from 'react';
 import classNames from "classnames";
 import {ProgressProps} from "./Progress.types";
 
+/**
+ * @deprecated prefer react-bootstrap/Progress instead
+ */
 const Progress = ({
                       height,
                       className = '',

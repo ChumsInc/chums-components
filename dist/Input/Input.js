@@ -30,6 +30,9 @@ const jsx_runtime_1 = require("react/jsx-runtime");
 const react_1 = __importStar(require("react"));
 const classnames_1 = __importDefault(require("classnames"));
 const utils_1 = require("../utils/utils");
+/**
+ * @deprecated Prefer react-bootstrap/FormControl instead
+ */
 exports.default = react_1.default.forwardRef(function Input({ bsSize, fuzzyList, type = 'text', className, value, onChange, pattern, ...rest }, ref) {
     const [_pattern, setPattern] = (0, react_1.useState)(pattern);
     (0, react_1.useEffect)(() => {

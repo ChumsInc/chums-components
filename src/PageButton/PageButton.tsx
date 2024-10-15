@@ -3,6 +3,9 @@ import {PageButtonProps} from "./PageButton.types";
 import CurrentPageButton from "./CurrentPageButton";
 import SelectablePageButton from "./SelectablePageButton";
 
+/**
+ * @deprecated prefer TablePagination or react-bootstrap/Pagination instead
+ */
 const PageButton = ({
                         page,
                         label = '',

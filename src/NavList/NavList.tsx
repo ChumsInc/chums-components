@@ -3,7 +3,9 @@ import classNames from "classnames";
 import NavItem from "./NavItem";
 import {NavListProps} from "./NavList.types";
 
-
+/**
+ * @deprecated Prefer react-bootstrap/Nav instead
+ */
 export default function NavList({
                                     variant,
                                     vertical,

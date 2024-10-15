@@ -2,7 +2,9 @@ import React from 'react';
 import classNames from "classnames";
 import {ProgressBarProps} from "./ProgressBar.types";
 
-
+/**
+ * @deprecated prefer react-bootstrap/Progress instead
+ */
 const ProgressBar = ({
                          color = 'primary',
                          value = 100,

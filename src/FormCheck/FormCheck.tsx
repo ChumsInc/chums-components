@@ -2,7 +2,9 @@ import React, {useId} from 'react';
 import classNames from 'classnames';
 import {FormCheckProps} from "./FormCheck.types";
 
-
+/**
+ * @deprecated Prefer react-bootstrap/FormCheck instead
+ */
 export default React.forwardRef(function FormCheck({
                        type = "checkbox",
                        id,

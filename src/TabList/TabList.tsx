@@ -21,7 +21,9 @@ const getTabClassName = ({align, vertical, variant = 'tabs', fill}: {
     'nav-fill': fill === 'fill',
     'nav-justified': fill === 'justified',
 })
-
+/**
+ * @deprecated prefer react-bootstrap/Tabs instead
+ */
 export default function TabList({
                                     tabs,
                                     variant,

@@ -1,5 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+/**
+ * @deprecated prefer usehooks-ts useSessionStorage instead
+ */
 class SessionStore {
     static clear() {
         if (!window || !window.sessionStorage) {

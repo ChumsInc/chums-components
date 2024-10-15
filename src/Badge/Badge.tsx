@@ -3,7 +3,9 @@ import classNames from "classnames";
 import {BadgeProps} from "./Badge.types";
 import {isLightColor} from "../utils/utils";
 
-
+/**
+ * @deprecated Prefer react-bootstrap/Badge instead
+ */
 const Badge = ({
                    color,
                    pill,

@@ -5,6 +5,9 @@ import {PaginationProps} from "./Pagination.types";
 import PaginationUL from "./PaginationUL";
 import {DEFAULT_MAX_PAGES, PAGE_LABELS} from "./Pagination.utils";
 
+/**
+ * @deprecated prefer TablePagination or react-bootstrap/Pagination instead
+ */
 const Pagination = ({
                         page,
                         pages,
