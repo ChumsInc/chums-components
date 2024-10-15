@@ -60,3 +60,5 @@ export interface TabsState<T extends Tab = Tab> {
     tabs: T[],
     current: string | null
 }
+
+export type TabProps = Tab;
