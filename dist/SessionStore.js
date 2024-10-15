@@ -1,8 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-/**
- * @deprecated prefer usehooks-ts useSessionStorage instead
- */
 class SessionStore {
     static clear() {
         if (!window || !window.sessionStorage) {
@@ -10,9 +7,9 @@ class SessionStore {
         }
         window.sessionStorage.clear();
     }
-    static getItem(key, defaultValue = null) {
+    static getItem(key, defaultValue) {
         if (!window || !window.sessionStorage) {
-            return null;
+            throw new Error('Could not get item: SessionStorage is not defined');
         }
         const data = window.sessionStorage.getItem(key);
         if (data === null) {

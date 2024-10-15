@@ -1,7 +1,3 @@
-
-/**
- * @deprecated prefer usehooks-ts useSessionStorage instead
- */
 export default class SessionStore {
     static clear():void {
         if (!window || !window.sessionStorage) {
@@ -10,9 +6,9 @@ export default class SessionStore {
         window.sessionStorage.clear();
     }
 
-    static getItem<T = unknown>(key:string, defaultValue:T|null = null):T|null {
+    static getItem<T = unknown>(key:string, defaultValue:T):T {
         if (!window || !window.sessionStorage) {
-            return null;
+            throw new Error('Could not get item: SessionStorage is not defined');
         }
         const data = window.sessionStorage.getItem(key);
         if (data === null) {

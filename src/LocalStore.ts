@@ -1,14 +1,14 @@
-/**
- * @deprecated prefer usehooks-ts useLocalStorage instead
- */
 export default class LocalStore {
     static clear():void {
+        if (!window || !window.localStorage) {
+            return;
+        }
         window.localStorage.clear();
     }
 
-    static getItem<T = unknown>(key:string, defaultValue: T|null = null):T|null {
+    static getItem<T = unknown>(key:string, defaultValue: T):T {
         if (!window || !window.localStorage) {
-            return null;
+            throw new Error('Could not get item: LocalStorage is not defined');
         }
         const data = window.localStorage.getItem(key);
         if (data === null) {

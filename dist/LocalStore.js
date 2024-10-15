@@ -1,15 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-/**
- * @deprecated prefer usehooks-ts useLocalStorage instead
- */
 class LocalStore {
     static clear() {
+        if (!window || !window.localStorage) {
+            return;
+        }
         window.localStorage.clear();
     }
-    static getItem(key, defaultValue = null) {
+    static getItem(key, defaultValue) {
         if (!window || !window.localStorage) {
-            return null;
+            throw new Error('Could not get item: LocalStorage is not defined');
         }
         const data = window.localStorage.getItem(key);
         if (data === null) {
