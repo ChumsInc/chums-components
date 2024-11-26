@@ -3,56 +3,17 @@
  * Created by steve on 8/24/2016.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.fetchOptions = void 0;
 exports.fetchJSON = fetchJSON;
 exports.fetchHTML = fetchHTML;
-exports.fetchPOST = fetchPOST;
-exports.fetchDELETE = fetchDELETE;
-/**
- * @deprecated use fetchJSON instead
- */
-exports.fetchOptions = {
-    PostJSON: (object, options) => {
-        options = options || {};
-        const headers = options?.headers || {};
-        if (options?.headers) {
-            delete options.headers;
-        }
-        return {
-            credentials: 'same-origin',
-            method: 'post',
-            ...options,
-            body: JSON.stringify(object),
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                ...headers,
-            },
-        };
-    },
-    Delete: (options) => {
-        options = options || {};
-        const headers = options.headers || {};
-        delete options.headers;
-        return {
-            credentials: 'same-origin',
-            method: 'DELETE',
-            ...options,
-            headers: {
-                ...headers
-            }
-        };
-    }
-};
 async function handleJSONResponse(res) {
     if (!res.ok) {
         const text = await res.text();
-        return Promise.reject(new Error(text));
+        return Promise.reject(new Error(text, { cause: { code: res.status, statusText: res.statusText } }));
     }
     const json = await res.json();
     if (json.error) {
         console.warn(json.error);
-        return Promise.reject(new Error(json.error));
+        return Promise.reject(new Error(json.error, { cause: { code: res.status, statusText: res.statusText } }));
     }
     return json ?? null;
 }
@@ -89,7 +50,7 @@ async function fetchHTML(url, options = {}) {
         const res = await fetch(url, { credentials: 'same-origin', ...options });
         if (!res.ok) {
             const text = await res.text();
-            return Promise.reject(new Error(text));
+            return Promise.reject(new Error(text, { cause: { code: res.status, statusText: res.statusText } }));
         }
         return await res.text();
     }
@@ -99,46 +60,6 @@ async function fetchHTML(url, options = {}) {
             return Promise.reject(err);
         }
         console.error("fetchHTML()", err);
-        if (typeof err === 'string') {
-            return Promise.reject(new Error(err));
-        }
-        return Promise.reject(err);
-    }
-}
-/**
- * @deprecated use fetchJSON instead
- */
-async function fetchPOST(url, body, options = {}) {
-    try {
-        const _options = exports.fetchOptions.PostJSON(body, options);
-        return await fetchJSON(url, _options);
-    }
-    catch (err) {
-        if (err instanceof Error) {
-            console.log("fetchPOST()", err.message);
-            return Promise.reject(err);
-        }
-        console.error('fetchPOST()', err);
-        if (typeof err === 'string') {
-            return Promise.reject(new Error(err));
-        }
-        return Promise.reject(err);
-    }
-}
-/**
- * @deprecated use fetchJSON instead
- */
-async function fetchDELETE(url, options = {}) {
-    try {
-        const _options = exports.fetchOptions.PostJSON(options);
-        return await fetchJSON(url, _options);
-    }
-    catch (err) {
-        if (err instanceof Error) {
-            console.log("fetchDELETE()", err.message);
-            return Promise.reject(err);
-        }
-        console.log('fetchDELETE', err);
         if (typeof err === 'string') {
             return Promise.reject(new Error(err));
         }
