@@ -27,7 +27,7 @@ export * from './DateInput'
 export {default as ErrorBoundary} from './ErrorBoundary';
 export * from './ErrorBoundary'
 
-export {fetchJSON, fetchHTML, fetchDELETE, fetchPOST, fetchOptions} from './utils/fetch'
+export {fetchJSON, fetchHTML} from './utils/fetch'
 
 export {default as FormCheck} from './FormCheck'
 export * from './FormCheck'
