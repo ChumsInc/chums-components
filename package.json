@@ -92,7 +92,7 @@
     "base16": "^1.0.0",
     "isomorphic-fetch": "^3.0.0",
     "styled-components": "^6.0.7",
-    "uuid": "^10.0.0"
+    "uuid": "^11.0.3"
   },
   "overrides": {
     "eslint": "^9.9.0"
