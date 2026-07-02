@@ -1,7 +1,7 @@
 {
   "name": "chums-components",
   "private": true,
-  "version": "3.0.2-0",
+  "version": "3.0.3-alpha.0",
   "workspaces": [
     "apps/*",
     "packages/*"
