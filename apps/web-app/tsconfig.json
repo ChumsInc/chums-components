@@ -4,8 +4,8 @@
     "noEmit": true,
     "baseUrl": ".",
     "paths": {
-      "@chums-components/ui": ["../../packages/ui/src"],
-      "@chums-components/ui/*": ["../../packages/ui/src/*"]
+      "@chumsinc/ui": ["../../packages/ui/src"],
+      "@chumsinc/ui/*": ["../../packages/ui/src/*"]
     }
   },
   "include": ["src/**/*"],

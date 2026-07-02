@@ -9,6 +9,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@chums-components/ui": "*"
+    "@chumsinc/ui": "*"
   }
 }

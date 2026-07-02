@@ -56,6 +56,7 @@ describe('AppVersion Lifecycle', () => {
     })
     afterEach(() => {
         vi.clearAllTimers();
+        vi.clearAllMocks();
     })
 
     it('renders the initial loader on mount immediately', async () => {
@@ -78,15 +79,15 @@ describe('AppVersion Lifecycle', () => {
         )
         expect(vi.mocked(fetch)).toHaveBeenCalledTimes(1);
         await waitFor(() => {
-            expect(screen.getByTestId('version-text')).toHaveTextContent('1.0.0');
+            screen.findByText('1.0.0')
         })
+        let versionText = screen.getByTestId('version-text');
+        expect(versionText).toHaveTextContent('1.0.0');
         expect(vi.mocked(fetch)).toHaveBeenCalledTimes(1);
-
         act(() => {
             vi.advanceTimersByTime(100);
         })
         expect(vi.mocked(fetch)).toHaveBeenCalledTimes(1);
-
         act(() => {
             vi.advanceTimersByTime(5000);
         })
@@ -97,8 +98,10 @@ describe('AppVersion Lifecycle', () => {
             vi.advanceTimersByTime(5000);
         })
         await waitFor(() => {
-            expect(screen.getByTestId('version-text')).toHaveTextContent('1.0.1');
+            screen.findByText('1.0.1')
         })
+        versionText = screen.getByTestId('version-text');
+        expect(versionText).toHaveTextContent('1.0.1');
         expect(vi.mocked(fetch)).toHaveBeenCalledTimes(3);
     })
 
@@ -109,14 +112,24 @@ describe('AppVersion Lifecycle', () => {
             <TestAppVersion/>
         )
         await waitFor(() => {
-            expect(screen.getByTestId('version-text')).toHaveTextContent('1.0.0');
+            screen.findByText('1.0.0')
         })
+        let versionText = screen.getByTestId('version-text');
+        expect(versionText).toHaveTextContent('1.0.0');
 
         vi.mocked(fetch).mockResolvedValueOnce(createFetchResponse({version: '1.0.1'}))
-        const versionButton = screen.getByRole('button');
-        await user.click(versionButton);
-        expect(screen.getByTestId('version-text')).toHaveTextContent('1.0.0');
-        expect(screen.getByText('Update Available')).toBeVisible();
+        await act(async () => {
+            const versionButton = screen.getByRole('button');
+            await user.click(versionButton);
+        })
+        await waitFor(() => {
+            screen.findByText('1.0.1')
+        })
+
+        versionText = screen.getByTestId('version-text');
+        expect(versionText).toHaveTextContent('1.0.0');
+        const updateAvailable = screen.getByText('Update Available');
+        expect(updateAvailable).toBeVisible();
     })
 
     it('catches failed network requests and shows an error message', async () => {
@@ -125,8 +138,10 @@ describe('AppVersion Lifecycle', () => {
         render(
             <TestAppVersion/>
         )
+
         await waitFor(() => {
-            expect(screen.getByText('Failed to load version.')).toBeInTheDocument();
+            screen.findByText('Failed to load version.');
         })
+        expect(screen.getByText('Failed to load version.')).toBeInTheDocument();
     })
 })

@@ -1,7 +1,6 @@
 {
-  "name": "@chums-components/ui",
+  "name": "@chumsinc/ui",
   "version": "3.0.0-alpha.0",
-  "private": true,
   "type": "module",
   "sideEffects": false,
   "exports": {
@@ -15,6 +14,9 @@
       "development": "./src/*.ts",
       "import": "./dist/*.js"
     }
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "scripts": {
     "clean": "rimraf dist",

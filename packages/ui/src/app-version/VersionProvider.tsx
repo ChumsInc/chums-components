@@ -62,6 +62,12 @@ export default function VersionProvider({
     }, [url]);
 
     useEffect(() => {
+        return () => {
+            window.clearInterval(intervalRef.current);
+        }
+    }, []);
+
+    useEffect(() => {
         startTransition(() => {
             if (!mounted.current) {
                 mounted.current = true;

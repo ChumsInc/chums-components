@@ -1,8 +1,8 @@
 import {useState} from "react";
-import {CustomerAutocomplete, customerKey, type SearchCustomer} from "@chums-components/ui/customer-autocomplete";
+import {CustomerAutocomplete, customerKey, type SearchCustomer} from "@chumsinc/ui/customer-autocomplete";
 import {ErrorBoundary} from "react-error-boundary";
 import AppErrorAlert from "./AppErrorAlert";
-import {ItemAutocomplete} from "@chums-components/ui/item-autocomplete";
+import {ItemAutocomplete} from "@chumsinc/ui/item-autocomplete";
 import type {SearchItem} from "chums-types";
 
 export default function LandingPage() {

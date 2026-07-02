@@ -41,10 +41,10 @@ export default defineConfig({
     resolve: {
         tsconfigPaths: true,
         alias: {
-            '@chums-components/ui': resolve(rootDir, 'packages/ui/src')
+            '@chumsinc/ui': resolve(rootDir, 'packages/ui/src')
         },
     },
     optimizeDeps: {
-        exclude: ['@chums-components/ui']
+        exclude: ['@chumsinc/ui']
     }
 })

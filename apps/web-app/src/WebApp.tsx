@@ -1,5 +1,5 @@
 import LandingPage from "./LandingPage";
-import {AppVersion} from "@chums-components/ui/app-version";
+import {AppVersion} from "@chumsinc/ui/app-version";
 import {useState} from "react";
 
 export default function WebApp() {

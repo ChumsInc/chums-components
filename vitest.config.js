@@ -3,6 +3,9 @@ import { resolve } from 'node:path';
 import { cwd } from 'node:process';
 export default defineConfig({
     test: {
+        restoreMocks: true,
+        clearMocks: true,
+        isolate: true,
         projects: [
             {
                 extends: true,
@@ -17,18 +20,6 @@ export default defineConfig({
                     setupFiles: [resolve(cwd(), 'vitest.setup.ts')],
                 }
             },
-            // {
-            //     extends: true,
-            //     test: {
-            //         name: 'web-app',
-            //         root: resolve(cwd(), 'apps/web-app'),
-            //         include: [
-            //             resolve(cwd(), 'apps/web-app/src/**/*.test.{ts, tsx}')
-            //         ],
-            //         environment: 'happy-dom',
-            //         setupFiles: [resolve(cwd(), 'vitest.setup.ts')],
-            //     }
-            // }
         ],
         coverage: {
             provider: 'v8',

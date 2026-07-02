@@ -123,6 +123,7 @@ describe('ItemAutocomplete', () => {
     })
     afterEach(() => {
         vi.clearAllTimers();
+        vi.clearAllMocks();
     })
 
     it('renders the empty input field', async () => {
