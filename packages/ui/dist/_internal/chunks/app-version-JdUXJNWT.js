@@ -24,7 +24,9 @@ function g({ children: e, defaultInterval: r, versionUrl: u, onError: d }) {
 			console.log("VersionProvider.loadVersion() error", e), t && t(e instanceof Error ? e.message : "Error in VersionProvider.loadVersion()"), g("idle");
 		}
 	}, [C]);
-	i(() => (t(() => {
+	i(() => () => {
+		window.clearInterval(y.current);
+	}, []), i(() => (t(() => {
 		x.current || (x.current = !0, w(null, d).catch(console.error)), S > 0 && (y.current = window.setInterval(w, S));
 	}), () => {
 		y.current && window.clearInterval(y.current);
