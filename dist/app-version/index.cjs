@@ -1,1 +1,0 @@
-Object.defineProperty(exports,Symbol.toStringTag,{value:`Module`});const e=require("../app-version-CxWAiVLF.js");exports.AppVersion=e.t,exports.CurrentVersion=e.r,exports.VersionContext=e.o,exports.VersionProvider=e.a,exports.VersionUpdateToast=e.n,exports.useVersion=e.i;
