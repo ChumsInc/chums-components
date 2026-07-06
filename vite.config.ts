@@ -63,8 +63,8 @@ export default defineConfig(({command}) => {
                     'customer-autocomplete/index': resolve(import.meta.dirname, 'src/customer-autocomplete/index.ts'),
                     'item-autocomplete/index': resolve(import.meta.dirname, 'src/item-autocomplete/index.ts'),
                 },
-                fileName: (format, entryName) => `${entryName}.js`,
-                formats: ['es'],
+                fileName: (format, entryName) => `${entryName}.${format === 'cjs' ? 'cjs' : 'js'}`,
+                formats: ['es', 'cjs'],
             },
             rolldownOptions: {
                 external: Object.keys(pkg.peerDependencies),

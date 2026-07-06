@@ -32,26 +32,31 @@
     "url": "https://github.com/ChumsInc/chums-components/issues"
   },
   "homepage": "https://github.com/ChumsInc/chums-components#readme",
+  "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
       "import": "./dist/index.js",
       "development": "./src/index.ts"
     },
     "./AppVersion": {
       "types": "./dist/app-version/index.d.ts",
+      "require": "./dist/app-version/index.cjs",
       "import": "./dist/app-version/index.js",
       "development": "./src/app-version/index.ts"
     },
     "./CustomerAutocomplete": {
       "types": "./dist/customer-autocomplete/index.d.ts",
+      "require": "./dist/customer-autocomplete/index.cjs",
       "import": "./dist/customer-autocomplete/index.js",
       "development": "./src/customer-autocomplete/index.ts"
     },
     "./ItemAutocomplete": {
       "types": "./dist/item-autocomplete/index.d.ts",
+      "require": "./dist/item-autocomplete/index.cjs",
       "import": "./dist/item-autocomplete/index.js",
       "development": "./src/item-autocomplete/index.ts"
     },
