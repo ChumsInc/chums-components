@@ -67,7 +67,7 @@ export default defineConfig(({command}) => {
                 formats: ['es'],
             },
             rolldownOptions: {
-                external: Object.keys(pkg.peerDependencies),
+                external: [...Object.keys(pkg.peerDependencies), 'react/jsx-runtime'],
             },
             sourcemap: true,
             minify: true,
