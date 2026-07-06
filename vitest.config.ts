@@ -1,30 +1,18 @@
-import { defineConfig } from 'vitest/config'
+import {defineConfig} from 'vitest/config'
 import {resolve} from 'node:path'
-import {cwd} from 'node:process'
 
 export default defineConfig({
     test: {
         restoreMocks: true,
         clearMocks: true,
         isolate: true,
-        projects: [
-            {
-                extends: true,
-                test: {
-                    name: 'ui-components',
-                    root: resolve(cwd(), 'packages/ui'),
-                    include: [
-                        'src/**/*.test.{ts,tsx}'
-                    ],
-                    environment: 'happy-dom',
-                    globals: true,
-                    setupFiles: [resolve(cwd(), 'vitest.setup.ts')],
-                }
-            },
-        ],
+        globals: true,
+        environment: 'happy-dom',
+        setupFiles: resolve(import.meta.dirname, 'vitest.setup.ts'),
+        include: ['src/**/*.test.{ts,tsx}'],
         coverage: {
             provider: 'v8',
-            include: ['apps/*/src/**/*', 'packages/*/src/**/*'],
+            include: ['dev/**/*', 'src/**/*'],
             reporter: ['text', 'json', 'html'],
         }
     },

@@ -1,7 +1,38 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./packages/ui" },
-    { "path": "./apps/web-app" }
-  ]
+  "extends": "@tsconfig/node24/tsconfig.json",
+  "compilerOptions": {
+    "allowJs": false,
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "declarationDir": "./dist",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "types": ["vitest/globals", "@testing-library/jest-dom/vitest"],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "noEmit": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "strict": true,
+    "target": "esNext",
+    "useDefineForClassFields": true,
+    "verbatimModuleSyntax": true
+  },
+  "rootDir": "./src",
+  "paths": {
+    "@chumsinc/ui": ["src/index.ts"],
+    "@chumsinc/ui/*": ["src/*/index.ts"]
+  },
+  "include": ["./src/**/*", "vite-env.d.ts", "vite.config.ts", "vitest.config.ts", "vitest.setup.ts"],
+  "exclude": ["node_modules","dist"]
 }

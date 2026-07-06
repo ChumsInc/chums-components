@@ -1,0 +1,4 @@
+vitest.setup.ts
+vitest.config.ts
+src/**/*.test.ts
+src/**/*.test.tsx
