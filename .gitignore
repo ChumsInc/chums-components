@@ -1,2 +1,4 @@
 /node_modules/
 /.idea/
+/apps/web-app/node_modules/
+/packages/ui/node_modules/
