@@ -14,6 +14,11 @@ import {Autocomplete, type AutocompleteInputProps, type AutocompleteRootProps} f
 import "./autocomplete.css";
 import {fetchItemLookup} from "./api";
 import {useDebouncedCallback} from "@mantine/hooks";
+import AutocompletePositioner from "../common/AutocompletePositioner";
+import AutocompletePortal from "../common/AutocompletePortal";
+import AutocompletePopup from "../common/AutocompletePopup";
+import AutocompleteList from "../common/AutocompleteList";
+import AutocompleteItem from "../common/AutocompleteItem";
 
 export interface ItemAutocompleteProps extends AutocompleteRootProps<SearchItem> {
     slotProps?: {
@@ -122,21 +127,20 @@ export default function ItemAutocomplete({
                     <span className={open ? "bi-chevron-up" : 'bi-chevron-down'}/>
                 </Autocomplete.Trigger>
             </Autocomplete.InputGroup>
-            <Autocomplete.Portal hidden={!acStatus} className="autocomplete-portal">
-                <Autocomplete.Positioner sideOffset={4} align="start" className="autocomplete-positioner">
-                    <Autocomplete.Popup aria-busy={isPending || undefined} className="autocomplete-popup">
+            <AutocompletePortal hidden={!acStatus}>
+                <AutocompletePositioner sideOffset={4} align="start">
+                    <AutocompletePopup aria-busy={isPending || undefined}>
                         <div className="bg-body p-1 border rounded">
                             <Autocomplete.Status>
                                 {acStatus && <div className="text-secondary">{acStatus}</div>}
                             </Autocomplete.Status>
-                            <Autocomplete.List className="autocomplete-list">
+                            <AutocompleteList>
                                 {(item: SearchItem) => (
-                                    <Autocomplete.Item key={item?.ItemCode} value={item}
+                                    <AutocompleteItem key={item?.ItemCode} value={item}
                                                        onClick={() => {
                                                            onSelectItem(item);
                                                            setOpen(false);
-                                                       }}
-                                                       className="autocomplete-item">
+                                                       }}>
                                         <div className="d-flex align-items-center=" style={{gap: '3rem'}}>
                                             <div className="flex-grow-1">
                                                 <div className="fw-bold">{item.ItemCode}</div>
@@ -145,14 +149,14 @@ export default function ItemAutocomplete({
                                                 {item.ItemCodeDesc}
                                             </div>
                                         </div>
-                                    </Autocomplete.Item>
+                                    </AutocompleteItem>
 
                                 )}
-                            </Autocomplete.List>
+                            </AutocompleteList>
                         </div>
-                    </Autocomplete.Popup>
-                </Autocomplete.Positioner>
-            </Autocomplete.Portal>
+                    </AutocompletePopup>
+                </AutocompletePositioner>
+            </AutocompletePortal>
         </Autocomplete.Root>
     )
 }

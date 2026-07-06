@@ -60,6 +60,7 @@
   "devDependencies": {
     "@base-ui/react": "^1.6.0",
     "@chumsinc/ui-utils": "^2.1.8",
+    "@emotion/styled": "^11.14.1",
     "@eslint/js": "^10.0.1",
     "@mantine/hooks": "^9.4.1",
     "@microsoft/api-extractor": "^7.58.9",
@@ -98,6 +99,7 @@
   "peerDependencies": {
     "@base-ui/react": "^1.6.0",
     "@chumsinc/ui-utils": "^2.1.8",
+    "@emotion/styled": "^11.14.1",
     "@mantine/hooks": "^9.4.1",
     "classnames": "*",
     "react": ">=18.1.0",

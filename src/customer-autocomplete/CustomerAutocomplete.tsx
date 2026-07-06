@@ -14,6 +14,11 @@ import {Autocomplete, type AutocompleteInputProps, type AutocompleteRootProps} f
 import {Spinner} from "react-bootstrap";
 import "./autocomplete.css";
 import {useDebouncedCallback} from "@mantine/hooks";
+import AutocompletePortal from "../common/AutocompletePortal";
+import AutocompletePopup from "../common/AutocompletePopup";
+import AutocompleteItem from "../common/AutocompleteItem";
+import AutocompleteList from "../common/AutocompleteList";
+import AutocompletePositioner from "../common/AutocompletePositioner";
 
 
 export interface CustomerAutocompleteProps extends AutocompleteRootProps<SearchCustomer> {
@@ -122,21 +127,20 @@ export default function CustomerAutocomplete({
                     <span className={open ? "bi-chevron-up" : 'bi-chevron-down'}/>
                 </Autocomplete.Trigger>
             </Autocomplete.InputGroup>
-            <Autocomplete.Portal hidden={!status} className="autocomplete-portal">
-                <Autocomplete.Positioner sideOffset={4} align="start">
-                    <Autocomplete.Popup aria-busy={isPending || undefined} className="autocomplete-popup">
+            <AutocompletePortal hidden={!status}>
+                <AutocompletePositioner sideOffset={4} align="start">
+                    <AutocompletePopup aria-busy={isPending || undefined}>
                         <div className="bg-body p-1 border rounded">
                             <Autocomplete.Status>
                                 {status && <div className="text-secondary">{status}</div>}
                             </Autocomplete.Status>
-                            <Autocomplete.List className="autocomplete-list">
+                            <AutocompleteList>
                                 {(customer: SearchCustomer) => (
-                                    <Autocomplete.Item key={customerKey(customer)} value={customer}
+                                    <AutocompleteItem key={customerKey(customer)} value={customer}
                                                        onClick={() => {
                                                            onSelectCustomer(customer);
                                                            setOpen(false);
-                                                       }}
-                                                       className="autocomplete-item">
+                                                       }}>
                                         <div className="d-flex align-items-center=" style={{gap: '3rem'}}>
                                             <div className="flex-grow-1">
                                                 <div className="fw-bold">{customerKey(customer)}</div>
@@ -145,14 +149,13 @@ export default function CustomerAutocomplete({
                                                 {customer.CustomerName}
                                             </div>
                                         </div>
-                                    </Autocomplete.Item>
-
+                                    </AutocompleteItem>
                                 )}
-                            </Autocomplete.List>
+                            </AutocompleteList>
                         </div>
-                    </Autocomplete.Popup>
-                </Autocomplete.Positioner>
-            </Autocomplete.Portal>
+                    </AutocompletePopup>
+                </AutocompletePositioner>
+            </AutocompletePortal>
         </Autocomplete.Root>
     )
 }
