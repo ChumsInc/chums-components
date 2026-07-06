@@ -32,7 +32,7 @@
     "url": "https://github.com/ChumsInc/chums-components/issues"
   },
   "homepage": "https://github.com/ChumsInc/chums-components#readme",
-  "main": "./dist/index.js",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
