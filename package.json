@@ -1,6 +1,6 @@
 {
   "name": "@chumsinc/ui",
-  "version": "3.0.4-beta.1",
+  "version": "3.0.4-beta.2",
   "description": "Chums Common Components",
   "scripts": {
     "dev": "vite",
