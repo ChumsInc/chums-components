@@ -1,7 +1,6 @@
 import { type ChangeEvent, type LabelHTMLAttributes, type ReactNode } from 'react';
 import type { SearchCustomer } from "./customer-autocomplete-types";
 import { type AutocompleteInputProps, type AutocompleteRootProps } from "@base-ui/react";
-import "./autocomplete.css";
 export interface CustomerAutocompleteProps extends AutocompleteRootProps<SearchCustomer> {
     slotProps?: {
         label?: string;
@@ -13,7 +12,7 @@ export interface CustomerAutocompleteProps extends AutocompleteRootProps<SearchC
     onSelectCustomer: (customer?: SearchCustomer | null) => void;
     children?: ReactNode;
 }
-declare function CustomerAutocomplete({ slotProps, customer, onSelectCustomer, ...rootProps }: CustomerAutocompleteProps): import("react").JSX.Element;
+declare function CustomerAutocomplete({ slotProps, customer, onSelectCustomer, children, ...rootProps }: CustomerAutocompleteProps): import("react").JSX.Element;
 declare namespace CustomerAutocomplete {
     var displayName: string;
 }

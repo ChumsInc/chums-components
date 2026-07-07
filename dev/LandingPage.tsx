@@ -21,7 +21,9 @@ export default function LandingPage() {
         <ErrorBoundary FallbackComponent={AppErrorAlert}>
             <div className="row g-3 mb-3 align-items-center">
                 <div className="col-md-6">
-                    <ItemAutocomplete item={itemCode} onSelectItem={setItemHandler} />
+                    <ItemAutocomplete item={itemCode} onSelectItem={setItemHandler} >
+                        <button type="button" className="btn btn-primary">Lock</button>
+                    </ItemAutocomplete>
                 </div>
                 <div className="col-md-6">
                     <div className="text-success">{`found ${itemCode ?? 'N/A'}`}</div>

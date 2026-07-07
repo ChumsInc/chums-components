@@ -12,7 +12,6 @@ import {fetchCustomerLookup} from "./api";
 import {customerKey} from "./utils";
 import {Autocomplete, type AutocompleteInputProps, type AutocompleteRootProps} from "@base-ui/react";
 import {Spinner} from "react-bootstrap";
-import "./autocomplete.css";
 import {useDebouncedCallback} from "@mantine/hooks";
 import AutocompletePortal from "../common/AutocompletePortal";
 import AutocompletePopup from "../common/AutocompletePopup";
@@ -37,6 +36,7 @@ export default function CustomerAutocomplete({
                                                  slotProps,
                                                  customer,
                                                  onSelectCustomer,
+    children,
                                                  ...rootProps
                                              }: CustomerAutocompleteProps) {
     const [inputValue, setInputValue] = useState('');
@@ -126,6 +126,7 @@ export default function CustomerAutocomplete({
                 <Autocomplete.Trigger className="btn btn-outline-secondary">
                     <span className={open ? "bi-chevron-up" : 'bi-chevron-down'}/>
                 </Autocomplete.Trigger>
+                {children}
             </Autocomplete.InputGroup>
             <AutocompletePortal hidden={!status}>
                 <AutocompletePositioner sideOffset={4} align="start">

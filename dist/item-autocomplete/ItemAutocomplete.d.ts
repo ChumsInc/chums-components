@@ -1,7 +1,6 @@
 import { type ChangeEvent, type LabelHTMLAttributes, type ReactNode } from 'react';
 import type { SearchItem } from "chums-types";
 import { type AutocompleteInputProps, type AutocompleteRootProps } from "@base-ui/react";
-import "./autocomplete.css";
 export interface ItemAutocompleteProps extends AutocompleteRootProps<SearchItem> {
     slotProps?: {
         label?: string;
@@ -13,7 +12,7 @@ export interface ItemAutocompleteProps extends AutocompleteRootProps<SearchItem>
     onSelectItem: (item?: SearchItem | null) => void;
     children?: ReactNode;
 }
-declare function ItemAutocomplete({ slotProps, item, onSelectItem, ...rootProps }: ItemAutocompleteProps): import("react").JSX.Element;
+declare function ItemAutocomplete({ slotProps, item, onSelectItem, children, ...rootProps }: ItemAutocompleteProps): import("react").JSX.Element;
 declare namespace ItemAutocomplete {
     var displayName: string;
 }

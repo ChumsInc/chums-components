@@ -11,7 +11,6 @@ import {
 import type {SearchItem} from "chums-types";
 import {Spinner} from "react-bootstrap";
 import {Autocomplete, type AutocompleteInputProps, type AutocompleteRootProps} from "@base-ui/react";
-import "./autocomplete.css";
 import {fetchItemLookup} from "./api";
 import {useDebouncedCallback} from "@mantine/hooks";
 import AutocompletePositioner from "../common/AutocompletePositioner";
@@ -36,6 +35,7 @@ export default function ItemAutocomplete({
                                              slotProps,
                                              item,
                                              onSelectItem,
+    children,
                                              ...rootProps
                                          }: ItemAutocompleteProps) {
     const [inputValue, setInputValue] = useState('');
@@ -126,6 +126,7 @@ export default function ItemAutocomplete({
                 <Autocomplete.Trigger className="btn btn-outline-secondary">
                     <span className={open ? "bi-chevron-up" : 'bi-chevron-down'}/>
                 </Autocomplete.Trigger>
+                {children}
             </Autocomplete.InputGroup>
             <AutocompletePortal hidden={!acStatus}>
                 <AutocompletePositioner sideOffset={4} align="start">

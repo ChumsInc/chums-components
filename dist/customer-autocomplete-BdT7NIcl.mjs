@@ -20,58 +20,58 @@ async function g(e, t) {
 var _ = (e) => [e.ARDivisionNo, e.CustomerNo].filter((e) => !!e).join("-");
 //#endregion
 //#region src/customer-autocomplete/CustomerAutocomplete.tsx
-function v({ slotProps: l, customer: v, onSelectCustomer: y, ...b }) {
-	let [x, S] = s(""), [C, w] = s(null), [T, E] = s([]), D = o(null), [O, k] = c(), { contains: A } = m.useFilter(), [j, M] = s(!1);
+function v({ slotProps: l, customer: v, onSelectCustomer: y, children: b, ...x }) {
+	let [S, C] = s(""), [w, T] = s(null), [E, D] = s([]), O = o(null), [k, A] = c(), { contains: j } = m.useFilter(), [M, N] = s(!1);
 	a(() => {
-		k(() => {
-			S(v ? _(v) : "");
+		A(() => {
+			C(v ? _(v) : "");
 		});
 	}, [v]);
-	let N = h((e) => {
+	let P = h((e) => {
 		let t = new AbortController();
-		D.current?.abort(), D.current = t, k(async () => {
+		O.current?.abort(), O.current = t, A(async () => {
 			try {
-				w(null);
-				let n = (await g(e, t.signal)).filter((t) => A(_(t), e) || A(t.CustomerName, e));
+				T(null);
+				let n = (await g(e, t.signal)).filter((t) => j(_(t), e) || j(t.CustomerName, e));
 				if (t.signal.aborted) return;
-				k(() => {
-					E(n);
+				A(() => {
+					D(n);
 				});
 			} catch (e) {
-				w(e instanceof Error ? e.message : "Error in searchChangeHandler()");
+				T(e instanceof Error ? e.message : "Error in searchChangeHandler()");
 			}
 		});
-	}, 350), P = (e) => {
-		if (S(e), e === "") {
-			D.current?.abort(), E([]), w(null);
+	}, 350), F = (e) => {
+		if (C(e), e === "") {
+			O.current?.abort(), D([]), T(null);
 			return;
 		}
-		N(e);
+		P(e);
 	};
-	function F() {
-		return O ? /* @__PURE__ */ f(u, { children: [/* @__PURE__ */ d(p, {
+	function I() {
+		return k ? /* @__PURE__ */ f(u, { children: [/* @__PURE__ */ d(p, {
 			animation: "border",
 			size: "sm",
 			role: "status",
 			className: "me-1"
-		}), "Searching..."] }) : C ? /* @__PURE__ */ d("span", {
+		}), "Searching..."] }) : w ? /* @__PURE__ */ d("span", {
 			className: "text-danger",
-			children: C
-		}) : x === "" ? null : T.length === 0 ? /* @__PURE__ */ d("span", {
+			children: w
+		}) : S === "" ? null : E.length === 0 ? /* @__PURE__ */ d("span", {
 			className: "text-muted",
 			children: "No results found"
-		}) : `${T.length} customers found`;
+		}) : `${E.length} customers found`;
 	}
-	let I = F();
+	let L = I();
 	return /* @__PURE__ */ f(m.Root, {
-		open: j,
-		onOpenChange: (e) => M(e),
-		value: x,
-		onValueChange: P,
-		items: T,
+		open: M,
+		onOpenChange: (e) => N(e),
+		value: S,
+		onValueChange: F,
+		items: E,
 		itemToStringValue: (e) => _(e),
 		filter: null,
-		...b,
+		...x,
 		children: [/* @__PURE__ */ f(m.InputGroup, {
 			className: "input-group input-group-sm",
 			children: [
@@ -87,25 +87,26 @@ function v({ slotProps: l, customer: v, onSelectCustomer: y, ...b }) {
 				}),
 				/* @__PURE__ */ d(m.Trigger, {
 					className: "btn btn-outline-secondary",
-					children: /* @__PURE__ */ d("span", { className: j ? "bi-chevron-up" : "bi-chevron-down" })
-				})
+					children: /* @__PURE__ */ d("span", { className: M ? "bi-chevron-up" : "bi-chevron-down" })
+				}),
+				b
 			]
 		}), /* @__PURE__ */ d(e, {
-			hidden: !I,
+			hidden: !L,
 			children: /* @__PURE__ */ d(i, {
 				sideOffset: 4,
 				align: "start",
 				children: /* @__PURE__ */ d(t, {
-					"aria-busy": O || void 0,
+					"aria-busy": k || void 0,
 					children: /* @__PURE__ */ f("div", {
 						className: "bg-body p-1 border rounded",
-						children: [/* @__PURE__ */ d(m.Status, { children: I && /* @__PURE__ */ d("div", {
+						children: [/* @__PURE__ */ d(m.Status, { children: L && /* @__PURE__ */ d("div", {
 							className: "text-secondary",
-							children: I
+							children: L
 						}) }), /* @__PURE__ */ d(n, { children: (e) => /* @__PURE__ */ d(r, {
 							value: e,
 							onClick: () => {
-								y(e), M(!1);
+								y(e), N(!1);
 							},
 							children: /* @__PURE__ */ f("div", {
 								className: "d-flex align-items-center=",
@@ -132,4 +133,4 @@ v.displayName = "CustomerAutocomplete";
 //#endregion
 export { _ as n, g as r, v as t };
 
-//# sourceMappingURL=customer-autocomplete-DK3amqYr.mjs.map
+//# sourceMappingURL=customer-autocomplete-BdT7NIcl.mjs.map
