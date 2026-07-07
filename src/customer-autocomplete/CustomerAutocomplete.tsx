@@ -123,7 +123,7 @@ export default function CustomerAutocomplete({
                 {slotProps?.label && (<label className="input-group-text"
                                              htmlFor={slotProps.labelProps?.htmlFor}>{slotProps.label}</label>)}
                 <Autocomplete.Input className="form-control" placeholder="Customer No" {...slotProps?.inputProps}/>
-                <Autocomplete.Trigger className="btn btn-outline-secondary">
+                <Autocomplete.Trigger className="btn btn-outline-secondary" aria-label="Toggle customer autocomplete list">
                     <span className={open ? "bi-chevron-up" : 'bi-chevron-down'}/>
                 </Autocomplete.Trigger>
                 {children}

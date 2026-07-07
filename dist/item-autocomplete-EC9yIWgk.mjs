@@ -79,6 +79,7 @@ function v({ slotProps: u, item: v, onSelectItem: y, children: b, ...x }) {
 				}),
 				/* @__PURE__ */ f(h.Trigger, {
 					className: "btn btn-outline-secondary",
+					"aria-label": "Toggle item autocomplete list",
 					children: /* @__PURE__ */ f("span", { className: M ? "bi-chevron-up" : "bi-chevron-down" })
 				}),
 				b
@@ -125,4 +126,4 @@ v.displayName = "ItemAutocomplete";
 //#endregion
 export { _ as n, v as t };
 
-//# sourceMappingURL=item-autocomplete-W0tyLgH0.mjs.map
+//# sourceMappingURL=item-autocomplete-EC9yIWgk.mjs.map

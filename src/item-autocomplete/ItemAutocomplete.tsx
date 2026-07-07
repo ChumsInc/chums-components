@@ -35,7 +35,7 @@ export default function ItemAutocomplete({
                                              slotProps,
                                              item,
                                              onSelectItem,
-    children,
+                                             children,
                                              ...rootProps
                                          }: ItemAutocompleteProps) {
     const [inputValue, setInputValue] = useState('');
@@ -123,7 +123,7 @@ export default function ItemAutocomplete({
                 {slotProps?.label && (<label className="input-group-text"
                                              htmlFor={slotProps.labelProps?.htmlFor}>{slotProps.label}</label>)}
                 <Autocomplete.Input className="form-control" placeholder="Item Code" {...slotProps?.inputProps}/>
-                <Autocomplete.Trigger className="btn btn-outline-secondary">
+                <Autocomplete.Trigger className="btn btn-outline-secondary" aria-label="Toggle item autocomplete list">
                     <span className={open ? "bi-chevron-up" : 'bi-chevron-down'}/>
                 </Autocomplete.Trigger>
                 {children}
@@ -138,10 +138,10 @@ export default function ItemAutocomplete({
                             <AutocompleteList>
                                 {(item: SearchItem) => (
                                     <AutocompleteItem key={item?.ItemCode} value={item}
-                                                       onClick={() => {
-                                                           onSelectItem(item);
-                                                           setOpen(false);
-                                                       }}>
+                                                      onClick={() => {
+                                                          onSelectItem(item);
+                                                          setOpen(false);
+                                                      }}>
                                         <div className="d-flex align-items-center=" style={{gap: '3rem'}}>
                                             <div className="flex-grow-1">
                                                 <div className="fw-bold">{item.ItemCode}</div>

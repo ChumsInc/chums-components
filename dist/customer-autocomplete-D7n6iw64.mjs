@@ -87,6 +87,7 @@ function v({ slotProps: l, customer: v, onSelectCustomer: y, children: b, ...x }
 				}),
 				/* @__PURE__ */ d(m.Trigger, {
 					className: "btn btn-outline-secondary",
+					"aria-label": "Toggle customer autocomplete list",
 					children: /* @__PURE__ */ d("span", { className: M ? "bi-chevron-up" : "bi-chevron-down" })
 				}),
 				b
@@ -133,4 +134,4 @@ v.displayName = "CustomerAutocomplete";
 //#endregion
 export { _ as n, g as r, v as t };
 
-//# sourceMappingURL=customer-autocomplete-BdT7NIcl.mjs.map
+//# sourceMappingURL=customer-autocomplete-D7n6iw64.mjs.map
