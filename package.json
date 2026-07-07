@@ -114,6 +114,11 @@
       "optional": true
     }
   },
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md"
+  ],
   "auto-changelog": {
     "template": "changelog-template.hbs",
     "unreleased": true,
