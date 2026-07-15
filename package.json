@@ -1,6 +1,6 @@
 {
   "name": "@chumsinc/ui",
-  "version": "3.0.5",
+  "version": "3.0.6",
   "description": "Chums Common Components",
   "scripts": {
     "dev": "vite",
@@ -9,7 +9,7 @@
     "test": "vitest run",
     "test-verbose": "vitest run --reporter=verbose",
     "test-config": "npm run test-vitest-config.js",
-    "version": "npm run auto-changelog && git add CHANGELOG.md"
+    "version": "npm auto-changelog && git add CHANGELOG.md"
   },
   "browserslist": {
     "production": [
