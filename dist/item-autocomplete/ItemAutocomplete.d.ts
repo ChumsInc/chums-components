@@ -8,11 +8,12 @@ export interface ItemAutocompleteProps extends AutocompleteRootProps<SearchItem>
         inputProps?: AutocompleteInputProps;
     };
     item: string | null;
+    data?: SearchItem[];
     onChange?: (ev: ChangeEvent<HTMLInputElement>) => void;
     onSelectItem: (item?: SearchItem | null) => void;
     children?: ReactNode;
 }
-declare function ItemAutocomplete({ slotProps, item, onSelectItem, children, ...rootProps }: ItemAutocompleteProps): import("react").JSX.Element;
+declare function ItemAutocomplete({ slotProps, item, data, onSelectItem, children, ...rootProps }: ItemAutocompleteProps): import("react").JSX.Element;
 declare namespace ItemAutocomplete {
     var displayName: string;
 }

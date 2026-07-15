@@ -27,6 +27,7 @@ export interface CustomerAutocompleteProps extends AutocompleteRootProps<SearchC
         inputProps?: AutocompleteInputProps;
     }
     customer: SearchCustomer | null;
+    data?: SearchCustomer[];
     onChange?: (ev: ChangeEvent<HTMLInputElement>) => void;
     onSelectCustomer: (customer?: SearchCustomer | null) => void;
     children?: ReactNode;
@@ -36,7 +37,8 @@ export default function CustomerAutocomplete({
                                                  slotProps,
                                                  customer,
                                                  onSelectCustomer,
-    children,
+                                                 data,
+                                                 children,
                                                  ...rootProps
                                              }: CustomerAutocompleteProps) {
     const [inputValue, setInputValue] = useState('');
@@ -55,6 +57,13 @@ export default function CustomerAutocomplete({
 
 
     const loadSearch = useDebouncedCallback((nextValue: string) => {
+        if (data) {
+            const results = data.filter(c => contains(customerKey(c), nextValue) || contains(c.CustomerName, nextValue));
+            startTransition(() => {
+                setResults(results);
+            })
+            return;
+        }
         const controller = new AbortController();
         abortControllerRef.current?.abort();
         abortControllerRef.current = controller;
@@ -123,7 +132,8 @@ export default function CustomerAutocomplete({
                 {slotProps?.label && (<label className="input-group-text"
                                              htmlFor={slotProps.labelProps?.htmlFor}>{slotProps.label}</label>)}
                 <Autocomplete.Input className="form-control" placeholder="Customer No" {...slotProps?.inputProps}/>
-                <Autocomplete.Trigger className="btn btn-outline-secondary" aria-label="Toggle customer autocomplete list">
+                <Autocomplete.Trigger className="btn btn-outline-secondary"
+                                      aria-label="Toggle customer autocomplete list">
                     <span className={open ? "bi-chevron-up" : 'bi-chevron-down'}/>
                 </Autocomplete.Trigger>
                 {children}
@@ -138,10 +148,10 @@ export default function CustomerAutocomplete({
                             <AutocompleteList>
                                 {(customer: SearchCustomer) => (
                                     <AutocompleteItem key={customerKey(customer)} value={customer}
-                                                       onClick={() => {
-                                                           onSelectCustomer(customer);
-                                                           setOpen(false);
-                                                       }}>
+                                                      onClick={() => {
+                                                          onSelectCustomer(customer);
+                                                          setOpen(false);
+                                                      }}>
                                         <div className="d-flex align-items-center=" style={{gap: '3rem'}}>
                                             <div className="flex-grow-1">
                                                 <div className="fw-bold">{customerKey(customer)}</div>

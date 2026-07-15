@@ -8,11 +8,12 @@ export interface CustomerAutocompleteProps extends AutocompleteRootProps<SearchC
         inputProps?: AutocompleteInputProps;
     };
     customer: SearchCustomer | null;
+    data?: SearchCustomer[];
     onChange?: (ev: ChangeEvent<HTMLInputElement>) => void;
     onSelectCustomer: (customer?: SearchCustomer | null) => void;
     children?: ReactNode;
 }
-declare function CustomerAutocomplete({ slotProps, customer, onSelectCustomer, children, ...rootProps }: CustomerAutocompleteProps): import("react").JSX.Element;
+declare function CustomerAutocomplete({ slotProps, customer, onSelectCustomer, data, children, ...rootProps }: CustomerAutocompleteProps): import("react").JSX.Element;
 declare namespace CustomerAutocomplete {
     var displayName: string;
 }

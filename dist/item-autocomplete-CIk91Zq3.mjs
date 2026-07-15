@@ -1,4 +1,4 @@
-import { a as e, i as t, n, r, t as i } from "./AutocompletePositioner-Tzlxi8zX.mjs";
+import { a as e, i as t, n, o as r, r as i } from "./customer-autocomplete-CkzS7c1W.mjs";
 import { useCallback as a, useEffect as o, useRef as s, useState as c, useTransition as l } from "react";
 import { fetchJSON as u } from "@chumsinc/ui-utils";
 import { Fragment as d, jsx as f, jsxs as p } from "react/jsx-runtime";
@@ -16,54 +16,61 @@ async function _(e, t) {
 }
 //#endregion
 //#region src/item-autocomplete/ItemAutocomplete.tsx
-function v({ slotProps: u, item: v, onSelectItem: y, children: b, ...x }) {
-	let [S, C] = c(""), [w, T] = c(null), [E, D] = c([]), O = s(null), [k, A] = l(), { contains: j } = h.useFilter(), [M, N] = c(!1), P = g(a((e) => {
-		let t = new AbortController();
-		O.current?.abort(), O.current = t, A(async () => {
-			T(null);
-			let n = (await _(e)).filter((t) => j(t.ItemCode, e) || j(t.ItemCodeDesc, e));
-			t.signal.aborted || A(() => {
-				D(n);
+function v({ slotProps: u, item: v, data: y, onSelectItem: b, children: x, ...S }) {
+	let [C, w] = c(""), [T, E] = c(null), [D, O] = c([]), k = s(null), [A, j] = l(), { contains: M } = h.useFilter(), [N, P] = c(!1), F = g(a((e) => {
+		if (y) {
+			let t = y.filter((t) => M(t.ItemCode, e) || M(t.ItemCodeDesc, e));
+			j(() => {
+				O(t);
 			});
-		});
-	}, [j]), 350), F = (e) => {
-		C(e);
-		let t = new AbortController();
-		if (O.current?.abort(), O.current = t, e === "") {
-			O.current?.abort(), D([]), T(null);
 			return;
 		}
-		P(e);
+		let t = new AbortController();
+		k.current?.abort(), k.current = t, j(async () => {
+			E(null);
+			let n = (await _(e)).filter((t) => M(t.ItemCode, e) || M(t.ItemCodeDesc, e));
+			t.signal.aborted || j(() => {
+				O(n);
+			});
+		});
+	}, [M, y]), 350), I = (e) => {
+		w(e);
+		let t = new AbortController();
+		if (k.current?.abort(), k.current = t, e === "") {
+			k.current?.abort(), O([]), E(null);
+			return;
+		}
+		F(e);
 	};
 	o(() => {
-		A(() => {
-			C(v ?? "");
+		j(() => {
+			w(v ?? "");
 		});
-	}, [v, C]);
-	function I() {
-		return k ? /* @__PURE__ */ p(d, { children: [/* @__PURE__ */ f(m, {
+	}, [v, w]);
+	function L() {
+		return A ? /* @__PURE__ */ p(d, { children: [/* @__PURE__ */ f(m, {
 			animation: "border",
 			size: "sm",
 			role: "status",
 			className: "me-1"
-		}), "Searching..."] }) : w ? /* @__PURE__ */ f("span", {
+		}), "Searching..."] }) : T ? /* @__PURE__ */ f("span", {
 			className: "text-danger",
-			children: w
-		}) : S === "" ? null : E.length === 0 ? /* @__PURE__ */ f("span", {
+			children: T
+		}) : C === "" ? null : D.length === 0 ? /* @__PURE__ */ f("span", {
 			className: "text-muted",
 			children: "No results found"
-		}) : `${E.length} items found`;
+		}) : `${D.length} items found`;
 	}
-	let L = I();
+	let R = L();
 	return /* @__PURE__ */ p(h.Root, {
-		open: M,
-		onOpenChange: (e) => N(e),
-		value: S,
-		onValueChange: F,
-		items: E,
+		open: N,
+		onOpenChange: (e) => P(e),
+		value: C,
+		onValueChange: I,
+		items: D,
 		itemToStringValue: (e) => e.ItemCode,
 		filter: null,
-		...x,
+		...S,
 		children: [/* @__PURE__ */ p(h.InputGroup, {
 			className: "input-group input-group-sm",
 			children: [
@@ -80,26 +87,26 @@ function v({ slotProps: u, item: v, onSelectItem: y, children: b, ...x }) {
 				/* @__PURE__ */ f(h.Trigger, {
 					className: "btn btn-outline-secondary",
 					"aria-label": "Toggle item autocomplete list",
-					children: /* @__PURE__ */ f("span", { className: M ? "bi-chevron-up" : "bi-chevron-down" })
+					children: /* @__PURE__ */ f("span", { className: N ? "bi-chevron-up" : "bi-chevron-down" })
 				}),
-				b
+				x
 			]
-		}), /* @__PURE__ */ f(e, {
-			hidden: !L,
-			children: /* @__PURE__ */ f(i, {
+		}), /* @__PURE__ */ f(r, {
+			hidden: !R,
+			children: /* @__PURE__ */ f(n, {
 				sideOffset: 4,
 				align: "start",
-				children: /* @__PURE__ */ f(t, {
-					"aria-busy": k || void 0,
+				children: /* @__PURE__ */ f(e, {
+					"aria-busy": A || void 0,
 					children: /* @__PURE__ */ p("div", {
 						className: "bg-body p-1 border rounded",
-						children: [/* @__PURE__ */ f(h.Status, { children: L && /* @__PURE__ */ f("div", {
+						children: [/* @__PURE__ */ f(h.Status, { children: R && /* @__PURE__ */ f("div", {
 							className: "text-secondary",
-							children: L
-						}) }), /* @__PURE__ */ f(n, { children: (e) => /* @__PURE__ */ f(r, {
+							children: R
+						}) }), /* @__PURE__ */ f(i, { children: (e) => /* @__PURE__ */ f(t, {
 							value: e,
 							onClick: () => {
-								y(e), N(!1);
+								b(e), P(!1);
 							},
 							children: /* @__PURE__ */ p("div", {
 								className: "d-flex align-items-center=",
@@ -126,4 +133,4 @@ v.displayName = "ItemAutocomplete";
 //#endregion
 export { _ as n, v as t };
 
-//# sourceMappingURL=item-autocomplete-EC9yIWgk.mjs.map
+//# sourceMappingURL=item-autocomplete-CIk91Zq3.mjs.map

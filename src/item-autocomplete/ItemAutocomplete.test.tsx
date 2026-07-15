@@ -112,6 +112,21 @@ function ItemAutocompleteTest() {
     )
 }
 
+function ItemAutocompleteTest2() {
+    const [itemCode, setItemCode] = useState<string | null>(null);
+    const selectItemHandler = (item?: SearchItem | null) => {
+        setItemCode(item?.ItemCode ?? null)
+    }
+    return (
+        <div>
+            <ItemAutocomplete item={itemCode} data={testItemsResponse.result} onSelectItem={selectItemHandler}/>
+            {itemCode && (
+                <div data-testid="found-result">{`found ${itemCode ?? 'N/A'}`}</div>
+            )}
+        </div>
+    )
+}
+
 describe('ItemAutocomplete', () => {
     beforeEach(() => {
         vi.useFakeTimers({
@@ -242,5 +257,17 @@ describe('ItemAutocomplete', () => {
         popup = document.querySelector('[role="presentation"][data-open]');
         expect(popup).not.toBeInTheDocument();
     })
+
+    it('loads results from the static data', async () => {
+        const user = userEvent.setup();
+        render(<ItemAutocompleteTest2/>);
+        const input = screen.getByRole<HTMLInputElement>('combobox');
+        await user.type(input, '12115100');
+        await screen.findByText('5 items found')
+        expect(screen.getByRole('listbox')).toBeVisible();
+        const options = screen.getAllByRole('option');
+        expect(options.length).toBe(5);
+    })
+
 
 })

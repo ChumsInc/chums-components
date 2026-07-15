@@ -66,6 +66,23 @@ function CustomerAutocompleteTest() {
     )
 }
 
+function CustomerAutocompleteTest2() {
+    const [customer, setCustomer] = useState<SearchCustomer | null>(null);
+    const selectCustomerHandler = (customer?: SearchCustomer | null) => {
+        setCustomer(customer ?? null)
+    }
+    return (
+        <div>
+            <CustomerAutocomplete customer={customer} data={testCustomersResponse.result} onSelectCustomer={selectCustomerHandler}/>
+            {customer && (
+                <div>{`found ${customerKey(customer)}`}</div>
+            )}
+        </div>
+    )
+}
+
+
+
 describe('CustomerAutocomplete', () => {
     beforeEach(() => {
         vi.useFakeTimers({
@@ -190,6 +207,20 @@ describe('CustomerAutocomplete', () => {
         await user.click(button!); // toggle closed
         popup = document.querySelector('[role="presentation"][data-open]');
         expect(popup).not.toBeInTheDocument();
+    })
+
+    it('uses a local datasource renders a customer when selected', async () => {
+        const user = userEvent.setup();
+        render(<CustomerAutocompleteTest2/>);
+        const input = screen.getByRole<HTMLInputElement>('combobox');
+        await user.type(input, 'test');
+        await screen.findByText('5 customers found')
+        const options = screen.getAllByRole<HTMLDivElement>('option');
+        expect(options.length).toBe(5);
+        expect(options[2]).toHaveTextContent('Chums LTD TEST');
+        await user.click(options[2]!)
+        vi.advanceTimersByTime(1000);
+        await screen.findByText('found 01-TESTHUR');
     })
 
 })

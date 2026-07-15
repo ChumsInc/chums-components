@@ -18,6 +18,7 @@ import AutocompletePortal from "../common/AutocompletePortal";
 import AutocompletePopup from "../common/AutocompletePopup";
 import AutocompleteList from "../common/AutocompleteList";
 import AutocompleteItem from "../common/AutocompleteItem";
+import {customerKey} from "../customer-autocomplete";
 
 export interface ItemAutocompleteProps extends AutocompleteRootProps<SearchItem> {
     slotProps?: {
@@ -26,6 +27,7 @@ export interface ItemAutocompleteProps extends AutocompleteRootProps<SearchItem>
         inputProps?: AutocompleteInputProps;
     }
     item: string | null;
+    data?: SearchItem[];
     onChange?: (ev: ChangeEvent<HTMLInputElement>) => void;
     onSelectItem: (item?: SearchItem | null) => void;
     children?: ReactNode;
@@ -34,6 +36,7 @@ export interface ItemAutocompleteProps extends AutocompleteRootProps<SearchItem>
 export default function ItemAutocomplete({
                                              slotProps,
                                              item,
+                                             data,
                                              onSelectItem,
                                              children,
                                              ...rootProps
@@ -47,6 +50,13 @@ export default function ItemAutocomplete({
     const [open, setOpen] = useState<boolean>(false);
 
     const loadSearch = useCallback((nextValue: string) => {
+        if (data) {
+            const results = data.filter(c => contains(c.ItemCode, nextValue) || contains(c.ItemCodeDesc, nextValue));
+            startTransition(() => {
+                setResults(results);
+            })
+            return;
+        }
         const controller = new AbortController();
         abortControllerRef.current?.abort();
         abortControllerRef.current = controller;
@@ -61,7 +71,7 @@ export default function ItemAutocomplete({
                 setResults(results);
             })
         })
-    }, [contains]);
+    }, [contains, data]);
 
     const debouncedLoadSearch = useDebouncedCallback(loadSearch, 350);
 

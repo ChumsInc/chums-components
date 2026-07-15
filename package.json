@@ -8,7 +8,8 @@
     "build": "npm run clean && vite build && tsc --project tsconfig.build.json",
     "test": "vitest run",
     "test-verbose": "vitest run --reporter=verbose",
-    "test-config": "npm run test-vitest-config.js"
+    "test-config": "npm run test-vitest-config.js",
+    "version": "npm run auto-changelog && git add CHANGELOG.md"
   },
   "browserslist": {
     "production": [
